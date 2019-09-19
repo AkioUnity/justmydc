@@ -1,41 +1,134 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    .topnav {
+        overflow: hidden;
+    }
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .topnav .icon {
+        display: none;
+    }
+
+    .dropdown {
+        float: left;
+        overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+        font-size: 17px;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        margin: 0;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child), .dropdown .dropbtn {
+            display: none;
+        }
+        .topnav a.icon {
+            float: right;
+            display: block;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .topnav.responsive {position: relative;}
+        .topnav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+        }
+        .topnav.responsive .dropdown {float: none;}
+        .topnav.responsive .dropdown-content {position: relative;}
+        .topnav.responsive .dropdown .dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+    }
+</style>
+
 <!-- MENU START -->
 <div id="navbar">
     <a href="#default" id="logo"><img src="https://2019fun.justmy.com/assets/dev2019/justmy.jpg">
         <?php echo $market['market_name']; ?>
     </a>
-    <div id="navbar-right">
-        <a href="javascript:void(0);" id="burger" onclick="mobmenu()"><img
-                    src="https://2019fun.justmy.com/assets/dev2019/menu.png"></a>
-        <ul class="menu-desktop">
-            <li><a href="dashboard">Home</a></li>
-            <?php include 'menu/channel_menu.php'; ?>
-            <?php include 'menu/category_menu.php'; ?>
-
-            <li><a href="categories/claimed">My Business</a></li>
-            <li class="dropdown">
-                <a href="#">LOCAL Services <b class="caret"></b></a>
-            </li>
-            <li class="dropdown">
-                <a href="#">Memberships <b class="caret"></b></a>
-                <div class="dropdown-content">
-                    <p><a href="sign_up_club_local.php">Free Membership</a></p>
-                    <p><a href="team_local_about.php">JustMy for Businesses</a></p>
-                    <p><a href="team_giving_about.php">JustMy for Non Profits</a></p>
-                    <p><a href="looking_for_interns.php">Join the #FunCrew</a></p>
-                </div>
-            </li>
-            <li class="dropdown">
-                <a href="#">About & Reach <b class="caret"></b></a>
-                <div class="dropdown-content">
-                    <p><a href="love-big-live-big.php">Our Story</a></p>
-                    <p><a href="team_local_about.php">Cities</a></p>
-                    <p><a href="contact.php">Contact Us</a></p>
-                    <p><a href="preregistration_content_partners.php">Got an Idea for a Story?</a></p>
-                </div>
-            </li>
-            <li><a href="login">Login</a></li>
-        </ul>
+    <div class="topnav" id="navbar-right">
+        <a href="dashboard">Home</a>
+        <?php include 'menu/channel_menu.php'; ?>
+        <?php include 'menu/category_menu.php'; ?>
+        <div class="dropdown">
+            <button class="dropbtn">For You!
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="categories/claimed">My Business</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+            </div>
+        </div>
+        <a href="login">Login</a>
+        <a href="javascript:void(0);"  style="font-size:18px;" class="icon" onclick="mobilemenu()">&#9776;</a>
+<!--        <img src="https://2019fun.justmy.com/assets/dev2019/menu.png">-->
     </div>
+
 </div>
 
+<script>
+    function mobilemenu() {
+        var x = document.getElementById("navbar-right");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
 <!-- MENU END -->
