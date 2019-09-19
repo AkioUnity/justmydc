@@ -1,0 +1,142 @@
+a {
+    text-decoration: none !important;
+}
+
+img {
+    max-width: 100%;
+}
+
+section.video-sec {
+    width: 100%;
+    /*display: inline-block;*/
+    background: #525252;
+    /*padding: 50px 0px;*/
+}
+
+.right-box-bg {
+    width: 100%;
+}
+
+.banner-text h2 {
+    font-size: 50px;
+    line-height: 1.25;
+    margin: 0;
+    font-weight: 800;
+    color: #fff;
+}
+
+.banner-text p {
+    color: #ffffff;
+    font-size: 23px;
+    padding-top: 20px;
+    padding-right: 240px;
+}
+
+.banner-form input {
+    border: 1px solid #fff;
+    background-color: transparent;
+    height: 50px;
+    border-radius: 25px;
+    color: #fff;
+    padding: 0 30px;
+    outline: 0;
+}
+
+.banner-form input::placeholder {
+    color: #fff;
+}
+
+.banner-form a {
+    color: #202021;
+    /*background-color: #fdb913;*/
+    border: 5px solid #070707;
+    border-radius: 15px;
+    padding: 0 30px;
+    height: 50px;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.banner-form {
+    width: 100%;
+    display: initial !IMPORTANT;
+}
+
+.logo-mobile {
+    display: none;
+}
+
+@media screen and (max-width: 506px) {
+
+    .banner-form a {
+        margin-top: 15px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    section.video-sec {
+        /*padding: 20px 0px;*/
+    }
+
+    .right-box-bg {
+        padding: 20px;
+        margin-top: 25px;
+    }
+
+    .banner-text h2 {
+        font-size: 20px;
+    }
+
+    .banner-text p {
+        font-size: 20px;
+        padding-right: 0px;
+    }
+
+    .logo-banner {
+        display: none;
+    }
+
+    .logo-mobile {
+        padding-bottom: 10px;
+    }
+
+    .logo-mobile {
+        display: block;
+    }
+
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .banner-text h2 {
+        font-size: 28px;
+    }
+
+    .banner-text p {
+        font-size: 20px;
+        padding-right: 0px;
+    }
+
+    .banner-form input {
+        padding: 0 10px;
+    }
+
+    .banner-form a {
+        padding: 0 20px;
+    }
+
+}
+
+@media screen and (max-width: 1600px) and (min-width: 1200px) {
+    .banner-text p {
+        padding-right: 20px;
+    }
+
+    .banner-text h2 {
+        font-size: 30px;
+    }
+}

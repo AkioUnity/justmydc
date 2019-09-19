@@ -1,0 +1,10 @@
+.channel_detail {
+    padding: 20rem 15rem;
+    line-height: 1.9em;
+    font-size: 18px;
+    font-family: "Roboto Slab";
+}
+
+.channel_detail h2{
+    padding-bottom: 3rem;
+}

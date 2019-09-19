@@ -1,0 +1,14 @@
+p {
+    line-height: 1.9em;
+    color: #666666;
+    font-size: 18px;
+    font-family: "Roboto Slab";
+
+}
+
+p#by {
+    font-weight: 600;
+    color: #666666;
+    font-size: 19px;
+    font-family: 'Open Sans', sans-serif;
+}
