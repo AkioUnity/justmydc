@@ -23,7 +23,7 @@
     <div class="carousel-inner">
         <?php for ($i = 0; $i < sizeof($spotlights); $i++) { ?>
             <div class="item <?php echo $i == 0 ? "active" : ""; ?>">
-                <a href="<?php echo str_replace('http://2019fun.justmy.com', 'https://' . $_SERVER['SERVER_NAME'], $spotlights[$i]->cp_url); ?>">
+                <a href="<?php echo str_replace('https://2019fun.justmy.com', 'https://' . $_SERVER['SERVER_NAME'], $spotlights[$i]->cp_url); ?>">
                     <img src="<?php echo admin_image_url($spotlights[$i]->spotlight_image) ?>"
                          alt="<?php echo $spotlights[$i]->spotlight_image ?>" style="width:100%;">
                     <div class="carousel-caption">

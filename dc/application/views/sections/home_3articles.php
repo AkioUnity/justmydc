@@ -11,7 +11,7 @@
                     <div class="box-copy">
                         <input type="hidden" value="<?php echo($posts[$j]->post_id) ?>">
                         <div><?php echo($posts[$j]->cp_title) ?></div>
-                        <a href="<?php echo str_replace('http://2019fun.justmy.com', 'https://' . $_SERVER['SERVER_NAME'], $posts[$j]->cp_url); ?>"><?php echo($posts[$j]->cp_title2) ?></a>
+                        <a href="<?php echo str_replace('https://2019fun.justmy.com', 'https://' . $_SERVER['SERVER_NAME'], $posts[$j]->cp_url); ?>"><?php echo($posts[$j]->cp_title2) ?></a>
 
                     </div>
                 </div>

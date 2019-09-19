@@ -48,7 +48,7 @@
             <div class="container-fluid" style="padding-right: 50%;padding-bottom: 2%">
                 <img class="img_click img_btn" onclick="editValue('title')" data-toggle='modal' data-target='#myModal'
                      src="<?php echo image_url('cross_icon.png') ?>"/>
-                <img src="http://2019fun.justmy.com//bran-media/absolutemoving_alogovert.png"
+                <img src="https://2019fun.justmy.com//bran-media/absolutemoving_alogovert.png"
                      style="width:100%; border-radius: 50%">
             </div>
 
@@ -88,7 +88,7 @@
     </div>
     <div class="channel_section">
         <img class="img_click img_btn" onclick="editValue('title')" src="<?php echo image_url('cross_icon.png') ?>"/>
-        <img src="http://2019fun.justmy.com//bran-media/teamlocal_pro_abosolute_moving.jpg" style="width: 100%">
+        <img src="https://2019fun.justmy.com//bran-media/teamlocal_pro_abosolute_moving.jpg" style="width: 100%">
     </div>
 </div>
 

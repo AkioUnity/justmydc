@@ -7,14 +7,25 @@
  */
 
 if ($channel_menus) { ?>
-    <div class="dropdown">
-        <button class="dropbtn">Channels
-            <i class="fa fa-caret-down"></i>
-        </button>
+    <style>
+        #navbar a {
+            float: none;
+        }
+        .dropdown-content > p {
+            padding-bottom: 0;
+            margin-bottom: 2px;
+            width: 230px;
+        }
+    </style>
+
+    <li class="dropdown">
+        <a href="#">Channels <b class="caret"></b></a>
         <div class="dropdown-content" style="width: 270px">
             <?php foreach ($channel_menus as $channel): ?>
-                <a href="dashboard/channel/<?php echo $channel->channel_id ?>"><?php echo $channel->channel_name; ?></a>
+                <p>
+                    <a href="dashboard/channel/<?php echo $channel->channel_id ?>"><?php echo $channel->channel_name; ?></a>
+                </p>
             <?php endforeach; ?>
         </div>
-    </div>
+    </li>
 <?php } ?>

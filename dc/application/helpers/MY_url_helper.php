@@ -6,12 +6,12 @@
 
 function admin_image_url($path)
 {
-    return 'http://2019fun.justmy.com/upload/images/'.$path;
+    return 'https://2019fun.justmy.com/upload/images/'.$path;
 }
 
 function admin_ads_url($path)
 {
-    return 'http://2019fun.justmy.com/upload/adsdata/'.$path;
+    return 'https://2019fun.justmy.com/upload/adsdata/'.$path;
 }
 
 // location of public asset folder
