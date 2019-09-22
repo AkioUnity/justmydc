@@ -14,8 +14,8 @@
     </div>
 </div>
 <div class="row" style="margin:20px 0 0 0;">
-    <div class="col-6" id="map" style="height: 450px;"></div>
-    <div class="col-6" id="pano" style="height: 450px;"></div>
+    <div class="col-sm-6" id="map" style="height: 450px;"></div>
+    <div class="col-sm-6" id="pano" style="height: 450px;"></div>
 </div>
 <!-- map placeholder END -->
 

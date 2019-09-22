@@ -66,10 +66,9 @@ section.video-sec {
     display: initial !IMPORTANT;
 }
 
-.logo-mobile {
-    display: none;
+.logo-banner {
+    width: 30%;
 }
-
 @media screen and (max-width: 506px) {
 
     .banner-form a {
@@ -85,30 +84,20 @@ section.video-sec {
 
     .right-box-bg {
         padding: 20px;
-        margin-top: 25px;
     }
 
     .banner-text h2 {
-        font-size: 20px;
+        font-size: 19px;
     }
 
     .banner-text p {
-        font-size: 20px;
+        font-size: 14px;
         padding-right: 0px;
     }
 
     .logo-banner {
-        display: none;
+        width: 50%;
     }
-
-    .logo-mobile {
-        padding-bottom: 10px;
-    }
-
-    .logo-mobile {
-        display: block;
-    }
-
 }
 
 @media screen and (max-width: 1199px) and (min-width: 992px) {

@@ -8,3 +8,11 @@
 .channel_detail h2{
     padding-bottom: 3rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .channel_detail {
+        padding: 3rem 4rem;
+        line-height: 1.9em;
+        font-size: 15px;
+    }
+}

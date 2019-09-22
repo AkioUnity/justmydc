@@ -76,13 +76,13 @@
         <?php include 'menu/channel_menu.php'; ?>
         <?php include 'menu/category_menu.php'; ?>
 
-        <div class="dropdown">
-            <button class="dropbtn">For You! <b class="caret"></b></button>
-            <div class="dropdown-content">
-                <a href="categories/claimed">My Business</a>
-            </div>
-        </div>
-        <a href="login">Login</a>
+<!--        <div class="dropdown">-->
+<!--            <button class="dropbtn">For You! <b class="caret"></b></button>-->
+<!--            <div class="dropdown-content">-->
+<!--                <a href="categories/claimed">My Business</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <a href="login">Login</a>-->
 
     </div>
 </div>

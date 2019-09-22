@@ -8,7 +8,7 @@ class Post extends MY_Controller
     {
         $this->load->model('Postmodel');
 
-        $uri='https://2019fun.justmy.com/'.$this->uri->uri_string().'/';
+        $uri='http://2019fun.justmy.com/'.$this->uri->uri_string().'/';
 //        echo ($uri);
         //meta
         $this->mViewData['meta_file'] = 'meta_article';

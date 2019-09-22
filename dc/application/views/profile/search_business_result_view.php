@@ -10,7 +10,7 @@
                 </p>
             </div>
             <div class="arrange_unit nowrap">
-                <a href="profile/add" class="ybtn ybtn--primary ybtn-full-responsive-small">Add Your Business</a>
+                <a href="categories/claimed" class="ybtn ybtn--primary ybtn-full-responsive-small">Add Your Business</a>
             </div>
         </div>
     </div>

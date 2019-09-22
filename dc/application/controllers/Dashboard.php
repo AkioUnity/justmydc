@@ -28,7 +28,7 @@ class Dashboard extends MY_Controller
         $this->mViewData['posts'] = $this->Postmodel->get6Posts($id,false);
 //        print_r($this->mViewData['posts']);
         //-------content
-        $this->mViewData['ads'] = $this->Postmodel->getInteractiveAds(2,"Channel");
+        $this->mViewData['ads'] = $this->Postmodel->getInteractiveAds(1,"Channel");
         $this->mViewData['channel'] = $this->Postmodel->getChannel($id);
         $this->mViewData['channel']->html=str_replace('[Market Name]', $this->market['market_name'],$this->mViewData['channel']->html);
 

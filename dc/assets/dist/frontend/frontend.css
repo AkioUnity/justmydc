@@ -119,3 +119,26 @@ h1, h2, h3, h4, h5, h6, p, div, p#body, p#content-header {
 .container-fluid.vimeo{
     width:75%;
 }
+
+.mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .channel_section {
+        width: 100%;
+        float: right;
+    }
+
+    .mobile{
+        display: inherit;
+    }
+
+    .desktop{
+        display: none;
+    }
+
+    .box-feature a {
+        display: none;
+    }
+}
