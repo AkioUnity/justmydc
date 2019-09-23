@@ -1,14 +1,4 @@
 <style>
-    .double-logo > img {
-        max-width: 40%;
-        margin-right: 32px;
-        float: left;
-    }
-
-    .double-logo > a > img {
-        max-width: 40%;
-        float: left;
-    }
     .black-bar{
         background-color: black;
         width: 80%;
@@ -61,16 +51,15 @@ $ad_id = -1;
             <a href="https://www.absolutemovingservices.com/free-quote-moving-consultation/" class="btn btn-info" role="button">Free Quote</a><br> -->
         </div>
     </div>
-    <div class="col-sm-6" style="padding: 65px;">
+    <div class="col-sm-6" style="padding: 3%;">
         <img class="desktop" style="border-bottom-right-radius: 0px; float: right; box-shadow: 8px 8px 10px #cbcbcb;border-top-right-radius: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;"
              src="https://2019fun.justmy.com/upload/images/<?php echo $header_img; ?>">
-        <div class="container-fluid">
-            <div class="double-logo">
-            <img class="desktop" src="https://2019fun.justmy.com/upload/images/<?php echo $logo_img; ?>" style="width:100%; border-radius: 50%;">
+        <div class="container-fluid" style="float: right;width: auto;">
+            <img class="double-logo desktop" src="https://2019fun.justmy.com/upload/images/<?php echo $logo_img; ?>" >
             <a href="team_local_about.php">
-                <img src="https://2019fun.justmy.com/bran-media/big_button_claim.png" style="width:100%; border-radius: 50%;">
+                <img class="double-logo" src="https://2019fun.justmy.com/bran-media/big_button_claim.png" >
             </a>
-            </div>
+
         </div>
     </div>
     <div class="black-bar"></div>

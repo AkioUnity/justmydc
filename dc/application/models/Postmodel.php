@@ -110,7 +110,7 @@ class Postmodel extends CI_Model
 
     //-----------------------  not interactive ads
 
-    function getSkyscraperAds($market_id)
+    function getSkyscraperAds($market_id,$limit=2)
     {
         $this->db->select('*');
         $this->db->from('wp_9z7072s58w_ads');
@@ -118,14 +118,14 @@ class Postmodel extends CI_Model
         $this->db->where("ad_layout", 'skyscraper');
         $this->db->where("market_id", National_market_id);
         $this->db->or_where("market_id", $market_id);
-        $this->db->limit(2);
+        $this->db->limit($limit);
         $this->db->order_by('rand()');
         $query = $this->db->get();
         return $query->result();
     }
 
 
-    public function get6Posts($channel_id=16,$is_spotlight=true)  //Headlines
+    public function get6Posts($channel_id=16,$is_spotlight=true,$limit=6)  //Headlines
     {
         $this->db->select('wp_9z7072s58w_c_posts.*');
         $this->db->from('wp_9z7072s58w_c_posts');
@@ -134,15 +134,12 @@ class Postmodel extends CI_Model
             $this->db->where("spotlight_link_text", '');
             $this->db->where("cp_post_image !=", '');
         }
-
         $this->db->where("wp_9z7072s58w_post_channels.channel_id", $channel_id);  //Headlines
-
-
 //        $this->db->where("cp_image !=", '');
 //        $this->db->where("cp_url IS NOT NULL", null,false);
 //        $this->db->where("cp_title IS NOT NULL", null,false);
 //        $this->db->where("cp_title2 IS NOT NULL", null,false);
-        $this->db->limit(6);
+        $this->db->limit($limit);
         $this->db->order_by('rand()');
         $query = $this->db->get();
         return $query->result();

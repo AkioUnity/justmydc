@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo css_url('channel.css') ?>"/>
 <?php //echo $this->input->get('id'); ?>
 <!-- Main content -->
-<?php include 'sections/like_us_facebook.php'; ?>
+<?php //include 'sections/like_us_facebook.php'; ?>
 <?php include 'sections/category_section.php'; ?>
 <style>
     .dataTables_wrapper .row{
@@ -14,7 +14,7 @@
 <section class="content">
     <div class="row">
         <div class="col-md-9">
-            <div style="padding-left: 8%">
+            <div>
                 <div class="box-header">
                     <h3 class="box-title"><?php echo $_GET['name'];
                         echo isset($_GET['sub_name']) ? ' | ' . $_GET['sub_name'] : '' ?></h3>
