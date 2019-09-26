@@ -8,7 +8,6 @@ class Dashboard extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-
     }
 
     public function index()
@@ -29,15 +28,16 @@ class Dashboard extends MY_Controller
 
         $this->mViewData['postList'] = $posts;
 
-        $this->mViewData['skyscraperAds'] = $this->Postmodel->getSkyscraperAds($this->default_market_id,3);
-        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights($this->default_market_id);
+        $this->mViewData['skyscraperAds'] = $this->Postmodel->getSkyscraperAds(3);
+        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
+//        print_r($this->mViewData['spotlights']);
 
         $this->render('dashboard', 'full_width');
     }
 
     public function channel($id = 16)
     {
-        $this->mViewData['skyscraperAds'] = $this->Postmodel->getSkyscraperAds($this->default_market_id);
+        $this->mViewData['skyscraperAds'] = $this->Postmodel->getSkyscraperAds();
 
         $this->mViewData['posts'] = $this->Postmodel->get6Posts($id, false);
 //        print_r($this->mViewData['posts']);

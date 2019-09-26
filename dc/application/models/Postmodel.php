@@ -2,10 +2,18 @@
 
 class Postmodel extends CI_Model
 {
+    public $market_id;
+    public $marketArray;
+
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
+    }
+
+    public function setMarket($market_id){
+        $this->market_id=$market_id;
+        $this->marketArray = array($market_id,National_market_id);
     }
 
     public function getviewData($postId = NULL)
@@ -65,18 +73,16 @@ class Postmodel extends CI_Model
         return $query->result_array();
     }
 
-    public function getPostSpotLights($market_id)
+    public function getPostSpotLights()
     {
         $this->db->select('wp_9z7072s58w_post_spotlight.*,wp_9z7072s58w_c_posts.cp_url');
         $this->db->from('wp_9z7072s58w_post_spotlight');
         $this->db->join('wp_9z7072s58w_c_posts','wp_9z7072s58w_c_posts.post_id=wp_9z7072s58w_post_spotlight.post_id');
         $this->db->join('wp_9z7072s58w_post_market','wp_9z7072s58w_post_market.post_id=wp_9z7072s58w_post_spotlight.post_id');
-        $this->db->limit(5);
-        $this->db->where("spotlight_image IS NOT NULL", null,false);
-        $this->db->where("spotlight_image!=", '');
-        $this->db->where("market_id", National_market_id);
-        $this->db->or_where("market_id", $market_id);
+        $this->db->where_in("market_id", $this->marketArray);
+        $this->db->like('wp_9z7072s58w_post_spotlight.spotlight_image', 'spotlight_');
         $this->db->order_by("id", "DESC");
+        $this->db->limit(5);
         $query = $this->db->get();
         return $query->result();
     }
@@ -87,9 +93,11 @@ class Postmodel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('wp_9z7072s58w_ads');
+        $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
         $this->db->where("ad_layout", 'interactive');
         if ($ad_type)
             $this->db->where("ad_type", $ad_type);
+        $this->db->where_in("market_id", $this->marketArray);
         $this->db->limit($cn);
         $this->db->order_by('rand()');
         $query = $this->db->get();
@@ -100,8 +108,10 @@ class Postmodel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('wp_9z7072s58w_ads');
+        $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
         $this->db->where("ad_layout", $ad_layout);
         $this->db->where("ad_type", $ad_type);
+        $this->db->where_in("market_id", $this->marketArray);
         $this->db->limit(1);
         $this->db->order_by('rand()');
         $query = $this->db->get();
@@ -110,14 +120,13 @@ class Postmodel extends CI_Model
 
     //-----------------------  not interactive ads
 
-    function getSkyscraperAds($market_id,$limit=2)
+    function getSkyscraperAds($limit=2)
     {
         $this->db->select('*');
         $this->db->from('wp_9z7072s58w_ads');
         $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
         $this->db->where("ad_layout", 'skyscraper');
-        $this->db->where("market_id", National_market_id);
-        $this->db->or_where("market_id", $market_id);
+        $this->db->where_in("market_id", $this->marketArray);
         $this->db->limit($limit);
         $this->db->order_by('rand()');
         $query = $this->db->get();

@@ -8,9 +8,9 @@
 ?>
 
 <?php $article_id++; ?>
-<?php //print_r($skyscraperAds[$article_id]);?>
+
 <div class="section section-split-5">
-    <div class="<?php echo isset($isHome)?'':'container';?>">
+    <div class="<?php echo (isset($isHome) && !isMobile())?'':'container';?>">
         <div class="row">
             <?php if ($article_id==1){
                 include 'home_skyscraper.php';

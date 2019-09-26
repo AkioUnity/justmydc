@@ -26,7 +26,7 @@ class Profile extends MY_Controller
             redirect('profile/business/'.$id);
         }
 
-        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights($this->default_market_id);
+        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
 
         $this->mViewData['categories'] = $this->Categoriesmodel->getDropDown(0);
         $this->mViewData['post'] = $this->post_model->get_post_by_id($id);

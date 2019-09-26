@@ -70,6 +70,7 @@ class MY_Controller extends MX_Controller {
         $this->load->model('Categoriesmodel');
         $this->mViewData['c_categories'] = $this->Categoriesmodel->getCategories();
         $this->load->model('Postmodel');
+        $this->Postmodel->setMarket($this->default_market_id);
         $this->mViewData['channel_menus'] = $this->Postmodel->getChannel();  //channel list
 	}
 
