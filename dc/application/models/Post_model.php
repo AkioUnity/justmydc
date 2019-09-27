@@ -11,7 +11,7 @@ class Post_model extends MY_Model {  //for business
         }
         else
         {
-            return $query->row_array();
+            return $query->row();
         }
     }
 

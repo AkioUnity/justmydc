@@ -80,20 +80,45 @@ $config['ci_bootstrap'] = array(
 
 	// Menu items
     'menu' => array(
-        'home' => array(
-            'name'		=> 'Home',
+        'my info' => array(
+            'name'		=> 'my info',
             'url'		=> '',
             'icon'		=> 'fa fa-home',
         ),
-        'auth' => array(
-            'name'		=> 'Auth',
-            'url'		=> 'auth',
-            'icon'		=> 'fa fa-users',
-            'children'  => array(
-                'Login'			=> 'login',
-                'Sign Up'		=> 'register',
-            )
+        'my profiles' => array(
+            'name'		=> 'my profiles',
+            'url'		=> '',
+            'icon'		=> 'fa fa-home',
         ),
+        'profile1' => array(
+            'name'		=> 'Absolute Moving Service',
+            'url'		=> '',
+            'icon'		=> 'fa fa-home',
+        ),
+        'create a profile' => array(
+            'name'		=> 'create a profile',
+            'url'		=> '',
+            'icon'		=> 'fa fa-home',
+        ),
+        'my post' => array(
+            'name'		=> 'my post',
+            'url'		=> '',
+            'icon'		=> 'fa fa-home',
+        ),
+        'create a post' => array(
+            'name'		=> 'create a post',
+            'url'		=> '',
+            'icon'		=> 'fa fa-home',
+        ),
+//        'auth' => array(
+//            'name'		=> 'Auth',
+//            'url'		=> 'auth',
+//            'icon'		=> 'fa fa-users',
+//            'children'  => array(
+//                'Login'			=> 'login',
+//                'Sign Up'		=> 'register',
+//            )
+//        ),
     ),
 
 	// Login page

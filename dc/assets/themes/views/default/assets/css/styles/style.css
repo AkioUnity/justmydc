@@ -1,60 +1,60 @@
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600");
 
-body {
-    color: #666;
-    font-size: 13px;
-    line-height: 28px;
-    background: #fff;
-    font-family: 'Open Sans', sans-serif;
-    -webkit-font-smoothing: antialiased
-}
+/*body {*/
+    /*color: #666;*/
+    /*font-size: 13px;*/
+    /*line-height: 28px;*/
+    /*background: #fff;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*-webkit-font-smoothing: antialiased*/
+/*}*/
 
-h1, h2, h3, h4, h5, h6 {
-    color: #666;
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    margin: 2px 0;
-    padding: 0
-}
+/*h1, h2, h3, h4, h5, h6 {*/
+    /*color: #666;*/
+    /*font-family: 'Open Sans', sans-serif;*/
+    /*font-weight: 600;*/
+    /*margin: 2px 0;*/
+    /*padding: 0*/
+/*}*/
 
-h1 {
-    font-size: 30px;
-    line-height: 45px
-}
+/*h1 {*/
+    /*font-size: 30px;*/
+    /*line-height: 45px*/
+/*}*/
 
-h2 {
-    font-size: 25px;
-    line-height: 40px
-}
+/*h2 {*/
+    /*font-size: 25px;*/
+    /*line-height: 40px*/
+/*}*/
 
-h3 {
-    font-size: 22px;
-    line-height: 37px
-}
+/*h3 {*/
+    /*font-size: 22px;*/
+    /*line-height: 37px*/
+/*}*/
 
-h4 {
-    font-size: 18px;
-    line-height: 33px
-}
+/*h4 {*/
+    /*font-size: 18px;*/
+    /*line-height: 33px*/
+/*}*/
 
-h5 {
-    font-size: 15px;
-    line-height: 30px
-}
+/*h5 {*/
+    /*font-size: 15px;*/
+    /*line-height: 30px*/
+/*}*/
 
-h6 {
-    font-size: 13px;
-    line-height: 28px
-}
+/*h6 {*/
+    /*font-size: 13px;*/
+    /*line-height: 28px*/
+/*}*/
 
-h2 a, h2 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover, h5 a, h5 a:hover, h6 a, h6 a:hover {
-    color: #666
-}
+/*h2 a, h2 a:hover, h3 a, h3 a:hover, h4 a, h4 a:hover, h5 a, h5 a:hover, h6 a, h6 a:hover {*/
+    /*color: #666*/
+/*}*/
 
-p {
-    margin: 2px 0 5px;
-    padding: 0
-}
+/*p {*/
+    /*margin: 2px 0 5px;*/
+    /*padding: 0*/
+/*}*/
 
 a:active, a:focus, a:hover {
     text-decoration: none !important;

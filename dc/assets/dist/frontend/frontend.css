@@ -5,6 +5,59 @@
  * 	/assets/sass/frontend.scss
  */
 
+.form-horizontal .link-label {
+    margin: 8px;
+    text-align: center;
+    font-size: 17px;
+    color: #0a6c0a;
+}
+
+.profile_content h4{
+    margin-top: 15px;
+    padding: 8px;
+    padding-left: 30px;
+    border-color: #0d6aad;
+    border-width: 4px;
+    background-color: #686767;
+    color: white;
+    border-style: solid;
+    border-radius: 4px;
+}
+
+.left-side, .main-sidebar {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    padding: 20px;
+    padding-right: 0px;
+    min-height: 100%;
+    width: 230px;
+    z-index: 10;
+    -webkit-transition: -webkit-transform .3s ease-in-out,width .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out,width .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out,width .3s ease-in-out;
+    transition: transform .3s ease-in-out,width .3s ease-in-out;
+}
+
+.sidebar-menu li {
+    padding: 10px 2px 10px 15px;
+    font-size: 17px;
+}
+
+.content-wrapper, .right-side {
+    min-height: 100%;
+    /*background-color: #ecf0f5;*/
+    z-index: 800;
+}
+.content-wrapper, .main-footer, .right-side {
+    -webkit-transition: -webkit-transform .3s ease-in-out,margin .3s ease-in-out;
+    -moz-transition: -moz-transform .3s ease-in-out,margin .3s ease-in-out;
+    -o-transition: -o-transform .3s ease-in-out,margin .3s ease-in-out;
+    transition: transform .3s ease-in-out,margin .3s ease-in-out;
+    margin-left: 230px;
+    z-index: 820;
+}
+
 .row {
     margin-right: 0px;
     margin-left: 0px;
