@@ -3,7 +3,7 @@
 class Profilemodel extends MY_Model
 {
     protected $primary_key = 'profile_id';
-    protected $_table='wp_9z7072s58w_profiles';
+    protected $_table='profiles';
 
     public function __construct()
     {
@@ -14,7 +14,7 @@ class Profilemodel extends MY_Model
     function getProfile($ProfileId)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_profiles');
+        $this->db->from('profiles');
         $this->db->where("profile_id", $ProfileId);
         $query = $this->db->get();
         //echo $this->db->last_query(); die;
@@ -24,7 +24,7 @@ class Profilemodel extends MY_Model
 
     function update_post($data,$id)
     {
-        $this->db->update('wp_9z7072s58w_profiles',$data,array('profile_id'=>$id));
+        $this->db->update('profiles',$data,array('profile_id'=>$id));
     }
 
 

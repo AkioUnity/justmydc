@@ -38,7 +38,7 @@
 | -------------------------------------------------------------------------
 | Database table names.
 */
-$config['tables']['users']           = 'wp_9z7072s58w_c_users'; //c_users';
+$config['tables']['users']           = 'c_users'; //c_users';
 $config['tables']['groups']          = 'groups';
 $config['tables']['users_groups']    = 'users_groups';
 $config['tables']['login_attempts']  = 'login_attempts';

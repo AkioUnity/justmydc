@@ -1,7 +1,7 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Categoriesmodel extends MY_Model
 {
-    protected $_table = 'wp_9z7072s58w_categories';
+    protected $_table = 'c_categories';
     protected $primary_key = 'id';
 
 	public function __construct()
@@ -12,14 +12,14 @@ class Categoriesmodel extends MY_Model
 
     function getSpotlight($CategoriesId=NULL){
         $this->db->select('spotlight_id');
-        $this->db->from('wp_9z7072s58w_c_categories');
+        $this->db->from('c_categories');
         $this->db->where('id', $CategoriesId);
         $query = $this->db->get();
         $ret=$query->row();
         $spotlight_id=$ret->spotlight_id;
 
         $this->db->select('id,cc_title');
-        $this->db->from('wp_9z7072s58w_c_categories');
+        $this->db->from('c_categories');
         if ($spotlight_id==0){
             $this->db->where('parent_id', $CategoriesId);
         }
@@ -33,7 +33,7 @@ class Categoriesmodel extends MY_Model
 
     function getCategory($id){
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_c_categories');
+        $this->db->from('c_categories');
         $this->db->where('id', $id);
         $query = $this->db->get();
         return $query->row();
@@ -41,7 +41,7 @@ class Categoriesmodel extends MY_Model
 
     function getCategoryFromSic($sic_code){
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_c_categories');
+        $this->db->from('c_categories');
         $this->db->where('cc_siccode', $sic_code);
         $query = $this->db->get();
         return $query->row();
@@ -49,7 +49,7 @@ class Categoriesmodel extends MY_Model
 
     function getCategories($CategoriesId=NULL){
 		$this->db->select('*');
-		$this->db->from('wp_9z7072s58w_c_categories');
+		$this->db->from('c_categories');
 		if($CategoriesId){
 			$this->db->where('parent_id', $CategoriesId);
 //            $this->db->where('spotlight', 1);
@@ -63,7 +63,7 @@ class Categoriesmodel extends MY_Model
 
     function getDropDown($id=0){
         $this->db->select('id,cc_title');
-        $this->db->from('wp_9z7072s58w_c_categories');
+        $this->db->from('c_categories');
         $this->db->where('parent_id', $id);
         $query = $this->db->get();
         return $query->result();
@@ -71,7 +71,7 @@ class Categoriesmodel extends MY_Model
 
     function getProfileList($sic_code,$CategoriesId=NULL,$cbsa_code){
         $this->db->select('infogroup_id,name,logo_url,street,city,state');
-        $this->db->from('`wp_9z7072s58w_cai_places`');
+        $this->db->from('cai_places');
 //        $this->db->where("logo_url !=","");
         $this->db->where("cbsa_code",$cbsa_code);
         $this->db->where("sic_code",$sic_code);
@@ -86,7 +86,7 @@ class Categoriesmodel extends MY_Model
 
     function searchProfileList($zip,$name){
         $this->db->select('infogroup_id,name,logo_url,street,city,state,zip');
-        $this->db->from('`wp_9z7072s58w_cai_places`');
+        $this->db->from('`cai_places`');
         $this->db->like('zip', $zip);
         $this->db->like('name', $name);
         $this->db->limit(100);
@@ -97,7 +97,7 @@ class Categoriesmodel extends MY_Model
     function getProfile($id){
         $this->db->select("latitude,longitude,street,suite,city,state,name,phone,website,facebook_url,instagram_url,twitter_url,company_description,sic_code");
 //        $this->db->select('*');
-        $this->db->from('`wp_9z7072s58w_cai_places`');
+        $this->db->from('`cai_places`');
         $this->db->where("infogroup_id",$id);
         $query = $this->db->get();
         return $query->result_array();

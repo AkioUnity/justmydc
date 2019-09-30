@@ -1166,7 +1166,7 @@ if (!function_exists('get_category_title_by_id')) {
             return 'No parent';
         $CI = get_instance();
         $CI->load->database();
-        $query = $CI->db->get_where('wp_9z7072s58w_c_categories', array('id' => $id));
+        $query = $CI->db->get_where('categories', array('id' => $id));
         if ($query->num_rows() > 0) {
             $row = $query->row();
             return lang_key($row->cc_title);
@@ -1455,7 +1455,7 @@ if (!function_exists('get_category_parent_by_id')) {
     {
         $CI = get_instance();
         $CI->load->database();
-        $query = $CI->db->get_where('wp_9z7072s58w_c_categories', array('id' => $id));
+        $query = $CI->db->get_where('categories', array('id' => $id));
         if ($query->num_rows() > 0) {
             $row = $query->row();
             if ($row->parent_id == 0)
@@ -1475,7 +1475,7 @@ if (!function_exists('get_category_fa_icon')) {
 
         $CI = get_instance();
         $CI->load->database();
-        $query = $CI->db->get_where('wp_9z7072s58w_c_categories', array('id' => $id));
+        $query = $CI->db->get_where('categories', array('id' => $id));
         if ($query->num_rows() > 0) {
             $row = $query->row();
 

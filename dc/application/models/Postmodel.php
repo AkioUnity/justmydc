@@ -19,7 +19,7 @@ class Postmodel extends CI_Model
     public function getviewData($postId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_c_posts');
+        $this->db->from('c_posts');
         if ($postId) {
             $this->db->where("cp_url", $postId);
         }
@@ -30,7 +30,7 @@ class Postmodel extends CI_Model
     public function getviewDataChannel($postId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_post_channels');
+        $this->db->from('post_channels');
         if ($postId) {
             $this->db->where("post_id", $postId);
         }
@@ -41,7 +41,7 @@ class Postmodel extends CI_Model
     public function getviewDataMarket($postId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_post_market');
+        $this->db->from('post_market');
         if ($postId) {
             $this->db->where("post_id", $postId);
         }
@@ -52,7 +52,7 @@ class Postmodel extends CI_Model
     public function getviewDataProfile($postId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_post_connect');
+        $this->db->from('post_connect');
         if ($postId) {
             $this->db->where("post_id", $postId);
         }
@@ -64,7 +64,7 @@ class Postmodel extends CI_Model
     public function getSectionListById($postId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_post_sections');
+        $this->db->from('post_sections');
         if ($postId) {
             $this->db->where("post_id", $postId);
         }
@@ -75,12 +75,12 @@ class Postmodel extends CI_Model
 
     public function getPostSpotLights()
     {
-        $this->db->select('wp_9z7072s58w_post_spotlight.*,wp_9z7072s58w_c_posts.cp_url');
-        $this->db->from('wp_9z7072s58w_post_spotlight');
-        $this->db->join('wp_9z7072s58w_c_posts','wp_9z7072s58w_c_posts.post_id=wp_9z7072s58w_post_spotlight.post_id');
-        $this->db->join('wp_9z7072s58w_post_market','wp_9z7072s58w_post_market.post_id=wp_9z7072s58w_post_spotlight.post_id');
+        $this->db->select('post_spotlight.*,c_posts.cp_url');
+        $this->db->from('post_spotlight');
+        $this->db->join('c_posts','c_posts.post_id=post_spotlight.post_id');
+        $this->db->join('post_market','post_market.post_id=post_spotlight.post_id');
         $this->db->where_in("market_id", $this->marketArray);
-        $this->db->like('wp_9z7072s58w_post_spotlight.spotlight_image', 'spotlight_');
+        $this->db->like('post_spotlight.spotlight_image', 'spotlight_');
         $this->db->order_by("id", "DESC");
         $this->db->limit(5);
         $query = $this->db->get();
@@ -92,8 +92,8 @@ class Postmodel extends CI_Model
     function getInteractiveAds($cn=3,$ad_type=NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_ads');
-        $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
+        $this->db->from('ads');
+        $this->db->join('ad_markets','ad_markets.ad_id=ads.id');
         $this->db->where("ad_layout", 'interactive');
         if ($ad_type)
             $this->db->where("ad_type", $ad_type);
@@ -107,8 +107,8 @@ class Postmodel extends CI_Model
     function getAd($ad_type,$ad_layout='interactive')
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_ads');
-        $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
+        $this->db->from('ads');
+        $this->db->join('ad_markets','ad_markets.ad_id=ads.id');
         $this->db->where("ad_layout", $ad_layout);
         $this->db->where("ad_type", $ad_type);
         $this->db->where_in("market_id", $this->marketArray);
@@ -123,8 +123,8 @@ class Postmodel extends CI_Model
     function getSkyscraperAds($limit=2)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_ads');
-        $this->db->join('wp_9z7072s58w_ad_markets','wp_9z7072s58w_ad_markets.ad_id=wp_9z7072s58w_ads.id');
+        $this->db->from('ads');
+        $this->db->join('ad_markets','ad_markets.ad_id=ads.id');
         $this->db->where("ad_layout", 'skyscraper');
         $this->db->where_in("market_id", $this->marketArray);
         $this->db->limit($limit);
@@ -136,15 +136,15 @@ class Postmodel extends CI_Model
 
     public function get6Posts($channel_id=16,$is_spotlight=true,$limit=6)  //Headlines
     {
-        $this->db->select('wp_9z7072s58w_c_posts.*');
-        $this->db->from('wp_9z7072s58w_c_posts');
-        $this->db->join('wp_9z7072s58w_post_channels','wp_9z7072s58w_c_posts.post_id=wp_9z7072s58w_post_channels.post_id');
-        $this->db->join('wp_9z7072s58w_post_market','wp_9z7072s58w_post_market.post_id=wp_9z7072s58w_c_posts.post_id');
+        $this->db->select('c_posts.*');
+        $this->db->from('c_posts');
+        $this->db->join('post_channels','c_posts.post_id=post_channels.post_id');
+        $this->db->join('post_market','post_market.post_id=c_posts.post_id');
         if ($is_spotlight){
             $this->db->where("spotlight_link_text", '');
             $this->db->where("cp_post_image !=", '');
         }
-        $this->db->where("wp_9z7072s58w_post_channels.channel_id", $channel_id);  //Headlines
+        $this->db->where("post_channels.channel_id", $channel_id);  //Headlines
         $this->db->where_in("market_id", $this->marketArray);
 //        $this->db->where("cp_image !=", '');
 //        $this->db->where("cp_url IS NOT NULL", null,false);
@@ -161,7 +161,7 @@ class Postmodel extends CI_Model
     function getChannel($ChannelId = NULL)
     {
         $this->db->select('*');
-        $this->db->from('wp_9z7072s58w_channel');
+        $this->db->from('channel');
         if ($ChannelId) {
             $this->db->where("channel_id", $ChannelId);
             $query = $this->db->get();
@@ -204,7 +204,7 @@ class Postmodel extends CI_Model
             "section_id" => $section_id,
             "section_name" => $section_name
         );
-        $this->db->insert('wp_9z7072s58w_post_sections', $data);
+        $this->db->insert('post_sections', $data);
         return true;
     }
 

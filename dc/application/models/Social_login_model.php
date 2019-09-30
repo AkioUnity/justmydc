@@ -5,7 +5,7 @@ class Social_login_model extends CI_Model
 {
     public function socail_login($data, $username, $email)
     {
-        $table='wp_9z7072s58w_c_users';
+        $table='c_users';
         $this->db->where('email', $email);
         $this->db->limit(1);
         $users = $this->db->count_all_results($table);

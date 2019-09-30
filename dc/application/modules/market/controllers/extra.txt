@@ -1,0 +1,66 @@
+public function addMarketinfo(){
+		$data=$this->input->post();
+		$attachment ="";
+		if($data){
+				
+		    if($_FILES['market_header_image']['name'] !="")
+		    {
+				$fieldName = 'market_header_image';
+				$ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
+				$attachment = 'market_header_image'.time().'.'.$ext;
+				$this->upload->initialize($this->set_upload_options($attachment));
+				
+				if($this->upload->do_upload($fieldName))
+				{
+					$msg = "upload success"; //die;
+				}
+				else
+				{
+					$error = array('error' => $this->upload->display_errors());
+					
+				}
+			}
+		$data['market_header_image'] = $attachment;
+		$attachment1 ="";
+		    if($_FILES['market_facebook_image']['name'] !="")
+		    {
+				$fieldName = 'market_facebook_image';
+				$ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
+				$attachment = 'market_facebook_image'.time().'.'.$ext;
+				$this->upload->initialize($this->set_upload_options($attachment1));
+				
+				if($this->upload->do_upload($fieldName))
+				{
+					$msg = "upload success"; //die;
+				}
+				else
+				{
+					$error = array('error' => $this->upload->display_errors());
+					
+				}
+			}
+		$data['market_facebook_image'] = $attachment1;
+		$attachment2 ="";
+		    if($_FILES['market_logo']['name'] !="")
+		    {
+				$fieldName = 'market_logo';
+				$ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
+				$attachment = 'market_logo'.time().'.'.$ext;
+				$this->upload->initialize($this->set_upload_options($attachment2));
+				
+				if($this->upload->do_upload($fieldName))
+				{
+					$msg = "upload success"; //die;
+				}
+				else
+				{
+					$error = array('error' => $this->upload->display_errors());
+					
+				}
+			}
+		$data['market_logo'] = $attachment2;
+		if($result=$this->Marketmodel->addmarketinfo($data)){				
+			redirect(base_url().'Market/');
+			}
+		}
+	}
