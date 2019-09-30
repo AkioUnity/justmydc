@@ -1,0 +1,17 @@
+.btn-flat{display:none !important;}
+.box {
+    border-top: 0px solid #d2d6de !important;
+}
+.main-sidebar {
+    width: 0px !important; 
+	display: none !important; 
+}
+.content-wrapper {
+    margin-left: 0px !important;
+}
+.no-print{
+	display:none;
+}
+.main-footer{
+	display:none; 
+}

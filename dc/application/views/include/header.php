@@ -119,7 +119,7 @@
           
 		    <ul class="sidebar-menu">
 				<li class="<?php if($currPage == 'dashboard'){echo 'active';} ?>">
-				  <a href="<?php echo base_url(); ?>Market">
+				  <a href="<?php echo base_url(); ?>market">
 					<!--i class="fa fa-dashboard"></i--> <span>Markets</span>
 				  </a>
 				</li>

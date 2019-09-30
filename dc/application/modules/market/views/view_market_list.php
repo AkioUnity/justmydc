@@ -20,7 +20,7 @@
                             <div class="col-sm-12">
                                 <div class="dataTables_length" id="example1_length">
                                     <button type="button" class="btn btn-info" style="float:right;"
-                                            onclick="window.location.href='<?php echo base_url(); ?>market/Market/addmarket'"/>
+                                            onclick="window.location.href='<?php echo base_url(); ?>market/market/addmarket'"/>
                                     Add Market</button>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                         <td><?php echo ucfirst($productList['market_site_title']); ?></td>
                         <td><?php echo ucfirst($productList['cbsa_code']); ?></td>
                         <td>
-                            <a href="<?php echo base_url(); ?>Market/editmarket?Id=<?php echo $productList['market_id']; ?>">
+                            <a href="<?php echo base_url(); ?>market/editmarket?Id=<?php echo $productList['market_id']; ?>">
                                 <span class="fa fa-pencil-square-o" id="res"></span>
                             </a>
                         </td>

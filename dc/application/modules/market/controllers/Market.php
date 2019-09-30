@@ -1,5 +1,5 @@
 <?php
-class Market extends CI_Controller
+class Market extends Admin_Controller
 
 {
 	function __construct()
@@ -9,8 +9,6 @@ class Market extends CI_Controller
 		$this->load->model('channel/Channelmodel');
 		$this->load->model('blogcategories/Categoriesmodel');
 		$this->load->library('upload');
-		if(!isLoggedIn() && !isSuperAdmin())
-         redirect('login');
 	}
 	
 	public function index(){	
@@ -125,7 +123,7 @@ class Market extends CI_Controller
 		$data['market_logo'] = $attachment2;
 		
 		if($result=$this->Marketmodel->addmarketinfo($data)){				
-			redirect(base_url().'Market/');
+			redirect(base_url().'market/');
 			}
 		}
 	}
@@ -200,7 +198,7 @@ class Market extends CI_Controller
 		
 			if($result = $this->Marketmodel->updateMarketinfo($data))
 			{
-			  redirect(base_url().'Market');
+			  redirect(base_url().'market');
 			}	
 		}
 	}
