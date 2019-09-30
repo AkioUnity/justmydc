@@ -9,7 +9,6 @@ class Section extends Admin_Controller
         parent::__construct();
 
         $this->load->model('Sectionmodel');
-        $this->load->helper('common');
         $this->load->library("user_agent");
     }
 

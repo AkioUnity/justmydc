@@ -56,7 +56,7 @@ class Profilemodel extends CI_Model
         return $query->result_array();
     }
 
-    function getProfileList($profile_status)
+    function getProfileList($profile_status=null)
     {
         $this->db->select('a.*,c.market_name,c.market_site,d.name as profile_type');
         $this->db->from('profiles a');
@@ -64,7 +64,7 @@ class Profilemodel extends CI_Model
         $this->db->join('markets c', 'b.market_id = c.market_id');
         $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         $this->db->order_by("profile_id", "DESC");
-        if (!empty($profile_status)) {
+        if (!($profile_status)) {
             $this->db->where("profile_status", $profile_status);
         }
         $query = $this->db->get();
