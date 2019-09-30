@@ -3,8 +3,8 @@
 <div class="form-group">
     <label class="col-md-3 control-label">website</label>
     <div class="col-md-8">
-        <?php $v = (set_value('website') != '') ? set_value('website') : $post->website; ?>
-        <input id="website" type="text" name="website" placeholder="website"
+        <?php $v = (set_value('profile_web') != '') ? set_value('profile_web') : $post->profile_web; ?>
+        <input id="website" type="text" name="profile_web" placeholder="website"
                value="<?php echo $v; ?>" class="form-control">
         <?php echo form_error('website'); ?>
     </div>
@@ -15,13 +15,13 @@
     <label class="col-md-1 control-label">Label</label>
     <div class="col-md-2">
         <input type="text" name="label1"
-               value="<?php echo get_post_meta($post->id, 'label1', ''); ?>"
+               value="<?php echo get_post_meta($post->profile_id, 'label1', ''); ?>"
                class="form-control">
     </div>
     <label class="col-md-1 control-label">link</label>
     <div class="col-md-8">
         <input type="text" name="link1"
-               value="<?php echo get_post_meta($post->id, 'link1', ''); ?>"
+               value="<?php echo get_post_meta($post->profile_id, 'link1', ''); ?>"
                class="form-control">
     </div>
 </div>
@@ -30,13 +30,13 @@
     <label class="col-md-1 control-label">Label</label>
     <div class="col-md-2">
         <input type="text" name="label2"
-               value="<?php echo get_post_meta($post->id, 'label2', ''); ?>"
+               value="<?php echo get_post_meta($post->profile_id, 'label2', ''); ?>"
                class="form-control">
     </div>
     <label class="col-md-1 control-label">link</label>
     <div class="col-md-8">
         <input type="text" name="link2"
-               value="<?php echo get_post_meta($post->id, 'link2', ''); ?>"
+               value="<?php echo get_post_meta($post->profile_id, 'link2', ''); ?>"
                class="form-control">
     </div>
 </div>
@@ -47,13 +47,13 @@
         <label class="col-md-1 control-label">Type</label>
         <div class="col-md-2">
             <input type="text" name="label<?php echo $i; ?>"
-                   value="<?php echo get_post_meta($post->id, 'label' . $i, ''); ?>"
+                   value="<?php echo get_post_meta($post->profile_id, 'label' . $i, ''); ?>"
                    class="form-control">
         </div>
         <label class="col-md-1 control-label">link</label>
         <div class="col-md-8">
             <input type="text" name="link<?php echo $i; ?>"
-                   value="<?php echo get_post_meta($post->id, 'link' . $i, ''); ?>"
+                   value="<?php echo get_post_meta($post->profile_id, 'link' . $i, ''); ?>"
                    class="form-control">
         </div>
     </div>

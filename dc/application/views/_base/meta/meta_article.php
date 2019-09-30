@@ -1,5 +1,5 @@
 <?php 
-$page_title=$view['cp_title'].' '.$view['cp_title'].'-'.$market['market_name'];
+$page_title=$view['cp_title'].'-'.$market['market_name'];
 $facebook_image=admin_image_url($view['cp_post_facebook_image']);
 ?>
 

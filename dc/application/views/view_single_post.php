@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo css_url('article.css')?>"/>
+<link rel="stylesheet" type="text/css" href="<?php echo css_url('article.css') ?>"/>
 <?php
 //if ($view) { ?>
 <!--    <div class="section-header section">-->
@@ -7,7 +7,7 @@
 <!--                <div class="col-md-6 section-header-left">-->
 <!--                    --><?php //if ($view['cp_image']){ ?>
 <!--                    <img id="photo" src="https://2019fun.justmy.com/upload/images/--><?php //echo $view['cp_image']; ?><!--" alt="Logo Image">-->
-<!--                    --><?// } ?>
+<!--                    --><? // } ?>
 <!--                    <h1 id="title1">--><?php //echo $view['cp_title']; ?><!--</h1>-->
 <!--                    <br>-->
 <!--                    <h6 id="header">--><?php //echo $view['post_date']; ?><!--| --><?php //echo $view['cp_author_name']; ?><!--</h6>-->
@@ -40,14 +40,20 @@
 <!--        </div>-->
 <!--    --><?php //endforeach;
 //} ?>
-<?php $i=0;
-foreach ($post_section as $section) { $i++; ?>
-    <?php echo $section['content'] ?>
-    <?php if ($i==0){  ?>
-        <div class="col-md-6" style="padding-right: 0 ;text-align: right;">
-            <!--                    section-header-right-->
-            <img src="https://2019fun.justmy.com/upload/images/<?php echo $view['cp_post_image']; ?>" alt="featured Image">
-
-        </div>
-    <? }?>
+<?php $i = 0;
+foreach ($post_section as $section) {
+    $i++; ?>
+    <?php if ($i == 1) { //header section
+        echo str_replace('header_logo_url', 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D', $section['content']); ?>
+    <? } else {
+        echo $section['content'];
+    } ?>
 <?php } ?>
+
+<!---->
+<!--<div class="col-md-6" style="padding-right: 0 ;text-align: right;">-->
+<!--    <!--                    section-header-right-->
+<!--    <img src="https://2019fun.justmy.com/upload/images/--><?php //echo $view['cp_post_image']; ?><!--"-->
+<!--         alt="featured Image">-->
+<!---->
+<!--</div>-->

@@ -24,14 +24,14 @@
 </style>
 <div class="page-heading-two">
     <div class="container">
-        <h2><span style="color: #0f6ab4">my profile:</span><?php echo $post->title; ?></h2>
+        <h2><span style="color: #0f6ab4">my profile:</span><?php echo $post->profile_name; ?></h2>
         <div class="clearfix"></div>
     </div>
 </div>
 <?php $state_active = 'no'; ?>
 <div class="container">
     <form action="mytoolbox/updatepost" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+        <input type="hidden" name="profile_id" value="<?php echo $post->profile_id; ?>">
         <div class="row">
             <?php echo $this->session->flashdata('msg'); ?>
             <div class="col-md-12 profile_content">

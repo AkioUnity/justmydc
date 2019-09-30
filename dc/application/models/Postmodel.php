@@ -139,11 +139,13 @@ class Postmodel extends CI_Model
         $this->db->select('wp_9z7072s58w_c_posts.*');
         $this->db->from('wp_9z7072s58w_c_posts');
         $this->db->join('wp_9z7072s58w_post_channels','wp_9z7072s58w_c_posts.post_id=wp_9z7072s58w_post_channels.post_id');
+        $this->db->join('wp_9z7072s58w_post_market','wp_9z7072s58w_post_market.post_id=wp_9z7072s58w_c_posts.post_id');
         if ($is_spotlight){
             $this->db->where("spotlight_link_text", '');
             $this->db->where("cp_post_image !=", '');
         }
         $this->db->where("wp_9z7072s58w_post_channels.channel_id", $channel_id);  //Headlines
+        $this->db->where_in("market_id", $this->marketArray);
 //        $this->db->where("cp_image !=", '');
 //        $this->db->where("cp_url IS NOT NULL", null,false);
 //        $this->db->where("cp_title IS NOT NULL", null,false);

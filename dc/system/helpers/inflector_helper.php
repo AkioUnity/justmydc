@@ -63,7 +63,7 @@ if ( ! function_exists('singular'))
 	{
 		$result = strval($str);
 
-		if ( ! is_countable($result))
+		if ( is_countable($result))
 		{
 			return $result;
 		}
@@ -127,7 +127,11 @@ if ( ! function_exists('plural'))
 	{
 		$result = strval($str);
 
-		if ( ! is_countable($result))
+		$check=is_countable($result);
+
+		echo ($check);
+
+		if ( $check)
 		{
 			return $result;
 		}
@@ -235,7 +239,7 @@ if ( ! function_exists('is_countable'))
 	 */
 	function is_countable($word)
 	{
-		return ! in_array(
+		return in_array(
 			strtolower($word),
 			array(
 				'audio',

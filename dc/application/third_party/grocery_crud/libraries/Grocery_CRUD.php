@@ -3157,7 +3157,7 @@ class grocery_CRUD_States extends grocery_CRUD_Layout
                     $state_info->order_by = $_POST['order_by'];
                 }
                 // Updated by CI Bootstrap 3 - fixed searching boolean field by typing zero value
-                if(!empty($_POST['search_text']) || $_POST['search_text']==='0')
+                if((isset($_POST["search_text"])) && (!empty($_POST['search_text']) || $_POST['search_text']==='0'))
                 {
                     if(empty($_POST['search_field']))
                     {
@@ -3798,7 +3798,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 	 * */
 	public function unset_view()
 	{
-		return unset_read();
+		return $this->unset_read();
 	}
 
 	/**
@@ -4991,7 +4991,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 		{
 			if(!$this->table_exists($this->basic_db_table))
 			{
-				throw new Exception('The table name does not exist. Please check you database and try again.',11);
+				throw new Exception($this->basic_db_table.' The table name does not exist. Please check you database and try again.',11);
 				die();
 			}
 			$this->basic_db_table_checked = true;

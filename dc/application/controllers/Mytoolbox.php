@@ -10,6 +10,7 @@ class Mytoolbox extends MY_Controller
         // only login users can access Account controller
 //        $this->verify_login();
         $this->load->model('post_model');
+        $this->load->model('Profilemodel');
     }
 
     public function index()
@@ -29,7 +30,8 @@ class Mytoolbox extends MY_Controller
         $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
 
         $this->mViewData['categories'] = $this->Categoriesmodel->getDropDown(0);
-        $this->mViewData['post'] = $this->post_model->get_post_by_id($id);
+        $this->mViewData['post'] = $this->Profilemodel->getProfile($id);
+//        print_r($this->mViewData);
         $this->mViewData['view_file']='post_edit_view';
         $this->render('my_toolbox', 'main_layout');
 //        $this->render('business_edit_view', 'main_layout');
@@ -43,18 +45,16 @@ class Mytoolbox extends MY_Controller
     public function updatepost()
     {
         $state_active = get_settings('business_settings', 'show_state_province', 'yes');
-        $id = $this->input->post('id');
+        $id = $this->input->post('profile_id');
 
         $this->load->helper('date');
         $time = time();
         $data =  $this->input->post();  //unset($marks["Ram"]);
 //        $data['parent_category'] = get_category_parent_by_id($data['category']);
 
-        $data['state'] = $state_active == 'yes' ? $this->input->post('state') : 0;
-
         $this->load->model('admin/system_model');
 
-        $data['gallery'] = ($this->input->post('gallery') != false) ? json_encode($this->input->post('gallery')) : '[]';
+//        $data['gallery'] = ($this->input->post('gallery') != false) ? json_encode($this->input->post('gallery')) : '[]';
 
         if ($this->input->post('assigned_to') != '')
             $data['created_by'] = $this->input->post('assigned_to');
@@ -81,9 +81,9 @@ class Mytoolbox extends MY_Controller
             }
         }
 
-        $data['opening_hour'] = json_encode($opening_hours);
-
-        $data['last_update_time'] = $time;
+//        $data['opening_hour'] = json_encode($opening_hours);
+//
+//        $data['last_update_time'] = $time;
 
         unset($data['business_logo']);
         for ($i=1;$i<6;$i++){
@@ -92,7 +92,7 @@ class Mytoolbox extends MY_Controller
         }
 
 
-        $this->post_model->update_post($data, $id);
+        $this->Profilemodel->update($id,$data);
         $post_id = $id;
 
         add_post_meta($post_id, 'facebook_profile', $this->input->post('facebook_profile'));
