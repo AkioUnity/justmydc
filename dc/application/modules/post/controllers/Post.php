@@ -74,7 +74,7 @@ class Post extends Admin_Controller
         $this->load->view('include/breadcrum');
     }
 
-    public function editPost($id, $section_id, $action)
+    public function editPost($id)
     {
         $this->mViewData['marketAddedLists'] = $this->Postmodel->getAddedMarketsById($id);
         $this->mViewData['profileAddedLists'] = $this->Postmodel->getAddedProfileById($id);

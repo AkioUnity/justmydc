@@ -43,12 +43,12 @@ class Profilemodel extends CI_Model
 
     }
 
-    function getProfileOnly($profile_status)
+    function getProfileOnly($profile_status=null)
     {
         $this->db->select('*');
         $this->db->from('profiles');
         $this->db->order_by("profile_id", "DESC");
-        if (!empty($profile_status)) {
+        if (!$profile_status) {
             $this->db->where("profile_status", $profile_status);
         }
         $query = $this->db->get();
