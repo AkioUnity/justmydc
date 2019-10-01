@@ -17,7 +17,7 @@
                 <!-- form start -->
                 <div class="box-body">
 					<?php $i=1; foreach ($profileMedia as $profileMedia):$i++;?>
-					<form id="" role="form" action="<?php echo base_url(); ?>profile/updateProfileMedia?Id=<?php echo $profileMedia['id'];?>&&profileId=<?php echo $this->input->get('profileId') ?>" enctype="multipart/form-data" method="post"/>
+					<form id="" role="form" action="<?php echo base_url(); ?>profile/updateProfileMedia?Id=<?php echo $profileMedia['id'];?>&&profileId=<?php echo $this->input->get('profileId') ?>" enctype="multipart/form-data" method="post">
 						<div class="row">
 							<div class="col-lg-6 col-sm-6 col-xs-6">
 								<div class="form-group">
@@ -38,7 +38,7 @@
 							</div>
 							<div class="col-lg-6 col-sm-6 col-xs-6">
 								<div class="form-group">
-									<label for="MediaFile">Audio / Video</label>
+									<label for="MediaFile">Image / Video</label>
 									<select class="form-control" name="media_type">
 										<option value="">---Type---</option>
 										<option value="1" <?php if($profileMedia['pm_type'] == "image") {?> <?php echo "selected"?> <?php } ?>>Image</option>

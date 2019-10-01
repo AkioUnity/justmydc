@@ -474,7 +474,7 @@ class Profilemodel extends MY_Model
     {
         //echo "<pre>";  print_r($data); die;
         foreach ($data['media_file_name'] as $key => $value) {
-            $arr['profile_media'] = array(
+            $arr = array(
                 "Profile_id" => $profileId,
                 "pm_type" => $data['media_type'][$key],
                 "pm_url" => $data['media_url'][$key],
@@ -484,7 +484,7 @@ class Profilemodel extends MY_Model
 
             );
             //echo "<pre>";  print_r($arr); die;
-            $result1 = $this->db->insert('profile_media', $arr['profile_media']);
+            $result1 = $this->db->insert('profile_media', $arr);
         }
         return true;
     }
