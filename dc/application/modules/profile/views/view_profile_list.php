@@ -85,7 +85,7 @@
                                     <?php //echo $profile['profile_st']; ?><!--</td>-->
                                     <td><?php echo $profile['profile_type']; ?></td>
                                     <td>
-                                        <a href="<?php echo $profile['market_site']; ?>/mytoolbox/myprofile/<?php echo $profile['profile_id'] ?>">
+                                        <a target="_blank" href="<?php echo $profile['market_site']; ?>/mytoolbox/myprofile/<?php echo $profile['profile_id'] ?>">
                                             Edit Profile
                                         </a>
                                     </td>

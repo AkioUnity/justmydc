@@ -30,8 +30,7 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 
-
-    <link rel="stylesheet" href="https://2019fun.justmy.com/assets/dev2019/main.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo css_url('main.css')?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url('dist/frontend/frontend.css')?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo css_url('interactive.css')?>"/>
 

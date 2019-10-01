@@ -11,7 +11,7 @@ class Profilemodel extends MY_Model
         $this->load->database();
     }
 
-    function getProfile($ProfileId)
+    function getProfile0($ProfileId)
     {
         $this->db->select('*');
         $this->db->from('profiles');
@@ -22,19 +22,47 @@ class Profilemodel extends MY_Model
 
     }
 
-    function update_post($data,$id)
+    function getProfile($ProfileId = -1)
     {
-        $this->db->update('profiles',$data,array('profile_id'=>$id));
+        $this->db->select('*');
+        $this->db->from('profiles');
+
+        if ($ProfileId!=-1) {
+            $this->db->where("profile_id", $ProfileId);
+        }
+        $query = $this->db->get();
+//        echo $this->db->last_query(); die;
+        return $query->result_array();
+
+    }
+
+    function searchProfileList($name){
+        $this->db->select('infogroup_id,name,logo_url,street,city,state,zip');
+        $this->db->from('cai_places');
+        $this->db->like('name', $name);
+        $this->db->limit(100);
+        $this->db->group_by('infogroup_id');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    function getClaimedProfile($id){
+        $this->db->select("latitude,longitude,street,suite,city,state,name,phone,website,facebook_url,instagram_url,twitter_url,company_description,sic_code,zip");
+//        $this->db->select('*');
+        $this->db->from('cai_places');
+        $this->db->where("infogroup_id",$id);
+        $query = $this->db->get();
+//        echo $this->db->last_query(); die;
+        return $query->result_array();
     }
 
 
-    //--------------------end---------------------------
-    function getProfileOnly($profile_status)
+    function getProfileOnly($profile_status=null)
     {
         $this->db->select('*');
         $this->db->from('profiles');
         $this->db->order_by("profile_id", "DESC");
-        if (!empty($profile_status)) {
+        if (!$profile_status) {
             $this->db->where("profile_status", $profile_status);
         }
         $query = $this->db->get();
@@ -42,7 +70,7 @@ class Profilemodel extends MY_Model
         return $query->result_array();
     }
 
-    function getProfileList($profile_status)
+    function getProfileList($profile_status=null)
     {
         $this->db->select('a.*,c.market_name,c.market_site,d.name as profile_type');
         $this->db->from('profiles a');
@@ -50,12 +78,17 @@ class Profilemodel extends MY_Model
         $this->db->join('markets c', 'b.market_id = c.market_id');
         $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         $this->db->order_by("profile_id", "DESC");
-        if (!empty($profile_status)) {
+        if (!($profile_status)) {
             $this->db->where("profile_status", $profile_status);
         }
         $query = $this->db->get();
-//        echo $this->db->last_query(); die;
-        return $query->result_array();
+        //        echo $this->db->last_query(); die;
+        $res = $query->result_array();
+//        for ($i=0;$i<count($res);$i++){
+//            $id=$res[$i]['profile_id'];
+//
+//        }
+        return $res;
     }
 
     function getTypeList()
@@ -341,22 +374,9 @@ class Profilemodel extends MY_Model
 
     public function updateProfileMap($data, $profileId)
     {
-        $data['profileMap'] = $this->getProfileMap($profileId);
-        $arr['profile_map'] = array(
-            "profile_id" => $profileId,
-            "pm_show" => $data['show'],
-            "pm_coordinates" => $data['coordinates'],
-            "pm_lat" => $data['lat'],
-            "pm_long" => $data['long']
-        );
-        if (count($data['profileMap']) > 0) {
-            $result1 = $this->db->update('profile_map', $arr['profile_map'], array('profile_id' => $profileId));
-        } else {
-            $result1 = $this->db->insert('profile_map', $arr['profile_map']);
-        }
+        $this->db->update('profiles', $data, array('profile_id' => $profileId));
         //echo $this->db->last_query(); die;
         redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-
     }
 
     public function updateProfileReviews($data, $profileId)
@@ -384,15 +404,15 @@ class Profilemodel extends MY_Model
     public function updateProfileSlogan($data, $profileId)
     {
         $data['profileSlogan'] = $this->getProfileSlogan($profileId);
-        $arr['profile_slogan'] = array(
+        $arr = array(
             "Profile_id" => $profileId,
             "slogan" => $data['tagline']
 
         );
         if (count($data['profileSlogan']) > 0) {
-            $result1 = $this->db->update('profile_slogan', $arr['profile_slogan'], array('profile_id' => $profileId));
+            $result1 = $this->db->update('profile_slogan', $arr, array('profile_id' => $profileId));
         } else {
-            $result1 = $this->db->insert('profile_slogan', $arr['profile_slogan']);
+            $result1 = $this->db->insert('profile_slogan', $arr);
         }
         //echo $this->db->last_query(); die;
         redirect(base_url() . 'profile/editProfile?id=' . $profileId);
@@ -552,13 +572,18 @@ class Profilemodel extends MY_Model
             "profile_st" => $data['state'],
             "profile_contact" => $data['contact'],
             "profile_email" => $data['email'],
-            "profile_web" => "www." . $data['web'],
-            "profile_username" => $data['user_name']
-
+            "profile_web" => $data['web'],
+            "profile_username" => $data['user_name'],
+            "infogroup_id" => $data['infogroup_id']
         );
         //echo "<pre>";  print_r($arr['profile']); die;
         $this->db->insert('profiles', $arr['profile']);
         //echo $this->db->last_query(); die;
+        $arr = array(
+            "market_id" => 28,
+            "profile_id" => $this->db->insert_id()
+        );
+        $this->db->insert('profile_market', $arr);
         return true;
     }
 
@@ -566,11 +591,11 @@ class Profilemodel extends MY_Model
     {
         $this->deleteAllProfileMarkets($profileId);
         foreach ($data as $market) {
-            $array['profile_market'] = array(
+            $arr = array(
                 "market_id" => $market,
                 "profile_id" => $profileId
             );
-            $this->db->insert('profile_market', $array['profile_market']);
+            $this->db->insert('profile_market', $arr);
         }
         return true;
     }

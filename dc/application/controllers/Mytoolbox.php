@@ -30,7 +30,7 @@ class Mytoolbox extends MY_Controller
         $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
 
         $this->mViewData['categories'] = $this->Categoriesmodel->getDropDown(0);
-        $this->mViewData['post'] = $this->Profilemodel->getProfile($id);
+        $this->mViewData['post'] = $this->Profilemodel->getProfile0($id);
 //        print_r($this->mViewData);
         $this->mViewData['view_file']='post_edit_view';
         $this->render('my_toolbox', 'main_layout');

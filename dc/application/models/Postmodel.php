@@ -408,7 +408,7 @@ class Postmodel extends CI_Model
                 if ($data['section_id'][$i]==29) { //Header Section  //change logo image
                     $blank='data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D';
                     if ($data['cp_image'] && $data['cp_image'!=''])
-                        $blank='http://2019fun.justmy.com/upload/images/'.$data['cp_image'];
+                        $blank='https://dc.justmy.com/upload/images/'.$data['cp_image'];
                     $content=str_replace('header_logo_url',$blank,$content);
                 }
                 foreach ($section_parameters as $parameter){
