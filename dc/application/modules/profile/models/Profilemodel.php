@@ -28,17 +28,16 @@ class Profilemodel extends CI_Model
         return $query->result_array();
     }
 
-    function getProfile($ProfileId = NULL)
+    function getProfile($ProfileId = -1)
     {
         $this->db->select('*');
         $this->db->from('profiles');
 
-        if ($ProfileId) {
+        if ($ProfileId!=-1) {
             $this->db->where("profile_id", $ProfileId);
         }
         $query = $this->db->get();
-
-//echo $this->db->last_query(); die;
+//        echo $this->db->last_query(); die;
         return $query->result_array();
 
     }

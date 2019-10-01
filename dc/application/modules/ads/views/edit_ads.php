@@ -21,9 +21,6 @@
                 <div class="box-body">
                     <?php //echo "<pre>";print_r($categories); die; ?>
                     <?php $i = 1;
-                    foreach ($ads
-
-                    as $ads):
                     $i++; ?>
                     <form id="" role="form" action="<?php echo base_url(); ?>ads/updateAd?Id=<?php echo $ads['id']; ?>"
                           enctype="multipart/form-data" method="post" class="attireCodeToggleBlock"/>
@@ -33,11 +30,10 @@
                     </div>
                     <div class="row">
 
-						<center><input class=" btn btn-info" type="submit" value="Submit" ></center>
-                                </form>
-                                <?php endforeach; ?>
-                            </div><!-- /.box -->
-                        </div>
-                    </div>
+                        <center><input class=" btn btn-info" type="submit" value="Submit"></center>
+                        </form>
+                    </div><!-- /.box -->
                 </div>
+            </div>
+        </div>
 </section>

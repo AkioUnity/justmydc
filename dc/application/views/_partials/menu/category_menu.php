@@ -11,7 +11,7 @@ if ($c_categories) {?>
         <button class="dropbtn">LOCAL Businesses  <b class="caret"></b></button>
         <div class="dropdown-content">
             <?php foreach($c_categories as $c_categories): ?>
-                <a href="categories?id=<?php echo $c_categories['id']?>&&name=<?php echo $c_categories['cc_title'] ?>"><?php echo $c_categories['cc_title']; ?></a>
+                <a href="/business?id=<?php echo $c_categories['id']?>&&name=<?php echo $c_categories['cc_title'] ?>"><?php echo $c_categories['cc_title']; ?></a>
             <?php endforeach; ?>
         </div>
     </div>

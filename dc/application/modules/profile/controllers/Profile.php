@@ -81,9 +81,11 @@ class Profile extends Admin_Controller
 
     public function addProfile()
     {
+        $data['profile'] = $this->Profilemodel->getProfile(0)[0];
+
         $this->load->view('include/header');
         $this->load->view('include/breadcrum');
-        $this->load->view('add_profile');
+        $this->load->view('add_profile', $data);
         $this->load->view('include/footer');
     }
 

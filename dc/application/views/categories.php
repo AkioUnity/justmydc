@@ -68,7 +68,7 @@
                     foreach ($sub_categories as $c_categories): ?>
                         <tr>
                             <td>
-                                <a href="<?php echo base_url(); ?>categories/sub?id=<?php echo $this->input->get('id'); ?>&&name=<?php echo $_GET['name'] ?>&&sub_id=<?php echo $c_categories['id'] ?>&&sub_name=<?php echo $c_categories['cc_title'] ?>">
+                                <a href="<?php echo base_url(); ?>business/sub?id=<?php echo $this->input->get('id'); ?>&&name=<?php echo $_GET['name'] ?>&&sub_id=<?php echo $c_categories['id'] ?>&&sub_name=<?php echo $c_categories['cc_title'] ?>">
                                     <span id="viewDet"><?php echo $c_categories['cc_title']; ?></span>
                                 </a>
                             </td>

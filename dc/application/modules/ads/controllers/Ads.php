@@ -38,6 +38,8 @@ class Ads extends Admin_Controller
     public function addAds()
     {
         $this->LoadData();
+        $this->mViewData['ads'] = $this->Adsmodel->getAds(1); //blank
+//        print_r($this->mViewData);
         $this->load->view('add_ads', $this->mViewData);
         $this->load->view('include/footer');
     }
@@ -131,6 +133,7 @@ class Ads extends Admin_Controller
 
     public function updateAd()
     {
+//        print_r($_POST);
         $data = $this->input->post();
         $this->load->library('upload');
         $attachment = "";

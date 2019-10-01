@@ -3,12 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 // NOTE: this controller inherits from MY_Controller instead of Admin_Controller,
 // since no authentication is required
-class Categories extends MY_Controller
+class Business extends MY_Controller
 {
     public function index()
     {
         $spotlight = $this->Categoriesmodel->getSpotlight($this->input->get('id'));
-        redirect("categories/sub?id=".$this->input->get('id')."&&name=".$this->input->get('name')."&&sub_id=".$spotlight->id."&&sub_name=".$spotlight->cc_title);
+        redirect("business/sub?id=".$this->input->get('id')."&&name=".$this->input->get('name')."&&sub_id=".$spotlight->id."&&sub_name=".$spotlight->cc_title);
     }
 
     public function sub()

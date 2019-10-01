@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Post extends Admin_Controller
+class Post extends MY_Controller
 {
     protected $mViewData = array();
 
@@ -81,7 +81,9 @@ class Post extends Admin_Controller
         $this->mViewData['channelAddedLists'] = $this->Postmodel->getAddedChannelById($id);
         $this->mViewData['post_section'] = $this->Postmodel->getSectionListById($id);
         $this->mViewData['statusLists'] = $this->Postmodel->getPostStatusById($id);
-        $this->mViewData['spotlight'] = $this->Postmodel->getPostSpotLightById($id)[0];
+        $spotlight=$this->Postmodel->getPostSpotLightById($id);
+        if ($spotlight)
+            $this->mViewData['spotlight'] = $spotlight[0];
         $this->mViewData['posts'] = $this->Postmodel->getPostsonly($id)[0];
         //        print_r($this->mViewData);
 //        print_r($this->mViewData);
@@ -158,18 +160,26 @@ class Post extends Admin_Controller
 
     public function viewpost()
     {
-        $uri = 'http://2019fun.justmy.com/' . $this->uri->uri_string() . '/';
-//        echo ($uri);
-        $data['view'] = $this->Postmodel->getviewData($uri);  //post data
-        $post_id = $data['view']['post_id'];
-        $data['viewDataChannel'] = $this->Postmodel->getviewDataChannel($post_id);
-        $data['viewDataMarket'] = $this->Postmodel->getviewDataMarket($post_id);
-        $data['viewDataProfile'] = $this->Postmodel->getviewDataProfile($post_id);
-        $data['post_section'] = $this->Postmodel->getSectionListById($post_id);
-        //print_r($data);
-        $this->load->view('view_single_post', $data);
-        //$url_segment = $this->uri->segment(3);
+        $this->load->model('Postmodel');
 
+        $uri='http://2019fun.justmy.com/'.$this->uri->uri_string().'/';
+//        echo ($uri);
+        //meta
+        $this->mViewData['meta_file'] = 'meta_article';
+
+        $this->mViewData['view'] = $this->Postmodel->getviewData($uri);  //post data
+        $post=$this->mViewData['view'];
+        $post_id = $this->mViewData['view']['post_id'];
+        $this->mViewData['viewDataChannel'] = $this->Postmodel->getviewDataChannel($post_id);
+        $this->mViewData['viewDataMarket'] = $this->Postmodel->getviewDataMarket($post_id);
+        $this->mViewData['viewDataProfile'] = $this->Postmodel->getviewDataProfile($post_id);
+
+        $this->mViewData['post_section'] = $this->Postmodel->getSectionListById($post_id);
+
+        //meta  cp_title
+        $this->mPageTitle = $post['cp_title'];//.' '.$post['cp_title2'];
+
+        $this->render('view_single_post', 'article_layout');
     }
 
     public function updatePost()

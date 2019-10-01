@@ -16,7 +16,7 @@
         <div class="address"><?php echo $c_categories['street']; ?><?php echo '  ' . $c_categories['city'] . ', ' . $c_categories['state']; ?></div>
         <div class="address"></div>
         <div>
-            <a href="<?php echo base_url(); ?>categories/unclaimed/<?php echo $c_categories['infogroup_id']; ?>">
+            <a href="<?php echo base_url(); ?>business/unclaimed/<?php echo $c_categories['infogroup_id']; ?>">
                 View Profile
             </a>
         </div>

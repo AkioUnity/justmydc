@@ -83,7 +83,7 @@
 <!--                                            class="fa fa-trash"></i></a>-->
 <!--                            </div>-->
                         </div>
-                        <?php if (count($parameter_list) > 0) {
+                        <?php if (isset($parameter_list) && count($parameter_list) > 0) {
                             $p = 1;
                             $j = 0;
                             foreach ($parameter_list as $section):

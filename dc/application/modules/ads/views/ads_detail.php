@@ -56,7 +56,7 @@
             <?php if ($profileLists) {
                 foreach ($profileLists as $keys => $profileList):
                     ?>
-                    <option value="<?php echo $profileList['profile_id'] ?>" <?php if ($profileList['profile_id'] == $ads['profile_id']) {
+                    <option value="<?php echo $profileList['profile_id'] ?>" <?php if ($profileList['profile_id'] == (isset($ads)?$ads['profile_id']:'')) {
                         echo "selected";
                     } ?>><?php echo ucfirst($profileList['profile_name']); ?></option>
                 <?php
@@ -90,29 +90,12 @@
         </select>
     </div>
 </div>
-<div class="col-lg-6 col-sm-6 col-xs-6">
-    <div class="form-group">
-        <label for="PostUser">User</label>
-        <select class="form-control" name="post_user">
-            <?php if ($UserLists) {
-                foreach ($UserLists as $keys => $UserList):
-                    ?>
-                    <option value="<?php echo $UserList->id; ?>" <?php if ($UserList->id == $posts['c_user_id']) {
-                        echo "selected";
-                    } ?>><?php echo ucfirst($UserList->first_name); ?></option>
-                <?php
-                endforeach;
-            } ?>
-        </select>
-    </div>
-</div>
 
 <div class="col-lg-6 col-sm-6 col-xs-12">
     <div class="form-group">
         <label for="ad_url">Ad Campaign Title</label>
         <input type="text" name="ad_campaign_title" id="ad_campaign_title" class="form-control"
-               placeholder="Enter campaign title" value="<?php echo $ads['ad_campaign_title']; ?>"
-               >
+               placeholder="Enter campaign title" value="<?php echo isset($ads['ad_campaign_title'])?$ads['ad_campaign_title']:''; ?>" >
     </div>
 </div>
 

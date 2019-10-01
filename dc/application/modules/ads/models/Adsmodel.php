@@ -16,12 +16,11 @@ class Adsmodel extends CI_Model
         $this->db->order_by("id", "DESC");
         if ($AdsId) {
             $this->db->where("id", $AdsId);
+            $query = $this->db->get();
+            return $query->row_array();
         }
         $query = $this->db->get();
-
-        //echo $this->db->last_query();
         return $query->result_array();
-
     }
 
     public function getAddedCategoriesById($AdsId = NULL)
@@ -64,18 +63,19 @@ class Adsmodel extends CI_Model
 
     }
 
-    public function updateTables($data){
-        if (count($data['markets']) > 0) {
+    public function updateTables($data)
+    {
+        if (isset($data['markets']) && count($data['markets']) > 0) {
             $this->updatePostMarket($data['id'], $data['markets']);
         } else {
             $this->deleteAllPostMarket($data['id']);
         }
-        if (count($data['categories']) > 0) {
+        if (isset($data['categories']) && count($data['categories']) > 0) {
             $this->updateAdCategory($data['id'], $data['categories']);
         } else {
             $this->deleteAllAdCategories($data['id']);
         }
-        if (count($data['channel']) > 0) {
+        if (isset($data['channel']) && count($data['channel']) > 0) {
             $this->updateAdChannel($data['id'], $data['channel']);
         } else {
             $this->deleteAllAdChannel($data['id']);
@@ -90,7 +90,7 @@ class Adsmodel extends CI_Model
             "ad_url" => $data['ad_url'],
             "ad_video" => $data['ad_video'],
             'html' => $data['html'],
-            'is_html' => $data['is_html'],
+            'is_html' => isset($data['is_html']) ? $data['is_html'] : '',
         );
 
         if (!empty($data['ad_image'])) {
@@ -112,14 +112,13 @@ class Adsmodel extends CI_Model
         $arr['ads']['ad_code'] = $data['ad_code'];
         $arr['ads']['ad_background_color'] = $data['ad_background_color'];
 
-        //echo "<pre>";  print_r($arr['ads']); die;
-        if( isset($data['id'])){
+//        echo "<pre>";  print_r($data); die;
+        if (isset($data['id'])) {
             $this->db->update('ads', $arr['ads'], array('id' => $data['id']));
-        }
-        else{
+        } else {
             $this->db->insert('ads', $arr['ads']);
             $insertId = $this->db->insert_id();
-            $data['id']=$insertId;
+            $data['id'] = $insertId;
         }
 
         $this->updateTables($data);

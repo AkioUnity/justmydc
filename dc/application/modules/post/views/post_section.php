@@ -84,7 +84,7 @@
                                             class="fa fa-trash"></i></a>
                             </div>
                         </div>
-                        <?php if (count($post_section) > 0) {
+                        <?php if  (isset($post_section) && count($post_section) > 0) {
                             $p = 1;
                             $j = 0;
                             foreach ($post_section

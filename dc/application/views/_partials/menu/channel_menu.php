@@ -23,7 +23,7 @@ if ($channel_menus) { ?>
         <button class="dropbtn">Channels <b class="caret"></b></button>
         <div class="dropdown-content" style="width: 270px">
             <?php foreach ($channel_menus as $channel): ?>
-                <a href="dashboard/channel/<?php echo $channel->channel_id ?>"><?php echo $channel->channel_name; ?></a>
+                <a href="/dashboard/channel/<?php echo $channel->channel_id ?>"><?php echo $channel->channel_name; ?></a>
             <?php endforeach; ?>
         </div>
     </div>
