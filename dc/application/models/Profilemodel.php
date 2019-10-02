@@ -13,8 +13,9 @@ class Profilemodel extends MY_Model
 
     function getProfile0($ProfileId)
     {
-        $this->db->select('*');
-        $this->db->from('profiles');
+        $this->db->select('a.*,d.name as profile_type');
+        $this->db->from('profiles a');
+        $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         $this->db->where("profile_id", $ProfileId);
         $query = $this->db->get();
         //echo $this->db->last_query(); die;
@@ -114,41 +115,11 @@ class Profilemodel extends MY_Model
 
     }
 
-    function getProfileAbout($ProfileId = NULL)
-    {
-        $this->db->select('*');
-        $this->db->from('profile_about');
-        $this->db->order_by("id", "DESC");
-        if ($ProfileId) {
-            $this->db->where("profile_id", $ProfileId);
-        }
-        $query = $this->db->get();
-
-//		echo $this->db->last_query();
-        return $query->result_array();
-
-    }
-
-    function getProfileSlogan($ProfileId = NULL)
-    {
-        $this->db->select('*');
-        $this->db->from('profile_slogan');
-        $this->db->order_by("id", "DESC");
-        if ($ProfileId) {
-            $this->db->where("profile_id", $ProfileId);
-        }
-        $query = $this->db->get();
-
-//echo $this->db->last_query();
-        return $query->result_array();
-
-    }
-
     function getProfileSocial($ProfileId = NULL)
     {
         $this->db->select('*');
         $this->db->from('profile_social');
-        $this->db->order_by("id", "DESC");
+//        $this->db->order_by("id", "DESC");
         if ($ProfileId) {
             $this->db->where("profile_id", $ProfileId);
         }
@@ -328,50 +299,6 @@ class Profilemodel extends MY_Model
         $this->db->update('profiles', $arr, array('profile_id' => $id));
     }
 
-    public function updateProfile($data)
-    {
-        $data['profile'] = $this->getProfile($this->input->get('id'));
-        $id = $this->input->get('profileId');
-        $arr['profile'] = array(
-            "Profile_name" => $data['name'],
-            "profile_add" => $data['address'],
-            "profile_zip" => $data['zip'],
-            "profile_city" => $data['city'],
-            "profile_st" => $data['state'],
-            "profile_contact" => $data['contact'],
-            "profile_email" => $data['email'],
-            "profile_web" => $data['web'],
-            "profile_status" => $data['status'],
-            "profile_username" => $data['user_name']
-        );
-        if (count($data['profile']) > 0) {
-            $result1 = $this->db->update('profiles', $arr['profile'], array('profile_id' => $id));
-        } else {
-            $result1 = $this->db->insert('profiles', $arr['profile']);
-        }
-        //echo $this->db->last_query(); die;
-        redirect(base_url() . 'profile/editProfile?id=' . $id);
-
-    }
-
-    public function updateProfileAbout($data, $profileId)
-    {
-        $data['profileAbout'] = $this->getProfileAbout($profileId);
-        $arr['profile_about'] = array(
-            "Profile_id" => $profileId,
-            "about" => $data['about']
-
-        );
-        if (count($data['profileAbout']) > 0) {
-            $result1 = $this->db->update('profile_about', $arr['profile_about'], array('profile_id' => $profileId));
-        } else {
-            $result1 = $this->db->insert('profile_about', $arr['profile_about']);
-        }
-        //echo $this->db->last_query(); die;
-        redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-
-    }
-
     public function updateProfileMap($data, $profileId)
     {
         $this->db->update('profiles', $data, array('profile_id' => $profileId));
@@ -401,38 +328,6 @@ class Profilemodel extends MY_Model
 
     }
 
-    public function updateProfileSlogan($data, $profileId)
-    {
-        $data['profileSlogan'] = $this->getProfileSlogan($profileId);
-        $arr = array(
-            "Profile_id" => $profileId,
-            "slogan" => $data['tagline']
-
-        );
-        if (count($data['profileSlogan']) > 0) {
-            $result1 = $this->db->update('profile_slogan', $arr, array('profile_id' => $profileId));
-        } else {
-            $result1 = $this->db->insert('profile_slogan', $arr);
-        }
-        //echo $this->db->last_query(); die;
-        redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-
-    }
-
-    public function updateProfileSocial($data = NULL, $profileId = NULL)
-    {
-        foreach ($data['name'] as $key => $name) {
-            $arr['profile_social'] = array(
-                "Profile_id" => $profileId,
-                "ps_name" => $name,
-                "ps_url" => $data['url'][$key]
-            );
-            //echo "<pre>";  print_r($arr); die;
-            $result1 = $this->db->insert('profile_social', $arr['profile_social']);
-            //echo $this->db->last_query(); die;
-        }
-        return true;
-    }
 
     public function insertProfileFeatures($data = NULL, $profileId = NULL)
     {

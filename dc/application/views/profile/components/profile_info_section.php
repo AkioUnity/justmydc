@@ -50,10 +50,10 @@
 <div class="form-group">
     <label class="col-md-3 control-label">Phone</label>
     <div class="col-md-8">
-        <?php $v = (set_value('phone') != '') ? set_value('phone') : $post->phone; ?>
-        <input id="phone_no" type="text" name="phone" placeholder="phone"
+        <?php $v = (set_value('profile_contact') != '') ? set_value('profile_contact') : $post->profile_contact; ?>
+        <input id="phone_no" type="text" name="profile_contact" placeholder="phone"
                value="<?php echo $v; ?>" class="form-control">
-        <?php echo form_error('phone_no'); ?>
+        <?php echo form_error('profile_contact'); ?>
     </div>
 </div>
 

@@ -15,13 +15,13 @@
     <label class="col-md-1 control-label">Label</label>
     <div class="col-md-2">
         <input type="text" name="label1"
-               value="<?php echo get_post_meta($post->profile_id, 'label1', ''); ?>"
+               value="<?php echo isset($profileSocial[3]['hotlink_name'])?$profileSocial[3]['hotlink_name']:''; ?>"
                class="form-control">
     </div>
     <label class="col-md-1 control-label">link</label>
     <div class="col-md-8">
         <input type="text" name="link1"
-               value="<?php echo get_post_meta($post->profile_id, 'link1', ''); ?>"
+               value="<?php echo isset($profileSocial[3]['ps_url'])?$profileSocial[3]['ps_url']:''; ?>"
                class="form-control">
     </div>
 </div>
@@ -30,30 +30,37 @@
     <label class="col-md-1 control-label">Label</label>
     <div class="col-md-2">
         <input type="text" name="label2"
-               value="<?php echo get_post_meta($post->profile_id, 'label2', ''); ?>"
+               value="<?php echo isset($profileSocial[4]['hotlink_name'])?$profileSocial[4]['hotlink_name']:''; ?>"
                class="form-control">
     </div>
     <label class="col-md-1 control-label">link</label>
     <div class="col-md-8">
         <input type="text" name="link2"
-               value="<?php echo get_post_meta($post->profile_id, 'link2', ''); ?>"
+               value="<?php echo isset($profileSocial[4]['ps_url'])?$profileSocial[4]['ps_url']:''; ?>"
                class="form-control">
     </div>
 </div>
-<?php for ($i = 3; $i < 6; $i++) { ?>
-
+<?php for ($i = 0; $i < 3; $i++) {
+//    print_r($social_enum)?>
     <div class="form-group">
-        <label class="col-md-12 link-label">Select Social <?php echo $i - 2; ?></label>
+        <label class="col-md-12 link-label">Select Social <?php echo $i +1; ?></label>
         <label class="col-md-1 control-label">Type</label>
         <div class="col-md-2">
-            <input type="text" name="label<?php echo $i; ?>"
-                   value="<?php echo get_post_meta($post->profile_id, 'label' . $i, ''); ?>"
-                   class="form-control">
+            <select class="form-control" name="ps_name[]">
+                <?php for($j=0;$j<count($social_enum)-1 ;$j++){
+                    $enum=$social_enum[$j];
+                    ?>
+                    <option value="<?php echo $enum; ?>" <?php if (isset($profileSocial[$i]['ps_name']) && $enum == $profileSocial[$i]['ps_name']) {
+                        echo "selected";
+                    } ?>><?php echo $enum; ?></option>
+                    <?php
+                } ?>
+            </select>
         </div>
         <label class="col-md-1 control-label">link</label>
         <div class="col-md-8">
-            <input type="text" name="link<?php echo $i; ?>"
-                   value="<?php echo get_post_meta($post->profile_id, 'link' . $i, ''); ?>"
+            <input type="text" name="ps_url[]"
+                   value="<?php echo isset($profileSocial[$i]['ps_url'])?$profileSocial[$i]['ps_url']:''; ?>"
                    class="form-control">
         </div>
     </div>

@@ -2,7 +2,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-6">
         <div class="form-group">
             <label for="ProfileName">Name</label>
-            <input type="text" name="name" class="form-control" id="ProfileName"
+            <input type="text" name="profile_name" class="form-control" id="ProfileName"
                    placeholder="Enter name"
                    value="<?php echo $profile->profile_name; ?>" required>
         </div>
@@ -11,7 +11,7 @@
         <div class="form-group">
             <label for="UserName" class="conditions">Username</label><span
                     class="constraint"> (No Special Characters and Spaces are allowed.)</span>
-            <input type="text" name="user_name"
+            <input type="text" name="profile_username"
                    value="<?php echo $profile->profile_username; ?>"
                    class="form-control" id="UserName" placeholder="Enter Username"
                    onkeypress="return checkSpcialChar(event)" required>
@@ -22,7 +22,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-12">
         <div class="form-group">
             <label for="Contact">Contact No.</label>
-            <input type="text" name="contact" class="form-control" id="Contact"
+            <input type="text" name="profile_contact" class="form-control" id="Contact"
                    placeholder="Enter Contact No."
                    value="<?php echo $profile->profile_contact; ?>" required>
         </div>
@@ -30,7 +30,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-12">
         <div class="form-group">
             <label for="Zip">Zip</label>
-            <input type="text" name="zip"
+            <input type="text" name="profile_zip"
                    value="<?php echo $profile->profile_zip; ?>"
                    class="form-control" id="zip" placeholder="Enter Zip No."
                    required>
@@ -41,7 +41,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-12">
         <div class="form-group">
             <label for="Email">Email</label>
-            <input type="email" name="email" class="form-control" id="Email"
+            <input type="email" name="profile_email" class="form-control" id="Email"
                    placeholder="Enter Email"
                    value="<?php echo $profile->profile_email; ?>" required>
         </div>
@@ -49,7 +49,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-12">
         <div class="form-group">
             <label for="Web">Web</label>
-            <input type="text" name="web"
+            <input type="text" name="profile_web"
                    value="<?php echo $profile->profile_web; ?>"
                    class="form-control" id="web" placeholder="Enter Web" required>
         </div>
@@ -59,7 +59,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-6">
         <div class="form-group">
             <label for="Address">Address</label>
-            <input type="text" name="address" class="form-control" id="address"
+            <input type="text" name="profile_add" class="form-control" id="address"
                    placeholder="Enter Address"
                    value="<?php echo $profile->profile_add; ?>" required>
         </div>
@@ -67,7 +67,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-6">
         <div class="form-group">
             <label for="InputStatus">Status</label>
-            <select class="form-control" name="status">
+            <select class="form-control" name="profile_status">
                 <option value="">---Status---</option>
                 <option value="1" <?php if ($profile->profile_status == "Pending") { ?><?php echo "selected" ?><?php } ?>>Pending</option>
                 <option value="2" <?php if ($profile->profile_status == "Live") { ?><?php echo "selected" ?><?php } ?>>Live</option>
@@ -82,7 +82,7 @@
     <div class="col-lg-6 col-sm-6 col-xs-6">
         <div class="form-group">
             <label for="City">City</label>
-            <input type="text" name="city"
+            <input type="text" name="profile_city"
                    value="<?php echo $profile->profile_city; ?>"
                    class="form-control" id="City" placeholder="Enter City" required>
         </div>
@@ -91,7 +91,7 @@
         <div class="form-group">
             <label for="State" class="conditions">State</label><span
                     class="constraint"> (Enter 2-characters state abbreviation.)</span>
-            <input type="text" name="state"
+            <input type="text" name="profile_st"
                    value="<?php echo $profile->profile_st; ?>"
                    class="form-control" id="State" placeholder="Enter State"
                    maxlength="2" required>

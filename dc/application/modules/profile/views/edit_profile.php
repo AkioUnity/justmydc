@@ -136,50 +136,6 @@
                 </div><!-- /.box-header -->
 
                 <!-- form start -->
-                <button class="accordion">Slogan<i class="fa fa-angle-double-down"></i></button>
-                <div class="panel">
-                    <div class="box-body">
-                        <?php if ($profileSlogan) { ?>
-                            <?php $i = 1;
-                            foreach ($profileSlogan as $profileSlogan): ?>
-                                <form action="<?php echo base_url(); ?>profile/updateProfileSlogan?profileId=<?php echo $this->input->get('id') ?>"
-                                      method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-lg-2 col-sm-2 col-xs-2">
-                                        </div>
-                                        <div class="col-lg-8 col-sm-8 col-xs-8">
-                                            <div class="form-group">
-                                                <label for="Tagline">Tagline</label>
-                                                <textarea id="" name="tagline" class="form-control"
-                                                          required><?php echo $profileSlogan['slogan']; ?></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2 col-sm-2 col-xs-2">
-                                        </div>
-                                    </div>
-                                    <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                                </form>
-                                <?php $i++; endforeach;
-                        } else { ?>
-                            <form action="<?php echo base_url(); ?>profile/updateProfileSlogan?profileId=<?php echo $this->input->get('id') ?>"
-                                  method="post" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-2 col-sm-2 col-xs-2">
-                                    </div>
-                                    <div class="col-lg-8 col-sm-8 col-xs-8">
-                                        <div class="form-group">
-                                            <label for="Tagline">Tagline</label>
-                                            <textarea id="" name="tagline" class="form-control" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2 col-xs-2">
-                                    </div>
-                                </div>
-                                <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                            </form>
-                        <?php } ?>
-                    </div><!-- /.box -->
-                </div>
                 <button class="accordion">Logo<i class="fa fa-angle-double-down"></i></button>
                 <div class="panel">
                     <div class="box-body">
@@ -259,122 +215,8 @@
                         <?php } ?>
                     </div><!-- /.box -->
                 </div>
-                <button class="accordion">About<i class="fa fa-angle-double-down"></i></button>
-                <div class="panel">
-                    <div class="box-body">
-                        <?php if (count($profileAbout) > 0) { ?>
-                            <?php $i = 1;
-                            foreach ($profileAbout as $profileAbout): ?>
-                                <form action="<?php echo base_url(); ?>profile/updateProfileAbout?profileId=<?php echo $this->input->get('id') ?>"
-                                      method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-lg-1 col-sm-1 col-xs-1">
-                                        </div>
-                                        <div class="col-lg-10 col-sm-10 col-xs-10">
-                                            <div class="form-group">
-                                                <label for="About">About</label>
-                                                <textarea id="" name="about" class="form-control about"
-                                                          required><?php echo $profileAbout['about']; ?></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-1 col-sm-1 col-xs-1">
-                                        </div>
-                                    </div>
-                                    <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                                </form>
-                                <?php $i++; endforeach;
-                        } else { ?>
-
-                            <form action="<?php echo base_url(); ?>profile/updateProfileAbout?profileId=<?php echo $this->input->get('id') ?>"
-                                  method="post" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-1 col-sm-1 col-xs-1">
-                                    </div>
-                                    <div class="col-lg-10 col-sm-10 col-xs-10">
-                                        <div class="form-group">
-                                            <label for="About">About</label>
-                                            <textarea id="" name="about" class="form-control about" required></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-2 col-sm-2 col-xs-2">
-                                    </div>
-                                </div>
-                                <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                            </form>
-                        <?php } ?>
-                    </div><!-- /.box -->
-                </div>
-                <button class="accordion">Social Media Details <i class="fa fa-angle-double-down"></i></button>
-                <div class="panel">
-                    <div class="box-body">
-                        <div class="container">
-                            <div class="form-group">
-                                <form action="<?php echo base_url(); ?>profile/updateProfileSocial?profileId=<?php echo $this->input->get('id') ?>"
-                                      method="post" enctype="multipart/form-data">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dynamic_field">
-                                            <tr>
-                                                <td><select class="form-control" name="name[]">
-                                                        <option value="">---Social Media---</option>
-                                                        <option value="1">Twitter</option>
-                                                        <option value="2">Facebook</option>
-                                                        <option value="3">Instagram</option>
-                                                        <option value="4">LinkedIn</option>
-                                                        <option value="5">Youtube</option>
-                                                        <option value="5">Vimeo</option>
-                                                        <option value="5">SC</option>
-                                                    </select></td>
-                                                <td><input type="text" name="url[]" placeholder="Enter Url"
-                                                           class="form-control name_list"/></td>
-                                                <td>
-                                                    <button type="button" name="add" id="add" class="btn btn-info">Add
-                                                        More
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                                </form>
-                            </div>
-                        </div>
-                    </div><!-- /.box -->
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>S No.</th>
-                            <th>Social Media</th>
-                            <th>Link</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php if ($profileSocial) { ?>
-                            <?php $i = 1;
-                            foreach ($profileSocial as $profileSocial): ?>
-
-                                <tr>
-                                    <td><?php echo $i; ?></td>
-                                    <td><?php echo $profileSocial['ps_name'];; ?></td>
-                                    <td><?php echo $profileSocial['ps_url']; ?></td>
-                                    <td>
-                                        <a href="<?php echo base_url(); ?>profile/deleteProfileSocialMedia?id=<?php echo $profileSocial['id'] ?>&&profileId=<?php echo $this->input->get('id') ?>"
-                                           class="delete">
-                                            <span class="fa fa-trash" id="res"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php $i++; endforeach;
-                        } else { ?>
-                            <tr>
-                                <td><h3>Result Not Found </h3></td>
-                            </tr>
-                        <?php } ?>
-
-
-                        </tbody>
-                    </table>
-                </div>
+                <?php include 'section/profile_about.php' ?>
+                <?php include 'section/profile_social_link.php' ?>
                 <button class="accordion">Features <i class="fa fa-angle-double-down"></i></button>
                 <div class="panel">
                     <div class="box-body">
@@ -969,6 +811,26 @@
     });
 
 </script>
+
+<script type="text/javascript" src="<?php echo base_url('assets/tinymce/tinymce.min.js'); ?>"></script>
+<script type="text/javascript">
+    tinymce.init({
+        convert_urls: 0,
+        selector: ".rich",
+        menubar: false,
+        toolbar: "styleselect | bold | link | bullist | code | fullscreen",
+        plugins: [
+
+            "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+
+            "save code table contextmenu directionality emoticons template paste textcolor"
+
+        ]
+    });
+</script>
+
 
 <script language="JavaScript" type="text/javascript">
     $(document).ready(function () {

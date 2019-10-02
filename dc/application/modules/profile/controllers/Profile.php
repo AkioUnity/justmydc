@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Profile extends Admin_Controller
+class Profile extends MY_Controller
 {
 
     function __construct()
@@ -9,6 +9,7 @@ class Profile extends Admin_Controller
         parent::__construct();
 
         $this->load->model('Profilemodel');
+        $this->load->model('profile/Profile_social_model');
         $this->load->model('market/Marketmodel');
         $this->load->model('channel/Channelmodel');
         $this->load->model('categories/Categoriesmodel');
@@ -131,70 +132,93 @@ class Profile extends Admin_Controller
         }
     }
 
+    public function LoadProfile(){
+        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($this->input->get('id'));
+    }
+
     public function editProfile()
     {
-        $data['marketLists'] = $this->Marketmodel->getMarketList();
+        $this->LoadProfile();
 
-        $data['channelLists'] = $this->Channelmodel->getChannel();
-        $data['typeList'] = $this->Profilemodel->getTypeList();
-        $data['profileLists'] = $this->Profilemodel->getProfileOnly();
-        $data['UserLists'] = $this->Usermodel->getUserOnly();
+        $this->mViewData['marketLists'] = $this->Marketmodel->getMarketList();
 
-        $data['marketAddedLists'] = $this->Profilemodel->getAddedMarketsById($this->input->get('id'));
+        $this->mViewData['channelLists'] = $this->Channelmodel->getChannel();
+        $this->mViewData['typeList'] = $this->Profilemodel->getTypeList();
+        $this->mViewData['profileLists'] = $this->Profilemodel->getProfileOnly();
+        $this->mViewData['UserLists'] = $this->Usermodel->getUserOnly();
 
-        $data['categoryLists'] = $this->Categoriesmodel->getCategories();
-        $data['categoryAddedLists'] = $this->Profilemodel->getAddedCategoriesById($this->input->get('id'));
-        $data['channelAddedLists'] = $this->Profilemodel->getAddedChannelById($this->input->get('id'));
-        $data['channelAddedLists'] = $this->Profilemodel->getAddedChannelById($this->input->get('id'));
+        $this->mViewData['marketAddedLists'] = $this->Profilemodel->getAddedMarketsById($this->input->get('id'));
 
-        $data['profileAdmins'] = $this->Profilemodel->getProfileAdminsById($this->input->get('id'));
+        $this->mViewData['categoryLists'] = $this->Categoriesmodel->getCategories();
+        $this->mViewData['categoryAddedLists'] = $this->Profilemodel->getAddedCategoriesById($this->input->get('id'));
+        $this->mViewData['channelAddedLists'] = $this->Profilemodel->getAddedChannelById($this->input->get('id'));
+        $this->mViewData['channelAddedLists'] = $this->Profilemodel->getAddedChannelById($this->input->get('id'));
 
-        $data['profile'] = $this->Profilemodel->getProfile0($this->input->get('id'));
+        $this->mViewData['profileAdmins'] = $this->Profilemodel->getProfileAdminsById($this->input->get('id'));
 
-        $data['profileLogo'] = $this->Profilemodel->getProfileLogo($this->input->get('id'));
-        $data['profileAbout'] = $this->Profilemodel->getProfileAbout($this->input->get('id'));
-        $data['profileSlogan'] = $this->Profilemodel->getProfileSlogan($this->input->get('id'));
+        $this->mViewData['profile'] = $this->Profilemodel->get($this->input->get('id'));
+        $this->mViewData['post'] = $this->mViewData['profile'];
+        $this->mViewData['profileLogo'] = $this->Profilemodel->getProfileLogo($this->input->get('id'));
 
-        $data['profileSocial'] = $this->Profilemodel->getProfileSocial($this->input->get('id'));
+        $this->mViewData['profileFeatures'] = $this->Profilemodel->getProfileFeatures($this->input->get('id'));
 
-        $data['profileFeatures'] = $this->Profilemodel->getProfileFeatures($this->input->get('id'));
-
-        $data['profileMedia'] = $this->Profilemodel->getProfileMedia($this->input->get('id'));
-        $data['profileReview'] = $this->Profilemodel->getProfileReviews($this->input->get('id'));
+        $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMedia($this->input->get('id'));
+        $this->mViewData['profileReview'] = $this->Profilemodel->getProfileReviews($this->input->get('id'));
 //        echo "<pre>";  print_r($data); die;
         $this->load->view('include/header');
         $this->load->view('include/breadcrum');
-        $this->load->view('edit_profile', $data);
+        $this->load->view('edit_profile', $this->mViewData);
         $this->load->view('include/footer');
     }
 
+    public function myprofile($id)
+    {
+
+//        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
+//        $this->mViewData['categories'] = $this->Categoriesmodel->getDropDown(0);
+        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
+        $this->mViewData['post'] = $this->Profilemodel->getProfile0($id);
+//        print_r($this->mViewData);
+        $this->mViewData['view_file']='post_edit_view';
+
+        $this->mViewData['social_enum']=$this->Profile_social_model->get_enums('ps_name');
+
+        $this->mViewData['link'] = 'myprofile/';
+        $this->render('my_toolbox', 'main_layout');
+//        $this->render('business_edit_view', 'main_layout');
+    }
 
     public function updateProfile()
     {
         $data = $this->input->post();
-        $profileId = $this->input->get('profileId');
-        if ($result = $this->Profilemodel->updateProfile($data)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $id = $this->input->get('profileId');
+
+        $profileData['profile_name']=$data['profile_name'];
+        $profileData['profile_add']=$data['profile_add'];
+        $profileData['profile_city']=$data['profile_city'];
+        $profileData['profile_st']=$data['profile_st'];
+        $profileData['profile_zip']=$data['profile_zip'];
+        $profileData['profile_contact']=$data['profile_contact'];
+        $profileData['profile_email']=$data['profile_email'];
+        $profileData['profile_tagline']=$data['profile_tagline'];
+        $profileData['profile_about']=$data['profile_about'];
+
+        $this->Profilemodel->update($id,$profileData);
+
+        $this->Profile_social_model->updateProfileSocial($data, $id);
+
+        $this->session->set_flashdata('msg', '<div class="alert alert-success">Business Profile was updated</div>');
+        redirect('profile/myprofile/'. $id);
     }
 
-    public function updateProfileAbout()
+    public function updateProfileDetail()
     {
         $data = $this->input->post();
-        //echo "<pre>";  print_r($data); die;
-        $profileId = $this->input->get('profileId');
-        if ($result = $this->Profilemodel->updateProfileAbout($data, $profileId)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
-    }
+        $id = $this->input->get('profileId');
 
-    public function updateProfileSlogan()
-    {
-        $data = $this->input->post();
-        $profileId = $this->input->get('profileId');
-        if ($result = $this->Profilemodel->updateProfileSlogan($data, $profileId)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $link='editProfile?id=';
+        $this->Profilemodel->update($id,$data);
+        redirect('profile/'.$link. $id);
     }
 
     public function updateProfileSocial()
@@ -202,7 +226,7 @@ class Profile extends Admin_Controller
         $data = $this->input->post();
         //echo "<pre>";  print_r($data); die;
         $profileId = $this->input->get('profileId');
-        if ($result = $this->Profilemodel->updateProfileSocial($data, $profileId)) {
+        if ($result = $this->Profile_social_model->updateProfileSocial($data, $profileId)) {
             redirect(base_url() . 'profile/editProfile?id=' . $profileId);
         }
     }

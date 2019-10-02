@@ -3,8 +3,6 @@
 </script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>-->
 <link href="<?php echo theme_url(); ?>/assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-<!--<link href="--><?php //echo theme_url();?><!--/assets/css/styles/style.css" rel="stylesheet">-->
-<!--<link href="--><?php //echo theme_url();?><!--/assets/css/styles/skin-lblue.css" rel="stylesheet">-->
 <link href="<?php echo theme_url(); ?>/assets/css/custom.css" rel="stylesheet">
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
@@ -21,17 +19,34 @@
     .alert {
         width: 100%;
     }
+
+    .right_title{
+        float: right;
+        margin-right: 2vw;
+    }
+
+    <?php if ($post->profile_type_id==1){ ?>
+    .profile_content h4 {
+        display: none;
+    }
+    <?php } ?>
+
 </style>
 <div class="page-heading-two">
     <div class="container">
-        <h2><span style="color: #0f6ab4">my profile:</span><?php echo $post->profile_name; ?></h2>
+        <h2><span style="color: #0f6ab4">my profile:</span><?php echo $post->profile_name; ?>
+            <span class="right_title">
+                <span style="color: #0f6ab4">type:</span><?php echo $post->profile_type; ?>
+            </span>
+        </h2>
         <div class="clearfix"></div>
     </div>
 </div>
 <?php $state_active = 'no'; ?>
 <div class="container">
-    <form action="mytoolbox/updatepost" method="post" role="form" class="form-horizontal">
-        <input type="hidden" name="profile_id" value="<?php echo $post->profile_id; ?>">
+    <form action="profile/updateProfile?profileId=<?php echo $post->profile_id; ?>" method="post" role="form"
+          class="form-horizontal">
+        <input type="hidden" name="link" value="<?php echo $link; ?>">
         <div class="row">
             <?php echo $this->session->flashdata('msg'); ?>
             <div class="col-md-12 profile_content">
@@ -466,7 +481,6 @@ $api_key_text = ($map_api_key != '') ? "&key=$map_api_key" : '';
 </script>
 
 <script type="text/javascript" src="<?php echo base_url('assets/tinymce/tinymce.min.js'); ?>"></script>
-
 <script type="text/javascript">
     tinymce.init({
         convert_urls: 0,
@@ -485,10 +499,3 @@ $api_key_text = ($map_api_key != '') ? "&key=$map_api_key" : '';
     });
 </script>
 
-<script type="text/javascript">
-
-</script>
-
-
-<?php include 'multiple-uploader.php'; ?>
-<?php include 'bulk_uploader_view.php'; ?>

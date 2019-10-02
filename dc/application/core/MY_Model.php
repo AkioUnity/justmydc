@@ -22,9 +22,24 @@ class MY_Model extends Base_Model {
 	 * Extra functions on top of Base_Model
 	 */
 
+    public function get_enums($field = 'type')
+    {
+        $query = "SHOW COLUMNS FROM " . $this->_table . " LIKE '$field'";
+        $row = $this->db->query($query)->row()->Type;
+        $regex = "/'(.*?)'/";
+        preg_match_all($regex, $row, $enum_array);
+        $enum_fields = $enum_array[1];
+        return $enum_fields;
+//        foreach ($enum_fields as $key => $value) {
+//            $enums[$value] = $value;
+//        }
+//        return $enums;
+    }
+
 	// Select specific fields only
 	// Usage: $this->article_model->select('id, title')->get_all();
 	// Reference: https://github.com/jamierumbelow/codeigniter-base-model/issues/217
+
 	public function select($fields = '*', $escape = true) {
 		if ( is_array($fields) )
 			$fields = implode(',', $fields);
