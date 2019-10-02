@@ -12,7 +12,7 @@ class Ads extends Admin_Controller
 
         $this->load->model('Adsmodel');
         $this->load->model('market/Marketmodel');
-        $this->load->model('profile/Profilemodel');
+        $this->load->model('Profilemodel');
         $this->load->model('channel/Channelmodel');
         $this->load->model('categories/Categoriesmodel');
         $this->load->model('user/Usermodel');

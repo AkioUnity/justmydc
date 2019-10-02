@@ -11,13 +11,10 @@
                         <label for="InputProfile">Profile Type</label>
                         <select class="form-control" name="profile_type_id">
                             <option value="">---Select Profile Type---</option>
-
                             <?php if ($typeList) {
-//                                echo "<pre>"; print_r($profile);
                                 foreach ($typeList as $type):
-//                                    echo "<pre>"; print_r($type);
                                     $isSelected = '';
-                                    if ($profile[0]['profile_type_id'] == $type->id) {
+                                    if ($profile->profile_type_id == $type->id) {
                                         $isSelected = "selected";
                                     }
                                     ?>

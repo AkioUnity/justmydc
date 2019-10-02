@@ -11,7 +11,7 @@ class Post extends MY_Controller
         $this->load->model('Postmodel');
         $this->load->model('market/Marketmodel');
         $this->load->model('channel/Channelmodel');
-        $this->load->model('profile/Profilemodel');
+        $this->load->model('Profilemodel');
         $this->load->model('user/Usermodel');
         $this->load->model('section/Sectionmodel');
 //        $this->load->helper('common');

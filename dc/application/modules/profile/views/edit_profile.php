@@ -123,7 +123,6 @@
 
 <link rel="stylesheet" href="<?php echo base_url(); ?>assets/dist/css/fastselect.min.css">
 <script src="<?php echo base_url(); ?>assets/dist/js/fastselect.standalone.js"></script>
-
 <!-- Main content -->
 <section class="content">
     <div class="row">
@@ -846,7 +845,6 @@
                 <?php  include 'section/profile_detail.php'?>
             </div>
         </div>
-    </div>
     </div>
 </section>
 <!--script src="//code.jquery.com/jquery-1.10.2.js"></script-->

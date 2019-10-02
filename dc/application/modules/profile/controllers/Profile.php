@@ -149,7 +149,7 @@ class Profile extends Admin_Controller
 
         $data['profileAdmins'] = $this->Profilemodel->getProfileAdminsById($this->input->get('id'));
 
-        $data['profile'] = $this->Profilemodel->getProfile($this->input->get('id'));
+        $data['profile'] = $this->Profilemodel->getProfile0($this->input->get('id'));
 
         $data['profileLogo'] = $this->Profilemodel->getProfileLogo($this->input->get('id'));
         $data['profileAbout'] = $this->Profilemodel->getProfileAbout($this->input->get('id'));

@@ -86,7 +86,6 @@
         <?php if ($profileMedia) { ?>
             <?php $i = 1;
             foreach ($profileMedia as $profileMedia): ?>
-
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $profileMedia['pm_type'];; ?></td>
