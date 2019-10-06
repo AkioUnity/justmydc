@@ -3,7 +3,8 @@
     textarea#content {
         height: 150px;
     }
-</style>>
+</style>
+
 <div class="row">
     <!-- left column -->
     <div class="col-md-12">
@@ -19,9 +20,10 @@
                 <?php $i = 1;
                 foreach ($profileMedia as $profileMedia):$i++; ?>
                     <form id="" role="form"
-                          action="<?php echo base_url(); ?>profile/updateProfileMedia?Id=<?php echo $profileMedia['id']; ?>&&profileId=<?php echo $this->input->get('profileId') ?>"
+                          action="<?php echo base_url(); ?>profile/updateProfileMedia?Id=<?php echo $profileMedia['id']; ?>&&profileId=<?php echo $profileMedia['profile_id'] ?>"
                           enctype="multipart/form-data" method="post">
                         <div class="row">
+                            <input type="hidden" name="link" value="<?php echo $link; ?>">
                             <div class="col-lg-6 col-sm-6 col-xs-6">
                                 <div class="form-group">
                                     <label for="inputmedia">Media</label>

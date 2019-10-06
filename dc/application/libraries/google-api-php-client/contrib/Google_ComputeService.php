@@ -585,7 +585,7 @@
      * @return Google_Image
      */
     public function get($project, $image, $optParams = array()) {
-      $params = array('project' => $project, 'image' => $image);
+      $params = array('project' => $project, 'ImageUploader' => $image);
       $params = array_merge($params, $optParams);
       $data = $this->__call('get', array($params));
       if ($this->useObjects()) {
@@ -624,7 +624,7 @@
      * @return Google_Operation
      */
     public function delete($project, $image, $optParams = array()) {
-      $params = array('project' => $project, 'image' => $image);
+      $params = array('project' => $project, 'ImageUploader' => $image);
       $params = array_merge($params, $optParams);
       $data = $this->__call('delete', array($params));
       if ($this->useObjects()) {

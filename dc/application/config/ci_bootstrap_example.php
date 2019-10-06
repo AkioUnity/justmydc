@@ -185,7 +185,7 @@ $config['ci_bootstrap'] = array(
 		array(
 			'auth'		=> array('webmaster', 'admin'),
 			'name'		=> 'API Site',
-			'url'		=> 'api',
+			'url'		=> 'ImageUploader',
 			'target'	=> '_blank',
 			'color'		=> 'text-orange'
 		),

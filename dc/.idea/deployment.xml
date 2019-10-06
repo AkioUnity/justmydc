@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" serverName="70.40.220.120">
+  <component name="PublishConfigData" serverName="3 aws 3.19.28.9">
     <serverData>
+      <paths name="3 aws 3.19.28.9">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="70.40.220.120">
         <serverdata>
           <mappings>

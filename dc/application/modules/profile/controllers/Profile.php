@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profile extends MY_Controller
 {
+    public $myprofile_link='myprofile/';
 
     function __construct()
     {
@@ -92,12 +93,19 @@ class Profile extends MY_Controller
 
     public function editProfileMedia()
     {
-        $data['profileMedia'] = $this->Profilemodel->getProfileMediaOnly($this->input->get('id'));
-        //echo "<pre>";  print_r($data['profileMedia']); die;
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('edit_profile_media', $data);
-        $this->load->view('include/footer');
+        $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMediaOnly($this->input->get('id'));
+        $this->mViewData['link'] =$this->input->get('link');
+//        echo "<pre>";  print_r($data['profileMedia']); die;
+        if ($this->mViewData['link']==$this->myprofile_link){
+            $this->mViewData['view_file']='edit_profile_media';
+            $this->render('my_toolbox', 'main_layout');
+        }
+        else{
+            $this->load->view('include/header');
+            $this->load->view('include/breadcrum');
+            $this->load->view('edit_profile_media', $this->mViewData);
+            $this->load->view('include/footer');
+        }
     }
 
     public function insertProfile()
@@ -132,16 +140,17 @@ class Profile extends MY_Controller
         }
     }
 
-    public function LoadProfile(){
-        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($this->input->get('id'));
+    public function LoadProfile($id){
+
+        $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMedia($id);
+        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
     }
 
     public function editProfile()
     {
-        $this->LoadProfile();
-
+        $id=$this->input->get('id');
+        $this->LoadProfile($id);
         $this->mViewData['marketLists'] = $this->Marketmodel->getMarketList();
-
         $this->mViewData['channelLists'] = $this->Channelmodel->getChannel();
         $this->mViewData['typeList'] = $this->Profilemodel->getTypeList();
         $this->mViewData['profileLists'] = $this->Profilemodel->getProfileOnly();
@@ -158,13 +167,12 @@ class Profile extends MY_Controller
 
         $this->mViewData['profile'] = $this->Profilemodel->get($this->input->get('id'));
         $this->mViewData['post'] = $this->mViewData['profile'];
-        $this->mViewData['profileLogo'] = $this->Profilemodel->getProfileLogo($this->input->get('id'));
 
         $this->mViewData['profileFeatures'] = $this->Profilemodel->getProfileFeatures($this->input->get('id'));
-
-        $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMedia($this->input->get('id'));
         $this->mViewData['profileReview'] = $this->Profilemodel->getProfileReviews($this->input->get('id'));
 //        echo "<pre>";  print_r($data); die;
+        $this->mViewData['link'] = 'editProfile?id=';
+
         $this->load->view('include/header');
         $this->load->view('include/breadcrum');
         $this->load->view('edit_profile', $this->mViewData);
@@ -176,14 +184,15 @@ class Profile extends MY_Controller
 
 //        $this->mViewData['spotlights'] = $this->Postmodel->getPostSpotLights();
 //        $this->mViewData['categories'] = $this->Categoriesmodel->getDropDown(0);
-        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
+        $this->LoadProfile($id);
+
         $this->mViewData['post'] = $this->Profilemodel->getProfile0($id);
 //        print_r($this->mViewData);
         $this->mViewData['view_file']='post_edit_view';
 
         $this->mViewData['social_enum']=$this->Profile_social_model->get_enums('ps_name');
 
-        $this->mViewData['link'] = 'myprofile/';
+        $this->mViewData['link'] =$this->myprofile_link ;
         $this->render('my_toolbox', 'main_layout');
 //        $this->render('business_edit_view', 'main_layout');
     }
@@ -292,7 +301,15 @@ class Profile extends MY_Controller
     public function insertProfileMedia()
     {
         $data = $this->input->post();
-        $this->load->library('upload');
+        $profileId = $this->input->get('profileId');
+
+        //echo "<pre>";  print_r(); die;
+
+        $attachment=$this->upload($_FILES['logo']['name'],'logo');
+
+        if ($attachment!='')
+            $this->Profilemodel->update_field($profileId,'logo',$attachment);
+//        echo "<pre>";  print_r($attachment); die;
         //echo "<pre>";  print_r($_FILES['media_file']['name']);
         for ($i = 0; $i < count($_FILES['media_file']['name']); $i++) {
             $attachments = "";
@@ -317,11 +334,8 @@ class Profile extends MY_Controller
         }
 
         //echo "<pre>";  print_r($data['media_file_name']); die;
-        $profileId = $this->input->get('profileId');
-        $this->load->library('upload');
-        if ($result = $this->Profilemodel->insertProfileMedia($data, $profileId)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $this->Profilemodel->insertProfileMedia($data, $profileId);
+        redirect('profile/'.$data['link'].$profileId);
     }
 
     public function updateProfileMedia()
@@ -346,36 +360,10 @@ class Profile extends MY_Controller
         $data['media_file'] = $attachment;
         $profileId = $this->input->get('profileId');
         $Id = $this->input->get('Id');
+        $link=$data['link'];
         $this->load->library('upload');
-        if ($result = $this->Profilemodel->updateProfileMedia($data, $profileId, $Id)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
-    }
-
-    public function updateProfileImage()
-    {
-        $data = $this->input->post();
-        $profileId = $this->input->get('profileId');
-        $this->load->library('upload');
-        //echo "<pre>";  print_r($_FILES['pi_image']['name']); die;
-        $attachment = "";
-        if ($_FILES['pi_image']['name'] != "") {
-            $fieldName = 'pi_image';
-            $ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
-            $attachment = 'pi_image' . time() . '.' . $ext;
-            $this->upload->initialize($this->set_upload_options($attachment));
-
-            if ($this->upload->do_upload($fieldName)) {
-                $msg = "upload success"; //die;
-            } else {
-                $error = array('error' => $this->upload->display_errors());
-
-            }
-        }
-        $data['pi_image'] = $attachment;
-        if ($result = $this->Profilemodel->updateProfileImage($data, $profileId)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $this->Profilemodel->updateProfileMedia($data, $profileId, $Id);
+            redirect('profile/'.$link . $profileId);
     }
 
     public function updateProfileMarket()
@@ -454,9 +442,10 @@ class Profile extends MY_Controller
     public function deleteProfileMedia()
     {
         $id = $this->input->get('id');
+        $link=$this->input->get('link');
         $profileId = $this->input->get('profileId');
         $result = $this->Profilemodel->deleteProfileMedia($id);
-        redirect(base_url() . 'profile/editProfile?id=' . $profileId);
+        redirect('profile/'.$link.$profileId);
     }
 
     public function deleteProfileAdmin()
@@ -465,19 +454,6 @@ class Profile extends MY_Controller
         $profileId = $this->input->get('profileId');
         $result = $this->Profilemodel->deleteProfileAdmin($id);
         redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-    }
-
-    private function set_upload_options($imageName)
-    {
-        //upload an image options
-        $config = array();
-        $config['upload_path'] = 'upload/profile';
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|mp4';
-        $config['max_size'] = '50000KB';
-        $config['overwrite'] = FALSE;
-        $config['file_name'] = $imageName;
-
-        return $config;
     }
 
     public function youtube_id_from_url($url)
@@ -517,6 +493,17 @@ class Profile extends MY_Controller
         die;
     }
 
+    protected function set_upload_options($imageName)
+    {
+        //upload an image options
+        $config = array();
+        $config['upload_path'] = 'upload/profile';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|mp4';
+        $config['max_size'] = '50000KB';
+        $config['overwrite'] = FALSE;
+        $config['file_name'] = $imageName;
+        return $config;
+    }
 
 }
 

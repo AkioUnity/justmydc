@@ -1,5 +1,5 @@
 <h4>Profile Info</h4>
-<hr/>
+
 <!--                        --><?php //include 'components/select_category.php' ?>
 <div class="form-group">
     <label class="col-md-3 control-label">Business Name</label>

@@ -136,85 +136,6 @@
                 </div><!-- /.box-header -->
 
                 <!-- form start -->
-                <button class="accordion">Logo<i class="fa fa-angle-double-down"></i></button>
-                <div class="panel">
-                    <div class="box-body">
-                        <?php if ($profileLogo) { ?>
-                            <?php $i = 1;
-                            foreach ($profileLogo as $profileLogo): ?>
-                                <form action="<?php echo base_url(); ?>profile/updateProfileImage?profileId=<?php echo $this->input->get('id') ?>"
-                                      method="post" enctype="multipart/form-data">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label for="inputlogoimage">Logo</label>
-
-                                                <?php if ($profileLogo['pi_image']) { ?>
-                                                    <a href="<?php echo base_url() . 'upload/profile/' . $profileLogo['pi_image']; ?>"
-                                                       id="link" target="_blank">
-                                                        <span class="label label-success"
-                                                              style="font-size:11px;">View</span>
-                                                    </a>
-                                                <?php } else {
-                                                    echo '<input type="file" name="pi_image" id="inputlogoimage">';
-                                                } ?>
-                                                <?php if ($profileLogo['pi_image']) { ?>
-                                                    <a href="#" id="productLinklogo" style="visibility:visible;"
-                                                       onclick="deletelogoimage()">
-                                                        <span class="label label-danger"
-                                                              style="font-size:11px;">Update</span>
-
-                                                    </a>
-                                                    <input type="file" name="pi_image" id="inputlogoimage"
-                                                           style="display:none"
-                                                           accept="image/x-png,image/jpeg,image/jpg">
-
-
-                                                <?php } ?>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label for="inputProductPhoto">Image Type</label>
-                                                <select class="form-control" name="image_type" required>
-                                                    <option value="">---Select---</option>
-                                                    <option value="1" <?php if ($profileLogo['pi_type'] == "logo") { ?><?php echo "selected" ?><?php } ?>>Logo</option>
-                                                    <option value="2" <?php if ($profileLogo['pi_type'] == "icon") { ?><?php echo "selected" ?><?php } ?>>Icon</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                                </form>
-                                <?php $i++; endforeach;
-                        } else { ?>
-                            <form action="<?php echo base_url(); ?>profile/updateProfileImage?profileId=<?php echo $this->input->get('id') ?>"
-                                  method="post" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="col-lg-6 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <label for="inputlogoimage">Logo</label>
-                                            <input type="file" name="pi_image" id="inputlogoimage"
-                                                   accept="image/x-png,image/jpeg,image/jpg">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-sm-6 col-xs-6">
-                                        <div class="form-group">
-                                            <label for="inputProductPhoto">Image Type</label>
-                                            <select class="form-control" name="image_type" required>
-                                                <option value="">---Select---</option>
-                                                <option value="1">Logo</option>
-                                                <option value="2">Icon</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                            </form>
-                        <?php } ?>
-                    </div><!-- /.box -->
-                </div>
                 <?php include 'section/profile_about.php' ?>
                 <?php include 'section/profile_social_link.php' ?>
                 <button class="accordion">Features <i class="fa fa-angle-double-down"></i></button>
@@ -322,6 +243,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                <button class="accordion">Media<i class="fa fa-angle-double-down"></i></button>
                 <?php include 'section/profile_media.php' ?>
                 <?php include 'section/profile_map.php' ?>
                 <button class="accordion">Reviews<i class="fa fa-angle-double-down"></i></button>
@@ -769,13 +692,7 @@
         });
     });
 </script>
-<script>
-    function deletelogoimage() {
-        document.getElementById('inputlogoimage').style.display = 'block';
-        document.getElementById('productLinklogo').style.display = 'none';
 
-    }
-</script>
 <script type="text/javascript">
     function checkSpcialChar(event) {
         if (!((event.keyCode >= 65) && (event.keyCode <= 90) || (event.keyCode >= 97) && (event.keyCode <= 122) || (event.keyCode >= 48) && (event.keyCode <= 57))) {

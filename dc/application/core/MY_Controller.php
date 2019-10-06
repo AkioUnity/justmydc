@@ -59,7 +59,6 @@ class MY_Controller extends MX_Controller {
 		
 		// initial setup
 		$this->_setup();
-
         $domain = $_SERVER['SERVER_NAME'];
         $this->load->model('market_model');
         $this->market= get_object_vars($this->market_model->get_by('market_site','https://'.$domain));
@@ -289,6 +288,23 @@ class MY_Controller extends MX_Controller {
 		else
 			array_unshift($this->mBreadcrumb, $entry);
 	}
+
+	protected function upload($file,$fieldName){
+        $attachment='';
+        if ($file != "") {
+            $ext = pathinfo($file, PATHINFO_EXTENSION);
+            $attachment = $fieldName . time() . '.' . $ext;
+            $this->load->library('upload');
+            $this->upload->initialize($this->set_upload_options($attachment));
+            if ($this->upload->do_upload($fieldName)) {
+                $msg = "upload success"; //die;
+            } else {
+                $error = array('error' => $this->upload->display_errors());
+
+            }
+            return $attachment;
+        }
+    }
 }
 
 // include base controllers

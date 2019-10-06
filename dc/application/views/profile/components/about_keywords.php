@@ -1,5 +1,4 @@
 <h4>about & keywords</h4>
-<hr/>
 
 <div class="form-group">
     <label class="col-md-4 control-label">Slogan/Mission/Short Statement:</label>

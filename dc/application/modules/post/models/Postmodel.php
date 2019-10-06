@@ -295,28 +295,34 @@ class Postmodel extends CI_Model
         $this->db->insert('c_posts', $arr['post']);
         $insertId = $this->db->insert_id();
 //        print_r($insertId);
-        foreach ($data['markets'] as $market) {
-            $array['post_market'] = array(
-                "market_id" => $market,
-                "post_id" => $insertId
-            );
-            $this->db->insert('post_market', $array['post_market']);
+        if (isset($data['markets'])){
+            foreach ($data['markets'] as $market) {
+                $array['post_market'] = array(
+                    "market_id" => $market,
+                    "post_id" => $insertId
+                );
+                $this->db->insert('post_market', $array['post_market']);
+            }
         }
 
-        foreach ($data['channel'] as $channel) {
-            $array['post_channel'] = array(
-                "channel_id" => $channel,
-                "post_id" => $insertId
-            );
-            $this->db->insert('post_channels', $array['post_channel']);
+        if (isset($data['channel'])) {
+            foreach ($data['channel'] as $channel) {
+                $array['post_channel'] = array(
+                    "channel_id" => $channel,
+                    "post_id" => $insertId
+                );
+                $this->db->insert('post_channels', $array['post_channel']);
+            }
         }
 
-        foreach ($data['profile'] as $profile) {
-            $array['post_profile'] = array(
-                "profile_id" => $profile,
-                "post_id" => $insertId
-            );
-            $this->db->insert('post_connect', $array['post_profile']);
+        if (isset($data['profile'])) {
+            foreach ($data['profile'] as $profile) {
+                $array['post_profile'] = array(
+                    "profile_id" => $profile,
+                    "post_id" => $insertId
+                );
+                $this->db->insert('post_connect', $array['post_profile']);
+            }
         }
 //        print_r($data);
         $this->updatePostSection($data, $insertId);

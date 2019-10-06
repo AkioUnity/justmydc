@@ -72,7 +72,7 @@
         <a href="javascript:void(0);" id="burger" onclick="mobileMenu()"><img
                     src="https://2019fun.justmy.com/assets/dev2019/menu.png"></a>
 
-        <a href="dashboard">Home</a>
+        <a href="/dashboard">Home</a>
         <?php include 'menu/channel_menu.php'; ?>
         <?php include 'menu/category_menu.php'; ?>
 

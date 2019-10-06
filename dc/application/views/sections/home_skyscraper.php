@@ -5,8 +5,8 @@
             <?php if (isset($skyscraperAds[$article_id])){  ?>
             <a href="<?php echo $skyscraperAds[$article_id]->ad_url ?>" target="_blank">
                 <img src="<?php echo admin_ads_url($skyscraperAds[$article_id]->ad_image) ?>"></a>
-            <? }
-            else echo "no Data"?>
+            <?php }
+            else echo "no Data"; ?>
         </div>
     </div>
 </div>

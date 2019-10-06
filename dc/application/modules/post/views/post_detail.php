@@ -5,7 +5,7 @@
             <?php if ($UserLists) {
                 foreach ($UserLists as $keys => $UserList):
                     ?>
-                    <option value="<?php echo $UserList->id; ?>" <?php if ($UserList->id == $posts['c_user_id']) {
+                    <option value="<?php echo $UserList->id; ?>" <?php if (isset($posts) && $UserList->id == $posts['c_user_id']) {
                         echo "selected";
                     } ?>><?php echo ucfirst($UserList->first_name); ?></option>
                 <?php
@@ -22,7 +22,7 @@
             <option value="0">---Type---</option>
             <?php
             foreach ($typeList as $type): ?>
-            <option value="<?php echo $type['post_id']; ?>" <?php echo ($type['post_id'] == $posts['cp_type'])? "selected":"";?> >
+            <option value="<?php echo $type['post_id']; ?>" <?php echo (isset($posts) && $type['post_id'] == $posts['cp_type'])? "selected":"";?> >
               <?php echo($type['cp_title']); ?>
             </option>
             <?php endforeach;?>
@@ -35,11 +35,11 @@
     <div class="form-group">
         <label>Post Featured Image</label>
         <input type="file" id="file_upload">
-        <input type="hidden" id="post_featured_image" name="post_featured_image" value="<?php echo $posts['cp_post_image']; ?>"">
+        <input type="hidden" id="post_featured_image" name="post_featured_image" value="<?php echo isset($posts)?$posts['cp_post_image']:''; ?>"">
         <div id="upload-demo-i" style="background:#e1e1e1;width:200px;height:200px;margin-top:10px">
-            <img id="image-preview" src="<?php echo base_url() . 'upload/images/' . $posts['cp_post_image']; ?>" width="200" height="200" alt="preview">
+            <img id="image-preview" src="<?php echo base_url() . 'upload/images/' . (isset($posts)?$posts['cp_post_image']:''); ?>" width="200" height="200" alt="preview">
         </div>
-        <?php if ($posts['cp_post_image']) { ?>
+        <?php if (isset($posts) && $posts['cp_post_image']) { ?>
 <!--            <a href="--><?php //echo base_url() . 'upload/images/' . $posts['cp_post_image']; ?><!--"-->
 <!--               id="link" target="_blank"> <span class="label label-success"-->
 <!--                                                style="font-size:11px;">View</span>-->
@@ -108,15 +108,15 @@
             <div class="box-body" style="display: none;">
 
                     <label>Link Text</label>
-                    <input type="text" name="link_text" value="<?php echo $spotlight['link_text']; ?> " class="form-control" >
+                    <input type="text" name="link_text" value="<?php echo isset($spotlight)?$spotlight['link_text']:''; ?> " class="form-control" >
 
                 <label>Spotlight Image</label>
                 <input type="file" id="file_upload1">
-                <input type="hidden" id="post_featured_image1" name="spotlight_image" value="<?php echo $spotlight['spotlight_image']; ?>"">
+                <input type="hidden" id="post_featured_image1" name="spotlight_image" value="<?php echo isset($spotlight)?$spotlight['spotlight_image']:''; ?>"">
                 <div id="upload-demo-i" style="background:#e1e1e1;width:600px;height:230px;margin-top:10px">
-                    <img id="image-preview1" src="<?php echo base_url() . 'upload/images/' . $spotlight['spotlight_image']; ?>" width="600" height="230" alt="preview">
+                    <img id="image-preview1" src="<?php echo base_url() . 'upload/images/' . (isset($spotlight)?$spotlight['spotlight_image']:''); ?>" width="600" height="230" alt="preview">
                 </div>
-                <?php if ($spotlight['spotlight_image']) { ?>
+                <?php if (isset($spotlight) && $spotlight['spotlight_image']) { ?>
                     <a href="#" id="deleteImage" style="visibility:visible;"
                        onclick="deletespotlightimage()"> <span class="label label-danger"
                                                            style="font-size:11px;">Remove</span>
@@ -189,7 +189,7 @@
             size: { width: 700, height: 700 }
         }).then(function (resp) {
             $.ajax({
-                url: "/api/upload_image",
+                url: "/api/imageuploader/upload_image",
                 type: "POST",
                 data: {"image":resp,"name":"post_featured"},
                 success: function (data) {
@@ -208,7 +208,7 @@
             size: { width: 1200, height: 460 }
         }).then(function (resp) {
             $.ajax({
-                url: "/api/upload_image",
+                url: "/api/imageuploader/upload_image",
                 type: "POST",
                 data: {"image":resp,"name":"spotlight"},
                 success: function (data) {
@@ -244,7 +244,7 @@
             document.getElementById("post_form").submit();
             //window.location = "/post/<?php //echo $posts['post_id']?'updatePost':'insertPost'; ?>//";
         } else {
-            select.val(<?php echo $posts['cp_type']?$posts['cp_type']:0; ?>)
+            select.val(<?php echo (isset($posts['cp_type']) && $posts['cp_type'])?$posts['cp_type']:0; ?>)
             // txt = "You pressed Cancel!";
         }
         // document.getElementById("demo").innerHTML = "You selected: " + x;

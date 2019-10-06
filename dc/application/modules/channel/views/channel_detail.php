@@ -83,7 +83,7 @@
         }).then(function (resp) {
             // console.log(resp);
             $.ajax({
-                url: "/api/upload_image",
+                url: "/api/imageuploader/upload_image",
                 type: "POST",
                 data: {"image":resp,"name":"channel_featured"},
                 success: function (data) {

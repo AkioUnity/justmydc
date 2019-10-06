@@ -1136,7 +1136,7 @@ class Google_Service_Compute extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'image' => array(
+                'ImageUploader' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -1151,7 +1151,7 @@ class Google_Service_Compute extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'image' => array(
+                'ImageUploader' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -1166,7 +1166,7 @@ class Google_Service_Compute extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'image' => array(
+                'ImageUploader' => array(
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
@@ -4148,7 +4148,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    */
   public function delete($project, $image, $optParams = array())
   {
-    $params = array('project' => $project, 'image' => $image);
+    $params = array('project' => $project, 'ImageUploader' => $image);
     $params = array_merge($params, $optParams);
     return $this->call('delete', array($params), "Google_Service_Compute_Operation");
   }
@@ -4167,7 +4167,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    */
   public function deprecate($project, $image, Google_Service_Compute_DeprecationStatus $postBody, $optParams = array())
   {
-    $params = array('project' => $project, 'image' => $image, 'postBody' => $postBody);
+    $params = array('project' => $project, 'ImageUploader' => $image, 'postBody' => $postBody);
     $params = array_merge($params, $optParams);
     return $this->call('deprecate', array($params), "Google_Service_Compute_Operation");
   }
@@ -4182,7 +4182,7 @@ class Google_Service_Compute_Images_Resource extends Google_Service_Resource
    */
   public function get($project, $image, $optParams = array())
   {
-    $params = array('project' => $project, 'image' => $image);
+    $params = array('project' => $project, 'ImageUploader' => $image);
     $params = array_merge($params, $optParams);
     return $this->call('get', array($params), "Google_Service_Compute_Image");
   }

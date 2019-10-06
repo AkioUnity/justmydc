@@ -1,5 +1,5 @@
 <h4>Link & Social</h4>
-<hr/>
+
 <div class="form-group">
     <label class="col-md-3 control-label">website</label>
     <div class="col-md-8">

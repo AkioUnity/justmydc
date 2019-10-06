@@ -2,7 +2,7 @@
 <!--<link rel="stylesheet" type="text/css" href="--><?php //echo asset_url('dist/admin/adminlte.min.js')?><!--"/>-->
 
 <div class="wrapper">
-	<?php // Left side column. contains the logo and sidebar ?>
+	<?php  // Left side column. contains the logo and sidebar ?>
 	<aside class="main-sidebar">
 		<section class="sidebar">
 			<div class="user-panel" style="height:65px">

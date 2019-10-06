@@ -20,7 +20,7 @@
         width: 100%;
     }
 
-    .right_title{
+    .right_title {
         float: right;
         margin-right: 2vw;
     }
@@ -29,7 +29,23 @@
     .profile_content h4 {
         display: none;
     }
-    <?php } ?>
+
+    <?php }
+    else { ?>
+    .panel {
+        padding: 0 18px;
+        display: none;
+        background-color: white;
+        overflow: hidden;
+    }
+
+    <?php }?>
+
+    .active, .accordion:hover {
+        background-color: #00375e;
+        cursor: pointer;
+    }
+
 
 </style>
 <div class="page-heading-two">
@@ -55,20 +71,22 @@
                 <?php include 'components/profile_info_section.php'; ?>
                 <?php include 'components/social_links.php'; ?>
                 <?php include 'components/about_keywords.php'; ?>
-
             </div>
         </div>
-
         <div class="row">
             <div class="col-md-12">
-                <hr>
-                <div class="form-group align-centre">
-                    <button class="btn btn-color" type="submit">save</button>
-                    <button class="btn btn-default" type="reset">reset</button>
+                <div class="form-group align-right">
+                    <button class="btn btn-primary" type="submit">save</button>
                 </div>
+                <hr>
             </div>
         </div>
     </form>
+    <div class="col-md-12 profile_content">
+        <?php include 'components/media.php'; ?>
+    </div>
+
+
 </div>
 
 <?php
@@ -82,6 +100,22 @@ $api_key_text = ($map_api_key != '') ? "&key=$map_api_key" : '';
 <script src="<?php echo theme_url(); ?>/assets/js/map_config.js"></script>
 <script src="<?php echo theme_url(); ?>/assets/js/jquery.form.js"></script>
 
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {

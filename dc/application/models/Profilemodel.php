@@ -100,20 +100,6 @@ class Profilemodel extends MY_Model
         return $query->result();
     }
 
-    function getProfileLogo($ProfileId = NULL)
-    {
-        $this->db->select('*');
-        $this->db->from('profile_icon');
-        $this->db->order_by("id", "DESC");
-        if ($ProfileId) {
-            $this->db->where("profile_id", $ProfileId);
-        }
-        $query = $this->db->get();
-
-//		echo $this->db->last_query();
-        return $query->result_array();
-
-    }
 
     function getProfileSocial($ProfileId = NULL)
     {
@@ -379,9 +365,8 @@ class Profilemodel extends MY_Model
 
             );
             //echo "<pre>";  print_r($arr); die;
-            $result1 = $this->db->insert('profile_media', $arr);
+             $this->db->insert('profile_media', $arr);
         }
-        return true;
     }
 
     public function updateProfileMedia($data = NULL, $profileId = NULL, $Id = NULL)
@@ -433,7 +418,7 @@ class Profilemodel extends MY_Model
     public function updateProfileImage($data = NULL, $profileId = NULL)
     {
         //echo "<pre>";  print_r($data); die;
-        $data['profileLogo'] = $this->getProfileLogo($profileId);
+
         if (!empty($data['pi_image'])) {
             $arr['profile_icon'] = array(
                 "pi_image" => $data['pi_image'],

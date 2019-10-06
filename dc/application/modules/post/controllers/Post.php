@@ -139,7 +139,7 @@ class Post extends MY_Controller
             $data['post_image'] = $attachment;
 
             $attachment1 = "";
-            if ($_FILES['post_html']['name'] != "") {
+            if (isset($_FILES['post_html']) && $_FILES['post_html']['name'] != "") {
                 $fieldName = 'post_html';
                 $ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
                 $attachment1 = 'post_html' . time() . '.' . $ext;

@@ -10,6 +10,14 @@
           <option name="port" value="21" />
         </fileTransfer>
       </webServer>
+      <webServer id="0ea1b04a-f4b9-430a-90a4-267a97673c0c" name="3 aws 3.19.28.9" url="http://3.19.28.9">
+        <fileTransfer host="3.19.28.9" port="22" privateKey="E:\work\Dynamic page\aws\justmy.ppk" rootFolder="/var/www/dc" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>
