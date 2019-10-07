@@ -25,8 +25,12 @@
         margin-right: 2vw;
     }
 
-    <?php if ($post->profile_type_id==1){ ?>
+    <?php if ($post->profile_type_id==Claimed_free_profile_id){ ?>
     .profile_content h4 {
+        display: none;
+    }
+
+    .standard_profile{
         display: none;
     }
 
@@ -70,7 +74,6 @@
 
                 <?php include 'components/profile_info_section.php'; ?>
                 <?php include 'components/social_links.php'; ?>
-                <?php include 'components/about_keywords.php'; ?>
             </div>
         </div>
         <div class="row">
@@ -83,10 +86,9 @@
         </div>
     </form>
     <div class="col-md-12 profile_content">
+        <?php include 'components/about_keywords.php'; ?>
         <?php include 'components/media.php'; ?>
     </div>
-
-
 </div>
 
 <?php

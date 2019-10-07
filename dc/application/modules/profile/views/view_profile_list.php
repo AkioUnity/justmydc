@@ -56,6 +56,7 @@
                         <thead>
                         <tr>
                             <th>S No.</th>
+                            <th>Profile ID</th>
                             <th>Business Name</th>
                             <th>Market</th>
                             <th>Infogroup_id</th>
@@ -72,7 +73,8 @@
 
                                 <tr>
                                     <td><?php echo $i; ?></td>
-                                    <td><?php echo $profile['profile_name'];; ?></td>
+                                    <td><?php echo $profile['profile_id']; ?></td>
+                                    <td><?php echo $profile['profile_name']; ?></td>
                                     <td><?php echo $profile['market_name']; ?></td>
                                     <td><?php echo $profile['infogroup_id']; ?></td>
                                     <!--                                    <td>-->
@@ -85,7 +87,7 @@
                                     <?php //echo $profile['profile_st']; ?><!--</td>-->
                                     <td><?php echo $profile['profile_type']; ?></td>
                                     <td>
-                                        <a target="_blank" href="<?php echo $profile['market_site']; ?>/profile/myprofile/<?php echo $profile['profile_id'] ?>">
+                                        <a target="_blank" href="<?php echo base_url(); ?>/profile/myprofile/<?php echo $profile['profile_id'] ?>">
                                             Edit Profile
                                         </a>
                                     </td>

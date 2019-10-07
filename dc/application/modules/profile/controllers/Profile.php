@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Profile extends MY_Controller
 {
-    public $myprofile_link='myprofile/';
+    public $myprofile_link = 'myprofile/';
 
     function __construct()
     {
@@ -43,41 +43,40 @@ class Profile extends MY_Controller
     public function searchInfogroup_id()
     {
         $name = $this->input->post('name');
-        if ($name){  //at the first
+        if ($name) {  //at the first
             $this->mViewData['profile_list'] = $this->Profilemodel->searchProfileList($name);
-        }
-        else{
+        } else {
             $this->mViewData['profile_list'] = null;
         }
         $this->load->view('include/header');
         $this->load->view('include/breadcrum');
-        $this->load->view('search_business_result_view',$this->mViewData);
+        $this->load->view('search_business_result_view', $this->mViewData);
         $this->load->view('include/footer');
     }
 
     public function claim($infogroup_id)
     {
-        $profile0=$this->Profilemodel->getClaimedProfile($infogroup_id);
+        $profile0 = $this->Profilemodel->getClaimedProfile($infogroup_id);
 //        print_r($profile0);
-        $profile0=$profile0[0];
-        $profile=array(
-            'profile_name'=>$profile0['name'],
-            'profile_contact'=>$profile0['phone'],
+        $profile0 = $profile0[0];
+        $profile = array(
+            'profile_name' => $profile0['name'],
+            'profile_contact' => $profile0['phone'],
 //            'profile_user_name'=>$profile0['name'],
-            'profile_zip'=>$profile0['zip'],
-            'profile_email'=>$profile0['email'],
-            'profile_web'=>$profile0['website'],
-            'profile_add'=>$profile0['street'].' '.$profile0['city'].' '.$profile0['state'],
-            'profile_city'=>$profile0['city'],
-            'profile_st'=>$profile0['state'],
-            'infogroup_id'=>$infogroup_id,
-            );
-        $data['profile']=$profile;
+            'profile_zip' => $profile0['zip'],
+            'profile_email' => $profile0['email'],
+            'profile_web' => $profile0['website'],
+            'profile_add' => $profile0['street'] . ' ' . $profile0['city'] . ' ' . $profile0['state'],
+            'profile_city' => $profile0['city'],
+            'profile_st' => $profile0['state'],
+            'infogroup_id' => $infogroup_id,
+        );
+        $data['profile'] = $profile;
 //        print_r($data);
 
         $this->load->view('include/header');
         $this->load->view('include/breadcrum');
-        $this->load->view('add_profile',$data);
+        $this->load->view('add_profile', $data);
         $this->load->view('include/footer');
     }
 
@@ -91,21 +90,31 @@ class Profile extends MY_Controller
         $this->load->view('include/footer');
     }
 
+    public function editProfileSection($file_name)
+    {
+        $this->mViewData['link'] = $this->input->get('link');
+//        echo "<pre>";  print_r($data['profileMedia']); die;
+        if ($this->mViewData['link'] == $this->myprofile_link) {
+            $this->mViewData['view_file'] = $file_name;
+            $this->render('my_toolbox', 'main_layout');
+        } else {
+            $this->load->view('include/header');
+            $this->load->view('include/breadcrum');
+            $this->load->view($file_name, $this->mViewData);
+            $this->load->view('include/footer');
+        }
+    }
+
     public function editProfileMedia()
     {
         $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMediaOnly($this->input->get('id'));
-        $this->mViewData['link'] =$this->input->get('link');
-//        echo "<pre>";  print_r($data['profileMedia']); die;
-        if ($this->mViewData['link']==$this->myprofile_link){
-            $this->mViewData['view_file']='edit_profile_media';
-            $this->render('my_toolbox', 'main_layout');
-        }
-        else{
-            $this->load->view('include/header');
-            $this->load->view('include/breadcrum');
-            $this->load->view('edit_profile_media', $this->mViewData);
-            $this->load->view('include/footer');
-        }
+        $this->editProfileSection('edit_profile_media');
+    }
+
+    public function editProfileFeatures()
+    {
+        $this->mViewData['profileFeatures'] = $this->Profilemodel->getProfileFeaturesDetails($this->input->get('id'));
+        $this->editProfileSection('edit_profile_keyword');
     }
 
     public function insertProfile()
@@ -140,15 +149,17 @@ class Profile extends MY_Controller
         }
     }
 
-    public function LoadProfile($id){
+    public function LoadProfile($id)
+    {
 
         $this->mViewData['profileMedia'] = $this->Profilemodel->getProfileMedia($id);
         $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
+        $this->mViewData['profileFeatures'] = $this->Profilemodel->getProfileFeatures($id);
     }
 
     public function editProfile()
     {
-        $id=$this->input->get('id');
+        $id = $this->input->get('id');
         $this->LoadProfile($id);
         $this->mViewData['marketLists'] = $this->Marketmodel->getMarketList();
         $this->mViewData['channelLists'] = $this->Channelmodel->getChannel();
@@ -167,8 +178,6 @@ class Profile extends MY_Controller
 
         $this->mViewData['profile'] = $this->Profilemodel->get($this->input->get('id'));
         $this->mViewData['post'] = $this->mViewData['profile'];
-
-        $this->mViewData['profileFeatures'] = $this->Profilemodel->getProfileFeatures($this->input->get('id'));
         $this->mViewData['profileReview'] = $this->Profilemodel->getProfileReviews($this->input->get('id'));
 //        echo "<pre>";  print_r($data); die;
         $this->mViewData['link'] = 'editProfile?id=';
@@ -188,11 +197,11 @@ class Profile extends MY_Controller
 
         $this->mViewData['post'] = $this->Profilemodel->getProfile0($id);
 //        print_r($this->mViewData);
-        $this->mViewData['view_file']='post_edit_view';
+        $this->mViewData['view_file'] = 'post_edit_view';
 
-        $this->mViewData['social_enum']=$this->Profile_social_model->get_enums('ps_name');
+        $this->mViewData['social_enum'] = $this->Profile_social_model->get_enums('ps_name');
 
-        $this->mViewData['link'] =$this->myprofile_link ;
+        $this->mViewData['link'] = $this->myprofile_link;
         $this->render('my_toolbox', 'main_layout');
 //        $this->render('business_edit_view', 'main_layout');
     }
@@ -200,24 +209,25 @@ class Profile extends MY_Controller
     public function updateProfile()
     {
         $data = $this->input->post();
+        $this->post_data = $data;
         $id = $this->input->get('profileId');
 
-        $profileData['profile_name']=$data['profile_name'];
-        $profileData['profile_add']=$data['profile_add'];
-        $profileData['profile_city']=$data['profile_city'];
-        $profileData['profile_st']=$data['profile_st'];
-        $profileData['profile_zip']=$data['profile_zip'];
-        $profileData['profile_contact']=$data['profile_contact'];
-        $profileData['profile_email']=$data['profile_email'];
-        $profileData['profile_tagline']=$data['profile_tagline'];
-        $profileData['profile_about']=$data['profile_about'];
+        $this->SetData('profile_name');
+        $this->SetData('profile_add');
+        $this->SetData('profile_city');
+        $this->SetData('profile_st');
+        $this->SetData('profile_zip');
+        $this->SetData('profile_contact');
+        $this->SetData('profile_email');
+        $this->SetData('profile_tagline');
+        $this->SetData('profile_about');
 
-        $this->Profilemodel->update($id,$profileData);
+        $this->Profilemodel->update($id, $this->update_data);
 
         $this->Profile_social_model->updateProfileSocial($data, $id);
 
         $this->session->set_flashdata('msg', '<div class="alert alert-success">Business Profile was updated</div>');
-        redirect('profile/myprofile/'. $id);
+        redirect('profile/myprofile/' . $id);
     }
 
     public function updateProfileDetail()
@@ -225,9 +235,9 @@ class Profile extends MY_Controller
         $data = $this->input->post();
         $id = $this->input->get('profileId');
 
-        $link='editProfile?id=';
-        $this->Profilemodel->update($id,$data);
-        redirect('profile/'.$link. $id);
+        $link = 'editProfile?id=';
+        $this->Profilemodel->update($id, $data);
+        redirect('profile/' . $link . $id);
     }
 
     public function updateProfileSocial()
@@ -250,13 +260,12 @@ class Profile extends MY_Controller
         }
     }
 
-    public function insertProfileFeatures()
+    public function insertProfileFeatures()  //keyword
     {
         $data = $this->input->post();
         $profileId = $this->input->get('profileId');
-        if ($result = $this->Profilemodel->insertProfileFeatures($data, $profileId)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $this->Profilemodel->insertProfileFeatures($data, $profileId);
+        redirect('profile/' . $data['link'] . $profileId);
     }
 
     public function updateProfileFeatures()
@@ -265,20 +274,11 @@ class Profile extends MY_Controller
         //echo "<pre>";  print_r($data); die;
         $profileId = $this->input->get('profileId');
         $Id = $this->input->get('Id');
-        if ($result = $this->Profilemodel->updateProfileFeatures($data, $profileId, $Id)) {
-            redirect(base_url() . 'profile/editProfile?id=' . $profileId);
-        }
+        $link = $data['link'];
+        $this->Profilemodel->updateProfileFeatures($data, $profileId, $Id);
+        redirect('profile/' . $link . $profileId);
     }
 
-    public function editProfileFeatures()
-    {
-        $data['profileFeatures'] = $this->Profilemodel->getProfileFeaturesDetails($this->input->get('id'));
-        //echo "<pre>";  print_r($data); die;
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('edit_profile_features', $data);
-        $this->load->view('include/footer');
-    }
 
     public function updateProfileMap()
     {
@@ -305,10 +305,10 @@ class Profile extends MY_Controller
 
         //echo "<pre>";  print_r(); die;
 
-        $attachment=$this->upload($_FILES['logo']['name'],'logo');
+        $attachment = $this->upload($_FILES['logo']['name'], 'logo');
 
-        if ($attachment!='')
-            $this->Profilemodel->update_field($profileId,'logo',$attachment);
+        if ($attachment != '')
+            $this->Profilemodel->update_field($profileId, 'logo', $attachment);
 //        echo "<pre>";  print_r($attachment); die;
         //echo "<pre>";  print_r($_FILES['media_file']['name']);
         for ($i = 0; $i < count($_FILES['media_file']['name']); $i++) {
@@ -335,7 +335,7 @@ class Profile extends MY_Controller
 
         //echo "<pre>";  print_r($data['media_file_name']); die;
         $this->Profilemodel->insertProfileMedia($data, $profileId);
-        redirect('profile/'.$data['link'].$profileId);
+        redirect('profile/' . $data['link'] . $profileId);
     }
 
     public function updateProfileMedia()
@@ -360,10 +360,10 @@ class Profile extends MY_Controller
         $data['media_file'] = $attachment;
         $profileId = $this->input->get('profileId');
         $Id = $this->input->get('Id');
-        $link=$data['link'];
+        $link = $data['link'];
         $this->load->library('upload');
         $this->Profilemodel->updateProfileMedia($data, $profileId, $Id);
-            redirect('profile/'.$link . $profileId);
+        redirect('profile/' . $link . $profileId);
     }
 
     public function updateProfileMarket()
@@ -442,10 +442,10 @@ class Profile extends MY_Controller
     public function deleteProfileMedia()
     {
         $id = $this->input->get('id');
-        $link=$this->input->get('link');
+        $link = $this->input->get('link');
         $profileId = $this->input->get('profileId');
         $result = $this->Profilemodel->deleteProfileMedia($id);
-        redirect('profile/'.$link.$profileId);
+        redirect('profile/' . $link . $profileId);
     }
 
     public function deleteProfileAdmin()

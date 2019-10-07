@@ -111,3 +111,4 @@ define('CI_BOOTSTRAP_VERSION',		'Build 20170324');	// will follow semantic versi
 define('UPLOAD_COVER_PHOTO',	'assets/uploads/cover_photos');
 define('UPLOAD_BLOG_POST',		'assets/uploads/blog_posts');
 define('National_market_id','45');
+define('Claimed_free_profile_id','1');

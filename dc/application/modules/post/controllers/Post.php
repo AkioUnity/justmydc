@@ -8,7 +8,6 @@ class Post extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('Postmodel');
         $this->load->model('market/Marketmodel');
         $this->load->model('channel/Channelmodel');
         $this->load->model('Profilemodel');
@@ -160,7 +159,6 @@ class Post extends MY_Controller
 
     public function viewpost()
     {
-        $this->load->model('Postmodel');
 
         $uri='http://2019fun.justmy.com/'.$this->uri->uri_string().'/';
 //        echo ($uri);

@@ -5,42 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6452dab2-3e58-46c7-83aa-f7d82f028c35" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/modules/api/controllers/Imageuploader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/modules/profile/views/edit_profile_media.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/info.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess_old" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess_old" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/modules/profile/views/section/profile_keyword.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/ci_bootstrap_example.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/ci_bootstrap_example.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Post.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/constants.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/constants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Business.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Business.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/core/MY_Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/core/MY_Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/Google/Service/Compute.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/Google/Service/Compute.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/google-api-php-client/contrib/Google_ComputeService.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/google-api-php-client/contrib/Google_ComputeService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Postmodel.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Profilemodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Profilemodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/admin/config/grocery_crud.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/admin/config/grocery_crud.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/channel/views/channel_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/channel/views/channel_detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/modules/post/controllers/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/post/controllers/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/post/models/Postmodel.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/post/models/Postmodel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/post/views/post_detail.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/post/views/post_detail.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/modules/profile/controllers/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/controllers/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/modules/profile/models/Profile_social_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/models/Profile_social_model.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/modules/profile/views/edit_profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/views/edit_profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/profile/views/section/edit_profile_media.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/_base/head.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/_base/head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/_partials/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/_partials/navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/my_toolbox.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/my_toolbox.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/modules/profile/views/edit_profile_features.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/views/edit_profile_keyword.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/modules/profile/views/view_profile_list.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/modules/profile/views/view_profile_list.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/profile/components/about_keywords.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile/components/about_keywords.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/profile/components/media.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile/components/media.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/profile/components/profile_info_section.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile/components/profile_info_section.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/profile/components/social_links.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile/components/social_links.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/profile/post_edit_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/profile/post_edit_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/sections/home_skyscraper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/sections/home_skyscraper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/themes/views/default/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/themes/views/default/assets/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system/helpers/captcha_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/system/helpers/captcha_helper.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -68,11 +48,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Postmodel.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/modules/post/models/Postmodel.php">
+      <file leaf-file-name="profile_media.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="317" column="32" selection-start-line="317" selection-start-column="32" selection-end-line="317" selection-end-column="32" />
+            <state relative-caret-position="374">
+              <caret line="119" column="82" selection-start-line="119" selection-start-column="66" selection-end-line="119" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="media.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/profile/components/media.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/modules/profile/controllers/Profile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="461">
+              <caret line="287" column="74" lean-forward="true" selection-start-line="287" selection-start-column="74" selection-end-line="287" selection-end-column="74" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post_edit_view.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/profile/post_edit_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="86" column="11" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MY_Controller.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="298" column="5" lean-forward="true" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit_profile_media.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile_media.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="572">
+              <caret line="25" column="90" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="90" />
             </state>
           </provider>
         </entry>
@@ -81,36 +102,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myprofile</find>
-      <find>editprofileme</find>
-      <find>$this-&gt;render('my_toolbox', 'main_layout'</find>
-      <find>$this-&gt;render('my_toolbox', 'main_layout');</find>
-      <find>$this-&gt;render('my_toolbox', 'main_layout')</find>
-      <find>link</find>
-      <find>audio</find>
-      <find>photo</find>
-      <find>image</find>
-      <find>video</find>
-      <find>editprofilemei</find>
-      <find>edit_</find>
-      <find>get</find>
-      <find>get(</find>
-      <find>edit_profile_media</find>
-      <find>2019fun.justmy</find>
-      <find>created_on</find>
-      <find>http</find>
-      <find>uri_proto</find>
-      <find>https</find>
-      <find>base_url</find>
-      <find>addPos</find>
-      <find>posts</find>
-      <find>--type</find>
-      <find>api/</find>
-      <find>/api/upload_image&quot;</find>
-      <find>/api/upload_image</find>
-      <find>/upload_image</find>
       <find>/api/image/up</find>
       <find>upload_image</find>
+      <find>getviewData(</find>
+      <find>post</find>
+      <find>$this-&gt;Postmodel-&gt;</find>
+      <find>$this-&gt;load-&gt;model('Postmodel');</find>
+      <find>getProfileList(</find>
+      <find>market_site</find>
+      <find>[market name]</find>
+      <find>$this-&gt;market</find>
+      <find>market</find>
+      <find>myProfile</find>
+      <find>myprofile_link</find>
+      <find>.myprofile</find>
+      <find>features</find>
+      <find>feature</find>
+      <find>edit_profile_fe</find>
+      <find>profile_media</find>
+      <find>keyword</find>
+      <find>media.php</find>
+      <find>myprofile</find>
+      <find>&lt;form</find>
+      <find>hide</find>
+      <find>updatepro</find>
+      <find>/updateProfile?</find>
+      <find>insertprofile</find>
+      <find>$link =</find>
+      <find>redirect('profile/' . $data['li</find>
+      <find>editprofileFe</find>
+      <find>editprofilemed</find>
     </findStrings>
     <replaceStrings>
       <replace>my_email</replace>
@@ -144,11 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/modules/ads/views/edit_ads.php" />
-        <option value="$PROJECT_DIR$/application/modules/ads/models/Adsmodel.php" />
-        <option value="$PROJECT_DIR$/application/modules/ads/views/ads_detail.php" />
-        <option value="$PROJECT_DIR$/application/helpers/MY_url_helper.php" />
-        <option value="$PROJECT_DIR$/application/models/Postmodel.php" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/application/modules/profile/models/Profilemodel.php" />
         <option value="$PROJECT_DIR$/application/modules/ads/controllers/Ads.php" />
@@ -157,35 +173,25 @@
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_parameters.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/models/Marketmodel.php" />
         <option value="$PROJECT_DIR$/application/controllers/Mytoolbox.php" />
-        <option value="$PROJECT_DIR$/application/modules/profile/views/view_profile_list.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_social_link.php" />
         <option value="$PROJECT_DIR$/application/core/MY_Model.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_detail.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_about.php" />
-        <option value="$PROJECT_DIR$/application/modules/profile/models/Profile_social_model.php" />
-        <option value="$PROJECT_DIR$/application/modules/profile/views/edit_profile.php" />
-        <option value="$PROJECT_DIR$/application/views/profile/components/about_keywords.php" />
         <option value="$PROJECT_DIR$/application/views/profile/components/profile_info_section.php" />
         <option value="$PROJECT_DIR$/application/views/profile/components/social_links.php" />
         <option value="$PROJECT_DIR$/application/views/_base/head.php" />
         <option value="$PROJECT_DIR$/application/views/profile/components/media.php" />
         <option value="$PROJECT_DIR$/assets/themes/views/default/assets/css/custom.css" />
-        <option value="$PROJECT_DIR$/application/views/profile/post_edit_view.php" />
-        <option value="$PROJECT_DIR$/application/models/Profilemodel.php" />
-        <option value="$PROJECT_DIR$/application/core/MY_Controller.php" />
         <option value="$PROJECT_DIR$/application/views/_partials/navbar.php" />
-        <option value="$PROJECT_DIR$/application/modules/profile/controllers/Profile.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/edit_profile_media.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/edit_profile_media.php" />
         <option value="$PROJECT_DIR$/application/views/my_toolbox.php" />
-        <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php" />
         <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php" />
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/.htaccess_old" />
         <option value="$PROJECT_DIR$/info.php" />
         <option value="$PROJECT_DIR$/application/views/sections/home_skyscraper.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
-        <option value="$PROJECT_DIR$/application/modules/post/controllers/Post.php" />
         <option value="$PROJECT_DIR$/application/controllers/Api.php" />
         <option value="$PROJECT_DIR$/application/controllers/ImageApi.php" />
         <option value="$PROJECT_DIR$/application/modules/api/controllers/ImageApi.php" />
@@ -195,6 +201,21 @@
         <option value="$PROJECT_DIR$/application/modules/api/controllers/Imageuploader.php" />
         <option value="$PROJECT_DIR$/application/modules/channel/views/channel_detail.php" />
         <option value="$PROJECT_DIR$/application/modules/post/models/Postmodel.php" />
+        <option value="$PROJECT_DIR$/application/models/Postmodel.php" />
+        <option value="$PROJECT_DIR$/application/modules/post/controllers/Post.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/views/view_profile_list.php" />
+        <option value="$PROJECT_DIR$/application/models/Profilemodel.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Business.php" />
+        <option value="$PROJECT_DIR$/application/config/constants.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php" />
+        <option value="$PROJECT_DIR$/application/views/profile/post_edit_view.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/views/edit_profile.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/views/edit_profile_keyword.php" />
+        <option value="$PROJECT_DIR$/application/views/profile/components/about_keywords.php" />
+        <option value="$PROJECT_DIR$/application/core/MY_Controller.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/models/Profile_social_model.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/views/section/profile_keyword.php" />
+        <option value="$PROJECT_DIR$/application/modules/profile/controllers/Profile.php" />
       </list>
     </option>
   </component>
@@ -236,8 +257,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1040" />
-    <option name="height" value="744" />
+    <option name="width" value="656" />
+    <option name="height" value="456" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -264,6 +285,12 @@
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -271,13 +298,6 @@
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
@@ -290,36 +310,6 @@
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="channel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="channel" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
@@ -349,35 +339,61 @@
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="modules" type="462c0819:PsiDirectoryNode" />
-              <item name="post" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="third_party" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="third_party" type="462c0819:PsiDirectoryNode" />
-              <item name="rest_server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="third_party" type="462c0819:PsiDirectoryNode" />
-              <item name="rest_server" type="462c0819:PsiDirectoryNode" />
-              <item name="libraries" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="section" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
               <item name="dc" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dc" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dc" type="b2602c69:ProjectViewProjectNode" />
@@ -385,37 +401,6 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="sections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dc" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-              <item name="PHP Runtime" type="20ee2d1f:SyntheticLibraryElementNode" />
-            </path>
-            <path>
-              <item name="dc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-              <item name="PHP Runtime" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="standard" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -437,19 +422,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile\views\section" />
+      <recent name="E:\work\Dynamic page\justmydc\dc\application\controllers" />
+      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile" />
+      <recent name="E:\work\Dynamic page\justmydc\dc\application\models" />
+      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\api\controllers" />
       <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile\views" />
       <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile\views\section" />
       <recent name="E:\work\Dynamic page\dc\application\views" />
       <recent name="E:\work\Dynamic page\dc\application\views\profile\components" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\work\Dynamic page\justmydc\dc\application\controllers" />
-      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile\views\section" />
-      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules\profile" />
-      <recent name="E:\work\Dynamic page\justmydc\dc\application\models" />
-      <recent name="E:\work\Dynamic page\justmydc\dc\application\modules" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -526,6 +511,8 @@
       <workItem from="1570095311094" duration="10175000" />
       <workItem from="1570225670329" duration="5352000" />
       <workItem from="1570345630288" duration="3758000" />
+      <workItem from="1570356356786" duration="6115000" />
+      <workItem from="1570408210395" duration="10049000" />
     </task>
     <task id="LOCAL-00001" summary="new nav bar (wrong work)">
       <created>1568934535998</created>
@@ -646,27 +633,33 @@
       <option name="project" value="LOCAL" />
       <updated>1570043933565</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="new post issue fixed">
+      <created>1570356405383</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1570356405383</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="600695000" />
+    <option name="totallyTimeSpent" value="616859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.3295838" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="File Transfer" order="8" visible="true" weight="0.14076577" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.13175675" />
       <window_info id="npm" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.13175675" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="right" id="Remote Host" order="3" visible="true" weight="0.14983888" />
       <window_info id="Gulp" order="2" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21482277" />
+      <window_info anchor="right" id="Remote Host" order="3" weight="0.14983888" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21106337" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32975295" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -717,7 +710,8 @@
     <MESSAGE value="edit media profile (remove table)" />
     <MESSAGE value="update profile" />
     <MESSAGE value="link finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="link finished" />
+    <MESSAGE value="new post issue fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="new post issue fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -725,104 +719,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/profile/components/about_keywords.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/profile/components/social_links.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/profile/components/profile_info_section.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_market.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="9" column="79" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/include/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="128" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/profile/components/media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="54" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/themes/views/default/assets/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="1025" column="21" lean-forward="true" selection-start-line="1025" selection-start-column="21" selection-end-line="1025" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/libraries/Upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8316">
-          <caret line="378" column="37" selection-start-line="378" selection-start-column="37" selection-end-line="378" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/third_party/MX/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="38" column="6" selection-start-line="38" selection-start-column="6" selection-end-line="38" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/controllers/Admin_Controller.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/MY_Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1232">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/profile/post_edit_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Profilemodel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8096">
-          <caret line="368" column="9" selection-start-line="368" selection-start-column="9" selection-end-line="368" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Post.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/_base/head.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="28" column="128" selection-start-line="28" selection-start-column="128" selection-end-line="28" selection-end-column="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/include/breadcrum.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/_partials/navbar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -830,45 +726,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/controllers/Profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="99" column="52" selection-start-line="99" selection-start-column="52" selection-end-line="99" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/my_toolbox.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="57" selection-end-line="20" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile_media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="46" column="34" lean-forward="true" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1408">
-          <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -893,13 +754,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-548">
           <caret line="118" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2420">
-          <caret line="110" column="37" selection-start-line="110" selection-start-column="37" selection-end-line="110" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -931,13 +785,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1474">
-          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/sections/home_skyscraper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -959,30 +806,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Postmodel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="229" column="29" lean-forward="true" selection-start-line="229" selection-start-column="29" selection-end-line="229" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/modules/post/controllers/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/api/controllers/Blog.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Imageuploader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="33" lean-forward="true" selection-start-line="1" selection-start-column="33" selection-end-line="1" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Imageuploader.php" />
     <entry file="file://$PROJECT_DIR$/application/modules/channel/views/channel_detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -1051,8 +878,160 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/modules/post/models/Postmodel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="317" column="32" selection-start-line="317" selection-start-column="32" selection-end-line="317" selection-end-column="32" />
+        <state relative-caret-position="396">
+          <caret line="18" column="31" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Postmodel.php" />
+    <entry file="file://$PROJECT_DIR$/application/modules/post/controllers/Post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" column="43" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/view_profile_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1672">
+          <caret line="76" column="75" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Profilemodel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="52" column="38" lean-forward="true" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/categories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/sections/category_section.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Business.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_media_explain.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="12" selection-end-column="21" />
+          <folding>
+            <element signature="e#307#313#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/constants.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="113" column="8" lean-forward="true" selection-start-line="113" selection-start-column="8" selection-end-line="113" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_detail.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="135" column="43" lean-forward="true" selection-start-line="135" selection-start-column="43" selection-end-line="135" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/components/edit_item.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/components/media.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/components/social_links.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="67" lean-forward="true" selection-start-line="67" selection-end-line="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/components/select_category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="21" column="44" lean-forward="true" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile_keyword.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/core/MY_Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="298" column="5" lean-forward="true" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/models/Profile_social_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/components/about_keywords.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-199">
+          <caret line="2" column="78" selection-start-line="2" selection-start-column="68" selection-end-line="2" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/edit_profile_media.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="25" column="90" lean-forward="true" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_keyword.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="66" column="40" lean-forward="true" selection-start-line="66" selection-start-column="40" selection-end-line="66" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/profile/post_edit_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="86" column="11" lean-forward="true" selection-start-line="86" selection-start-column="11" selection-end-line="86" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/views/section/profile_media.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="119" column="82" selection-start-line="119" selection-start-column="66" selection-end-line="119" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/modules/profile/controllers/Profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="287" column="74" lean-forward="true" selection-start-line="287" selection-start-column="74" selection-end-line="287" selection-end-column="74" />
         </state>
       </provider>
     </entry>

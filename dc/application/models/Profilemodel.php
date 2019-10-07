@@ -73,22 +73,26 @@ class Profilemodel extends MY_Model
 
     function getProfileList($profile_status=null)
     {
-        $this->db->select('a.*,c.market_name,c.market_site,d.name as profile_type');
+        $this->db->select('a.*,d.name as profile_type');
         $this->db->from('profiles a');
-        $this->db->join('profile_market b', 'b.profile_id = a.profile_id');
-        $this->db->join('markets c', 'b.market_id = c.market_id');
         $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         $this->db->order_by("profile_id", "DESC");
-        if (!($profile_status)) {
+        if ($profile_status!=null) {
             $this->db->where("profile_status", $profile_status);
         }
         $query = $this->db->get();
-        //        echo $this->db->last_query(); die;
+//                echo $this->db->last_query(); die;
         $res = $query->result_array();
-//        for ($i=0;$i<count($res);$i++){
-//            $id=$res[$i]['profile_id'];
-//
-//        }
+        for ($i=0;$i<count($res);$i++){
+            $id=$res[$i]['profile_id'];
+            $this->db->select('market_name');
+            $this->db->from('markets a');
+            $this->db->join('profile_market b', 'b.market_id = a.market_id');
+            $this->db->where("profile_id", $id);
+            $query = $this->db->get();
+            $market = $query->row();
+            $res[$i]['market_name']=isset($market->market_name)?$market->market_name:'';
+        }
         return $res;
     }
 

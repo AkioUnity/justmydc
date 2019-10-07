@@ -15,6 +15,9 @@ class Business extends MY_Controller
     {
         $this->mViewData['sub_categories'] = $this->Categoriesmodel->getCategories($this->input->get('id'));
         $sub_category=$this->Categoriesmodel->getCategory($this->input->get('sub_id'));
+
+        $sub_category->html = str_replace('[Market Name]', $this->market['market_name'], $sub_category->html);
+
         $this->mViewData['sub_category']=$sub_category;
         $sic_code=$sub_category->cc_siccode;
         $this->mViewData['profile_list'] = $this->Categoriesmodel->getProfileList($sic_code,$this->input->get('sub_id')-$this->input->get('id'),$this->market['cbsa_code']);

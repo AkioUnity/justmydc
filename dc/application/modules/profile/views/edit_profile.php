@@ -138,112 +138,10 @@
                 <!-- form start -->
                 <?php include 'section/profile_about.php' ?>
                 <?php include 'section/profile_social_link.php' ?>
-                <button class="accordion">Features <i class="fa fa-angle-double-down"></i></button>
+                <button class="accordion">Keywords <i class="fa fa-angle-double-down"></i></button>
                 <div class="panel">
-                    <div class="box-body">
-                        <div class="container">
-                            <div class="form-group">
-                                <form action="<?php echo base_url(); ?>profile/insertProfileFeatures?profileId=<?php echo $this->input->get('id') ?>"
-                                      method="post" enctype="multipart/form-data">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="features_products">
-                                            <tr>
-                                                <td>
-                                                    <div class="row">
-                                                        <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                            <div class="form-group">
-                                                                <label for="FeatureTitle">Feature Title</label>
-                                                                <input type="text" name="FeatureTitle[]"
-                                                                       class="form-control" id="FeatureTitle"
-                                                                       placeholder="EnterTitle" value="" required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                            <div class="form-group">
-                                                                <label for="UrlName">Url Name</label>
-                                                                <input type="text" name="UrlName[]" value=""
-                                                                       class="form-control" id="UrlName"
-                                                                       placeholder="Enter Url name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-sm-4 col-xs-4">
-                                                            <div class="form-group">
-                                                                <label for="Url">Learn More</label>
-                                                                <input type="text" name="url[]" value=""
-                                                                       class="form-control" id="Url"
-                                                                       placeholder="Enter Url">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-12 col-sm-12 col-xs-12">
-                                                            <div class="form-group">
-                                                                <label for="FeatureDetails">Feature Details</label>
-                                                                <textarea type="text" name="FeatureDetails[]" value=""
-                                                                          class="form-control textbox" id="UserName"
-                                                                          placeholder="Enter Details"
-                                                                          required></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <center>
-                                                        <button type="button" name="addmore" id="addmore"
-                                                                class="btn btn-success">Add More
-                                                        </button>
-                                                    </center>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <center><input class="btn btn-info" type="submit" value="Submit"></center>
-                                </form>
-                            </div>
-                        </div>
-                    </div><!-- /.box -->
-                    <table id="example2" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>S No.</th>
-                            <th>Title</th>
-                            <th>Url Name</th>
-                            <th>Url</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php if ($profileFeatures) { ?>
-                            <?php $i = 1;
-                            foreach ($profileFeatures as $profileFeatures): ?>
-
-                                <tr>
-                                    <td><?php echo $i; ?></td>
-                                    <td><?php echo $profileFeatures['feature_title']; ?></td>
-                                    <td><?php echo $profileFeatures['name_url']; ?></td>
-                                    <td><?php echo $profileFeatures['learn_url']; ?></td>
-                                    <td>
-                                        <a href="<?php echo base_url(); ?>profile/editProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&&profileId=<?php echo $this->input->get('id') ?>">
-                                            <span class="fa fa-pencil-square-o" id="res"></span>
-                                        </a><span> | </span>
-                                        <a href="<?php echo base_url(); ?>profile/deleteProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&&profileId=<?php echo $this->input->get('id') ?>"
-                                           class="delete">
-                                            <span class="fa fa-trash" id="res"></span>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <?php $i++; endforeach;
-                        } else { ?>
-                            <tr>
-                                <td><h3>Result Not Found </h3></td>
-                            </tr>
-                        <?php } ?>
-
-
-                        </tbody>
-                    </table>
+                    <?php include 'section/profile_keyword.php' ?>
                 </div>
-
                 <button class="accordion">Media<i class="fa fa-angle-double-down"></i></button>
                 <?php include 'section/profile_media.php' ?>
                 <?php include 'section/profile_map.php' ?>
@@ -493,7 +391,7 @@
                         </form>
                     </div><!-- /.box -->
                 </div>
-                <?php  include 'section/profile_type.php'; ?>
+                <?php include 'section/profile_type.php'; ?>
                 <button class="accordion">Profile Tools<i class="fa fa-angle-double-down"></i></button>
                 <div class="panel">
                     <div class="box-body pdb23">
@@ -607,7 +505,7 @@
                         </tbody>
                     </table>
                 </div>
-                <?php  include 'section/profile_detail.php'?>
+                <?php include 'section/profile_detail.php' ?>
             </div>
         </div>
     </div>
@@ -658,19 +556,6 @@
         $('#add').click(function () {
             i++;
             $('#dynamic_field').append('<tr id="row' + i + '"><td><select class="form-control" name="name[]"><option value="">---Social Media---</option><option value="1">Twitter</option><option value="2">Facebook</option><option value="3">Instagram</option><option value="4">LinkedIn</option><option value="5">Youtube</option><option value="5">Vimeo</option><option value="5">SC</option></select></td> <td><input type="text" name="url[]" placeholder="Enter Url" class="form-control name_list" /></td><td><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></td></tr>');
-        });
-        $(document).on('click', '.btn_remove', function () {
-            var button_id = $(this).attr("id");
-            $('#row' + button_id + '').remove();
-        });
-    });
-</script>
-<script>
-    $(document).ready(function () {
-        var i = 1;
-        $('#addmore').click(function () {
-            i++;
-            $('#features_products').append('<tr id="row' + i + '"><td><div class="row"><div class="col-lg-4 col-sm-4 col-xs-4"><div class="form-group"><label for="FeatureTitle">Feature Title</label><input type="text" name="FeatureTitle[]" class="form-control" id="FeatureTitle" placeholder="EnterTitle" value="" required></div></div><div class="col-lg-4 col-sm-4 col-xs-4"><div class="form-group"><label for="UrlName">Url Name</label><input type="text" name="UrlName[]" value="" class="form-control" id="UrlName" placeholder="Enter Url name"></div></div><div class="col-lg-4 col-sm-4 col-xs-4"><div class="form-group"><label for="Url">Learn More</label><input type="text" name="url[]" value="" class="form-control" id="Url" placeholder="Enter Url"></div></div></div><div class="row"><div class="col-lg-12 col-sm-12 col-xs-12"><div class="form-group"><label for="FeatureDetails">Feature Details</label><textarea type="text" name="FeatureDetails[]" value="" class="form-control textbox" id="UserName" placeholder="Enter Details" required></textarea></div></div></div></td><td><center><button type="button" name="remove" id="' + i + '" class="btn btn-danger btn_remove">X</button></center></td></tr>');
         });
         $(document).on('click', '.btn_remove', function () {
             var button_id = $(this).attr("id");

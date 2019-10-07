@@ -1,7 +1,8 @@
 <div class="myprofile">
-    <h3><span style="color: #3366ff;"><strong>slider media:</strong></span> your profile can display a mix of 24 images
+    <h3><span style="color: #3366ff;"><strong>slider media:</strong></span> your profile can display
+        <?php echo ($post->profile_type_id==Claimed_free_profile_id)?'6 images.':'a mix of 24 images
         and
-        videos.<br/>Videos should be on Youtube or Vimeo.
+        videos.<br/>Videos should be on Youtube or Vimeo.'  ?>
     </h3>
 
     <p>Photo size: 720 x 480 pixels, 72 DPI File size: maximum file size, 5MB<br/>&bull; Use professional, well-produced
