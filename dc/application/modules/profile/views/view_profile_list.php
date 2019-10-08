@@ -60,7 +60,7 @@
                             <th>Business Name</th>
                             <th>Market</th>
                             <th>Infogroup_id</th>
-                            <th>Profile Type</th>
+                            <th>View</th>
                             <th>Edit Page</th>
                             <th>Action</th>
                         </tr>
@@ -85,10 +85,14 @@
                                     <?php //echo $profile['profile_city']; ?><!--</td>-->
                                     <!--                                    <td>-->
                                     <?php //echo $profile['profile_st']; ?><!--</td>-->
-                                    <td><?php echo $profile['profile_type']; ?></td>
                                     <td>
-                                        <a target="_blank" href="<?php echo base_url(); ?>/profile/myprofile/<?php echo $profile['profile_id'] ?>">
-                                            Edit Profile
+                                        <a target="_blank"
+                                           href="<?php echo base_url() . 'business/' . ($profile['profile_type_id'] == Claimed_free_profile_id ? 'claimed' : 'standard') . '/' . $profile['profile_id'] . '">' . $profile['profile_type']; ?>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a target="_blank" href="<?php echo base_url(); ?>profile/myprofile/<?php echo $profile['profile_id'] ?>">
+                                        Edit Profile
                                         </a>
                                     </td>
                                     <td>

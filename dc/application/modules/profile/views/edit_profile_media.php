@@ -37,10 +37,7 @@
                                         echo '<input type="file" name="media_file" id="inputmedia">';
                                     } ?>
                                     <?php if ($profileMedia['pm_file_path']) { ?>
-                                        <a href="#" id="inputmediadelete" style="visibility:visible;"
-                                           onclick="deleteprofilemedia()">
-                                            <span class="label label-danger" style="font-size:11px;">Update</span>
-                                        </a>
+                                        <span class="label label-danger" id="inputmediadelete" style="visibility:visible;" onclick="deleteprofilemedia()" style="font-size:11px;cursor: pointer">Update</span>
                                         <input type="file" name="media_file" id="inputmedia" style="display:none">
                                     <?php } ?>
                                 </div>
@@ -97,6 +94,5 @@
         //alert('hi');
         document.getElementById('inputmedia').style.display = 'block';
         document.getElementById('inputmediadelete').style.display = 'none';
-
     }
 </script>

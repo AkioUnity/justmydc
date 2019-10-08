@@ -24,6 +24,7 @@ class Post extends MY_Controller
 
     public function index()
     {
+        $this->verify_admin();
         if (isset($_GET['channel'])) {
             $ps_status = $this->input->get('channel');
             $data['posts'] = $this->Postmodel->getPosts($ps_status);
@@ -43,6 +44,7 @@ class Post extends MY_Controller
 
     public function type()
     {
+        $this->verify_admin();
         $data['posts'] = $this->Postmodel->getPostTypeList();
         $data['title'] = "Post Type";
 
@@ -54,6 +56,7 @@ class Post extends MY_Controller
 
     public function addPost($title)
     {
+        $this->verify_admin();
         $this->LoadData();
         $this->mViewData['title'] = urldecode($title);
         $this->load->view('add_posts', $this->mViewData);
@@ -62,6 +65,7 @@ class Post extends MY_Controller
 
     public function LoadData()
     {
+        $this->verify_admin();
         $this->mViewData['UserLists'] = $this->Usermodel->getUserOnly();
         $this->mViewData['marketLists'] = $this->Marketmodel->getMarketList();
         $this->mViewData['channelLists'] = $this->Channelmodel->getChannel();

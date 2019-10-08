@@ -9,8 +9,8 @@ $config['image_crud_default_language'] = 'english';
  */
 
 // For setting max image size
-$config['image_crud_max_width'] = 1024;
-$config['image_crud_max_height'] = 768;
+$config['image_crud_max_width'] = 1400;
+$config['image_crud_max_height'] = 900;
 
 // For setting thumbnail size
 $config['image_crud_thumbnail_width'] = 320;

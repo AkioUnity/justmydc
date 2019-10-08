@@ -1,7 +1,9 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Adsmodel extends CI_Model
+class Adsmodel extends MY_Model
 {
+    protected $_table='ads';
+
     public function __construct()
     {
         parent::__construct();

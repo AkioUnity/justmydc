@@ -48,10 +48,7 @@ class Profile extends MY_Controller
         } else {
             $this->mViewData['profile_list'] = null;
         }
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('search_business_result_view', $this->mViewData);
-        $this->load->view('include/footer');
+        $this->admin_view('search_business_result_view');
     }
 
     public function claim($infogroup_id)
@@ -61,7 +58,7 @@ class Profile extends MY_Controller
         $profile0 = $profile0[0];
         $profile = array(
             'profile_name' => $profile0['name'],
-            'profile_contact' => $profile0['phone'],
+            'phone' => $profile0['phone'],
 //            'profile_user_name'=>$profile0['name'],
             'profile_zip' => $profile0['zip'],
             'profile_email' => $profile0['email'],
@@ -182,10 +179,7 @@ class Profile extends MY_Controller
 //        echo "<pre>";  print_r($data); die;
         $this->mViewData['link'] = 'editProfile?id=';
 
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('edit_profile', $this->mViewData);
-        $this->load->view('include/footer');
+        $this->admin_view('edit_profile');
     }
 
     public function myprofile($id)
@@ -217,7 +211,7 @@ class Profile extends MY_Controller
         $this->SetData('profile_city');
         $this->SetData('profile_st');
         $this->SetData('profile_zip');
-        $this->SetData('profile_contact');
+        $this->SetData('phone');
         $this->SetData('profile_email');
         $this->SetData('profile_tagline');
         $this->SetData('profile_about');
@@ -419,7 +413,7 @@ class Profile extends MY_Controller
     public function deleteProfile()
     {
         $id = $this->input->get('id');
-        $result = $this->Profilemodel->deleteProfile($id);
+        $this->Profilemodel->deleteProfile($id);
         redirect(base_url() . 'profile/');
     }
 

@@ -27,12 +27,8 @@ class Ads extends Admin_Controller
     public function index()
     {
         $data['ads'] = $this->Adsmodel->getAds();
-        //echo "<pre>"; print_r($data['ads']);die;
-        $this->load->view('include/header', $data);
-        $this->load->view('include/breadcrum');
-        $this->load->view('view_ads_list');
-        $this->load->view('include/footer');
-
+//        echo "<pre>"; print_r($data['ads']);die;
+        $this->admin_view('view_ads_list',$data);
     }
 
     public function addAds()
@@ -209,6 +205,21 @@ class Ads extends Admin_Controller
         return $config;
     }
 
+    public function images()
+    {
+        $crud = $this->generate_image_crud('cover_photos', 'image_url', UPLOAD_Ad_image,'pos','title');
+        $crud_data = $crud->render();
+
+        $this->mViewData['scripts'] =$crud_data->js_files;
+        $this->mViewData['stylesheets'] =  $crud_data->css_files;
+        $this->mViewData['crud_output'] = $crud_data->output;
+
+        $this->mPageTitle = 'Ad Images';
+//        $this->render_crud();
+//        print_r($this->mViewData);
+
+        $this->admin_view('crud');
+    }
 }
 
 ?>

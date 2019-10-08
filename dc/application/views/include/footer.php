@@ -3,9 +3,13 @@
 
     </div><!-- ./wrapper -->
 	<!-- jQuery 2.1.4 -->
-    <script src="<?php echo base_url(); ?>assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!--    <script src="--><?php //echo base_url(); ?><!--assets/plugins/jQuery/jQuery-2.1.4.min.js"></script>-->
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="<?php echo base_url(); ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <?php
+    if (!isset($stylesheets)) {
+        echo "<script src=\"".base_url()."assets/bootstrap/js/bootstrap.min.js\" type=\"text/javascript\"></script>";
+    } ?>
+
     <!-- FastClick -->
     <script src='<?php echo base_url(); ?>assets/plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
@@ -110,6 +114,14 @@ var x = '<?php if(isset($project->product_unit_type)){echo $project->product_uni
 <link href="<?php echo   base_url();?>assets/multiselect/jquery.multiselect.css" rel="stylesheet" type="text/css">
 <script src="<?php echo  base_url();?>assets/multiselect/jquery.multiselect.js"></script>
 
+    <?php
+    if (isset($scripts)) {
+        foreach ($scripts as $file) {
+            $url = starts_with($file, 'http') ? $file : base_url($file);
+            echo "<script src='$url'></script>" . PHP_EOL;
+        }
+    }
+    ?>
 
 <script language="JavaScript" type="text/javascript">
 $(document).ready(function(){

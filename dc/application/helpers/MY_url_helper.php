@@ -14,6 +14,11 @@ function admin_ads_url($path)
     return base_url('upload/adsdata/'.$path);
 }
 
+function profile_image_url($path)
+{
+    return base_url('upload/profile/'.$path);
+}
+
 // location of public asset folder
 function asset_url($path)
 {
@@ -30,11 +35,11 @@ function css_url($path)
     return base_url('assets/css/'.$path);
 }
 
-// location of uploaded files
-function upload_url($path)
-{
-	return base_url('assets/uploads/'.$path);
-}
+//// location of uploaded files
+//function upload_url($path)
+//{
+//	return base_url('assets/uploads/'.$path);
+//}
 
 // location of post-processed assets (e.g. combined CSS / JS files)
 function dist_url($path)

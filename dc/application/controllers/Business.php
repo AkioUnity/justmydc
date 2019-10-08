@@ -40,7 +40,26 @@ class Business extends MY_Controller
         $this->render('unclaimed', 'main_layout');
     }
 
-    public function claimed(){
+    public function standard($id){
+        $this->claimed($id);
+    }
+
+    public function claimed($id){
+        $this->load->model('Profilemodel');
+        $mediaList = $this->Profilemodel->getProfileMedia($id);
+        $spotlights=array();
+        foreach ($mediaList as $media){
+            $carousel=new stdClass();
+            $carousel->spotlight_image=$media['pm_file_path']!=''?profile_image_url($media['pm_file_path']):$media['pm_url'];
+            array_push($spotlights,$carousel);
+        }
+        $this->mViewData['spotlights'] = $spotlights;
+        $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
+        $this->mViewData['post'] = $this->Profilemodel->get($this->input->get('id'));
+        $this->render('claimed_view','main_layout');
+    }
+
+    public function claimed0(){
         $zip=$this->input->post('zip');
         $name=$this->input->post('name');
         if (!$zip){  //at the first

@@ -1,9 +1,18 @@
+<style>
+    .image-url-button{
+        margin: 5px 0px 0px 0px;
+        width: 16px;
+        height: 16px;
+        float: right;
+    }
+
+</style>
 <?php
 	$this->set_css('assets/image_crud/css/fineuploader.css');
 	$this->set_css('assets/image_crud/css/photogallery.css');
 	$this->set_css('assets/image_crud/css/colorbox.css');
 
-	//$this->set_js('assets/image_crud/js/jquery-1.8.2.min.js');
+//	$this->set_js('assets/image_crud/js/jquery-1.8.2.min.js');
 	$this->set_js('assets/image_crud/js/jquery-ui-1.9.0.custom.min.js');
 
 	$this->set_js('assets/image_crud/js/fineuploader-3.2.min.js');
@@ -173,7 +182,7 @@ window.onload = createUploader;
 	<?php foreach($photos as $photo_num => $photo){?>
 			<li id="photos_<?php echo $photo->$primary_key; ?>">
 				<div class='photo-box'>
-					<a href='<?php echo $photo->image_url?>' <?php if (isset($photo->title)) {echo 'title="'.str_replace('"',"&quot;",$photo->title).'" ';}?>target='_blank' class="color-box" rel="color-box" tabindex="-1"><img src='<?php echo $photo->thumbnail_url?>' width='90' height='60' class='basic-image' /></a>
+					<a href='<?php echo $photo->image_url?>' <?php if (isset($photo->title)) {echo 'title="'.str_replace('"',"&quot;",$photo->title).'" ';}?>target='_blank' class="color-box" rel="color-box" tabindex="-1"><img src='<?php echo $photo->thumbnail_url?>' width='120' height='70' class='basic-image' /></a>
 					<?php if($title_field !== null){ ?>
 					<textarea class="ic-title-field" data-id="<?php echo $photo->$primary_key; ?>" autocomplete="off" ><?php echo $photo->$title_field; ?></textarea>
 					<div class="clear"></div><?php }?>
@@ -181,6 +190,9 @@ window.onload = createUploader;
 					<?php if(!$unset_delete){?><div class='delete-box'>
 						<a href='<?php echo $photo->delete_url?>' class='delete-anchor' tabindex="-1"><?php echo $this->l('list_delete');?></a>
 					</div><?php }?>
+                    <div class="image-url-button">
+                        <a href='<?php echo $photo->image_url?>' target='_blank'>Url</a>
+                    </div>
 					<div class="clear"></div>
 				</div>
 			</li>

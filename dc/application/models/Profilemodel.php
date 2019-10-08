@@ -454,7 +454,7 @@ class Profilemodel extends MY_Model
             "profile_zip" => $data['zip'],
             "profile_city" => $data['city'],
             "profile_st" => $data['state'],
-            "profile_contact" => $data['contact'],
+            "phone" => $data['contact'],
             "profile_email" => $data['email'],
             "profile_web" => $data['web'],
             "profile_username" => $data['user_name'],

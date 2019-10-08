@@ -17,7 +17,7 @@ class Admin_Controller extends MY_Controller {
 		parent::__construct();
 
 		// only login users can access Admin Panel
-		$this->verify_login();
+		$this->verify_admin();
 
 		// store site config values
 //		$this->mUsefulLinks = $this->mConfig['useful_links'];

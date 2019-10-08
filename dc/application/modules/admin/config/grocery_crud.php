@@ -55,7 +55,7 @@
 	// common fields to "display as"
 	$config['grocery_crud_display_as'] = array(
 		'group_id'				=> 'Group',
-		'image_url'				=> 'ImageUploader',
+		'image_url'				=> 'Image',
 		'thumbnail_url'			=> 'Thumbnail',
 
 		'author_id'				=> 'Author',

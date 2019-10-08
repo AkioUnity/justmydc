@@ -158,6 +158,16 @@ class MY_Controller extends MX_Controller
         }
     }
 
+    protected function verify_admin($redirect_url = NULL)
+    {
+        if (!$this->ion_auth->logged_in()) {
+            if ($redirect_url == NULL)
+                $redirect_url = $this->mConfig['login_url'];
+
+            redirect($redirect_url);
+        }
+    }
+
     // Verify user authentication
     // $group parameter can be name, ID, name array, ID array, or mixed array
     // Reference: http://benedmunds.com/ion_auth/#in_group
@@ -194,6 +204,13 @@ class MY_Controller extends MX_Controller
             $this->mStylesheets[$media] = array_merge($this->mStylesheets[$media], $files);
         else
             $this->mStylesheets[$media] = array_merge($files, $this->mStylesheets[$media]);
+    }
+
+    protected function admin_view($view_file,$data=null){
+        $this->load->view('include/header',($data==null?$this->mViewData:$data));
+        $this->load->view('include/breadcrum');
+        $this->load->view($view_file,($data==null?$this->mViewData:$data));
+        $this->load->view('include/footer');
     }
 
     // Render template

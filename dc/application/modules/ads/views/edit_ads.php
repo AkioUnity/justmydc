@@ -23,16 +23,18 @@
                     <?php $i = 1;
                     $i++; ?>
                     <form id="" role="form" action="<?php echo base_url(); ?>ads/updateAd?Id=<?php echo $ads['id']; ?>"
-                          enctype="multipart/form-data" method="post" class="attireCodeToggleBlock"/>
-                    <input type="hidden" name="id" value="<?php echo $ads['id']; ?>">
-                    <div class="row">
-                        <?php include 'ads_detail.php'; ?>
-                    </div>
-                    <div class="row">
-
-                        <center><input class=" btn btn-info" type="submit" value="Submit"></center>
-                        </form>
-                    </div><!-- /.box -->
+                          enctype="multipart/form-data" method="post" class="attireCodeToggleBlock">
+                        <input type="hidden" name="id" value="<?php echo $ads['id']; ?>">
+                        <div class="row">
+                            <?php include 'ads_detail.php'; ?>
+                        </div>
+                        <center>
+                        <div class="row">
+                            <input class=" btn btn-info" type="submit" value="Submit">
+                            <a target="_blank" href="/test/ad/<?php echo $ads['id']; ?>" class="btn btn-success">Test</a>
+                        </div><!-- /.box -->
+                        </center>
+                    </form>
                 </div>
             </div>
         </div>

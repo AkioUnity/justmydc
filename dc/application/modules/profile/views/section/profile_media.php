@@ -102,8 +102,8 @@
         <tr>
             <th>S No.</th>
             <th>Type</th>
-            <th>Url</th>
-            <th>Title</th>
+            <th>Uploaded FileName</th>
+            <th>External Url</th><!--            <th>Title</th>-->
             <th>Action</th>
         </tr>
         </thead>
@@ -114,8 +114,9 @@
                 <tr>
                     <td><?php echo $i; ?></td>
                     <td><?php echo $profileMedia['pm_type'];; ?></td>
+                    <td><?php echo $profileMedia['pm_file_path']; ?></td>
                     <td><?php echo $profileMedia['pm_url']; ?></td>
-                    <td><?php echo $profileMedia['title']; ?></td>
+<!--                    <td>--><?php //echo $profileMedia['title']; ?><!--</td>-->
                     <td>
                         <a href="<?php echo base_url(); ?>profile/editProfileMedia?id=<?php echo $profileMedia['id'] ?>&&profileId=<?php echo $post->profile_id.'&link='.$link ?>">
                             <span class="fa fa-pencil-square-o" id="res"></span>
