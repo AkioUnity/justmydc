@@ -19,7 +19,7 @@
         font-size: 26px;
     }
 
-    .channel_detail .business{
+    .channel_detail .business {
         font-weight: 600;
         color: #666666;
         font-size: 19px;
@@ -32,8 +32,10 @@
     <div class="channel_section ">
         <div class="channel_detail">
             <div class="container-fluid" style="padding-right: 50%;padding-bottom: 2%">
-                <img src="https://2019fun.justmy.com//bran-media/absolutemoving_alogovert.png"
+                <?php if ($post->logo) { ?>
+                <img src="<?php echo profile_image_url($post->logo);?>"
                      style="width:100%; border-radius: 50%">
+                <?php } ?>
             </div>
 
             <div>
@@ -45,25 +47,29 @@
 
             <h6 class="business">
                 <a href="tel:<?php echo $post->phone ?>" id="phone_no"><?php echo $post->phone; ?></a> | <a
-                        href="mailto:<?php echo $post->profile_email; ?>" id="email"><?php echo $post->profile_email; ?></a>
+                        href="mailto:<?php echo $post->profile_email; ?>"
+                        id="email"><?php echo $post->profile_email; ?></a>
             </h6>
 
             <br>
             <h6 id="header">Links</h6>
             <p id="excerpt">
-                <a href="<?php echo $post->profile_web; ?>">Website</a> | <a href="link2">Donate</a> | <a href="link3">Quote
-                    Request</a></p>
+                <a href="<?php echo $post->profile_web; ?>">Website</a> | <a
+                        href="<?php echo isset($profileSocial[3]['ps_url'])?$profileSocial[3]['ps_url']:''; ?>"><?php echo isset($profileSocial[3]['hotlink_name']) ? $profileSocial[3]['hotlink_name'] : 'Donate'; ?></a>
+                | <a href="<?php echo isset($profileSocial[4]['ps_url'])?$profileSocial[4]['ps_url']:''; ?>">
+                    <?php echo isset($profileSocial[4]['hotlink_name']) ? $profileSocial[4]['hotlink_name'] : 'Quote Request'; ?></a>
+            </p>
             <h6 id="header">Social</h6>
             <p id="facebook">
-                <a href="">Facebook</a> | <a href="instagram_url">Instagram</a> | <a
-                        href="pinterest_url">Pinterest</a></p>
+                <a href="<?php echo isset($profileSocial[0]['ps_url'])?$profileSocial[0]['ps_url']:''; ?>"><?php echo isset($profileSocial[0]['ps_name'])?$profileSocial[0]['ps_name']:'Facebook'; ?></a> | <a href="<?php echo isset($profileSocial[1]['ps_url'])?$profileSocial[1]['ps_url']:''; ?>"><?php echo (isset($profileSocial[1]['ps_name'])?$profileSocial[1]['ps_name']:'Instagram'); ?></a> | <a
+                        href="<?php echo isset($profileSocial[2]['ps_url'])?$profileSocial[2]['ps_url']:''; ?>"><?php echo (isset($profileSocial[2]['ps_name'])?$profileSocial[2]['ps_name']:'Pinterest'); ?></a></p>
 
             <p id="excerpt">
-                <?php echo $post['excerpt']; ?></p>
+                <?php echo $post->profile_about; ?></p>
         </div>
     </div>
     <div class="channel_section">
-        <img src="https://2019fun.justmy.com//bran-media/teamlocal_pro_abosolute_moving.jpg" style="width: 100%">
+        <img src="<?php echo(isset($post->featured_image)?profile_image_url($post->featured_image):'https://2019fun.justmy.com//bran-media/teamlocal_pro_abosolute_moving.jpg') ?>" style="width: 100%">
     </div>
 </div>
 

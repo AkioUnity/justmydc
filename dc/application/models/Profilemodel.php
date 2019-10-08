@@ -38,7 +38,7 @@ class Profilemodel extends MY_Model
     }
 
     function searchProfileList($name){
-        $this->db->select('infogroup_id,name,logo_url,street,city,state,zip');
+        $this->db->select('infogroup_id,ANY_VALUE(name) as name,ANY_VALUE(logo_url) as logo_url,ANY_VALUE(street) as street,ANY_VALUE(city) as city,ANY_VALUE(state) as state,ANY_VALUE(zip) as zip');
         $this->db->from('cai_places');
         $this->db->like('name', $name);
         $this->db->limit(100);
@@ -448,20 +448,9 @@ class Profilemodel extends MY_Model
 
     public function insertProfile($data = NULL)
     {
-        $arr['profile'] = array(
-            "Profile_name" => $data['name'],
-            "profile_add" => $data['address'],
-            "profile_zip" => $data['zip'],
-            "profile_city" => $data['city'],
-            "profile_st" => $data['state'],
-            "phone" => $data['contact'],
-            "profile_email" => $data['email'],
-            "profile_web" => $data['web'],
-            "profile_username" => $data['user_name'],
-            "infogroup_id" => $data['infogroup_id']
-        );
+
         //echo "<pre>";  print_r($arr['profile']); die;
-        $this->db->insert('profiles', $arr['profile']);
+        $this->db->insert('profiles', $data);
         //echo $this->db->last_query(); die;
         $arr = array(
             "market_id" => 28,

@@ -18,7 +18,7 @@
         display: block !important;
     }
 </style>
-<?php //echo "<pre>"; print_r($data['marketLists']);die;  ?>
+<?php //echo "<pre>"; print_r($profile);die;  ?>
 <!-- Main content -->
 <section class="content">
     <div class="row">

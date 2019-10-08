@@ -3,7 +3,7 @@
 </script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>-->
 <link href="<?php echo theme_url(); ?>/assets/jquery-ui/jquery-ui.css" rel="stylesheet">
-<link href="<?php echo theme_url(); ?>/assets/css/custom.css" rel="stylesheet">
+
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>-->
@@ -86,6 +86,7 @@
         </div>
     </form>
     <div class="col-md-12 profile_content">
+        <h4 class="accordion"><i class="fa fa-arrow-circle-down"></i> about & keywords</h4>
         <?php include 'components/about_keywords.php'; ?>
         <?php include 'components/media.php'; ?>
     </div>

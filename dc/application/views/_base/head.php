@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo css_url('main.css')?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo asset_url('dist/frontend/frontend.css')?>"/>
     <link rel="stylesheet" type="text/css" href="<?php echo css_url('interactive.css')?>"/>
+    <link rel="stylesheet" type="text/css" href="<?php echo css_url('custom.css')?>"/>
 
     <link rel="shortcut icon" type="image/png" href="https://2019fun.justmy.com/bran-media/favicon_bGd_icon.ico"/>
     <link rel="shortcut icon" type="image/ico" href="https://2019fun.justmy.com/bran-media/favicon.png"/>

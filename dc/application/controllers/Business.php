@@ -55,7 +55,9 @@ class Business extends MY_Controller
         }
         $this->mViewData['spotlights'] = $spotlights;
         $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
-        $this->mViewData['post'] = $this->Profilemodel->get($this->input->get('id'));
+        $this->mViewData['post'] = $this->Profilemodel->get($id);
+//        print_r($this->mViewData);
+
         $this->render('claimed_view','main_layout');
     }
 

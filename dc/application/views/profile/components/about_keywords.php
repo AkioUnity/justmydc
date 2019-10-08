@@ -1,4 +1,3 @@
-<h4 class="accordion"><i class="fa fa-arrow-circle-down"></i> about & keywords</h4>
 <div class="panel">
     <form action="profile/updateProfile?profileId=<?php echo $post->profile_id; ?>" method="post" role="form"
           class="form-horizontal">
@@ -22,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="form-group align-right">
+                <div class="align-right">
                     <button class="btn btn-primary" type="submit">save</button>
                 </div>
                 <hr>

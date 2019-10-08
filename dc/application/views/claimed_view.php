@@ -11,8 +11,9 @@
 $lat = '33.929219';
 $lng = '-118.272536';
 $data = array('lat' => $lat, 'lng' => $lng);
-
+//print_r($post);
 include('sections/carousel.php');
 include 'profile/components/profile_view_detail.php';
 include('sections/map_section.php');
+include 'profile/components/about_view.php';
 ?>

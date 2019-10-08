@@ -30,6 +30,7 @@
 
 
     <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="<?php echo css_url('custom.css')?>"/>
     <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css"/>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>

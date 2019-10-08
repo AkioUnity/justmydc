@@ -26,6 +26,28 @@
 
                     </div>
                 </div>
+                <div class="col-lg-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                        <label>Featured Image</label>
+                        <?php if ($post->featured_image) { ?>
+                            <a href="<?php echo profile_image_url($post->featured_image); ?>"
+                               id="link" target="_blank">
+                                                        <span class="label label-success"
+                                                              style="font-size:11px;">View</span>
+                            </a>
+                            <span class="label label-danger" onclick="deletefeaturedimage()"
+                                  style="font-size:11px;cursor: pointer">Update</span>
+
+                            <input type="file" name="featured_image" id="inputfeaturedimage"
+                                   style="display:none"
+                                   accept="image/x-png,image/jpeg,image/jpg">
+
+                        <?php } else {
+                            echo '<input type="file" name="featured_image" id="inputfeaturedimage">';
+                        } ?>
+
+                    </div>
+                </div>
             </div>
             <?php include "profile_media_explain.php"?>
             <div class="row">
@@ -188,6 +210,9 @@
     function deletelogoimage() {
         document.getElementById('inputlogoimage').style.display = 'block';
         document.getElementById('productLinklogo').style.display = 'none';
-
+    }
+    function deletefeaturedimage() {
+        document.getElementById('inputfeaturedimage').style.display = 'block';
+        document.getElementById('productLinkfeatured').style.display = 'none';
     }
 </script>

@@ -136,7 +136,9 @@
                 </div><!-- /.box-header -->
 
                 <!-- form start -->
-                <?php include 'section/profile_about.php' ?>
+                <button class="accordion">About<i class="fa fa-angle-double-down"></i></button>
+                <?php $this->load->view('profile/components/about_keywords.php'); ?>
+
                 <?php include 'section/profile_social_link.php' ?>
                 <button class="accordion">Keywords <i class="fa fa-angle-double-down"></i></button>
                 <div class="panel">

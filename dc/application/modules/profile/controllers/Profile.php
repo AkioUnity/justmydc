@@ -56,35 +56,29 @@ class Profile extends MY_Controller
         $profile0 = $this->Profilemodel->getClaimedProfile($infogroup_id);
 //        print_r($profile0);
         $profile0 = $profile0[0];
-        $profile = array(
-            'profile_name' => $profile0['name'],
-            'phone' => $profile0['phone'],
-//            'profile_user_name'=>$profile0['name'],
-            'profile_zip' => $profile0['zip'],
-            'profile_email' => $profile0['email'],
-            'profile_web' => $profile0['website'],
-            'profile_add' => $profile0['street'] . ' ' . $profile0['city'] . ' ' . $profile0['state'],
-            'profile_city' => $profile0['city'],
-            'profile_st' => $profile0['state'],
-            'infogroup_id' => $infogroup_id,
-        );
+        $profile = $this->Profilemodel->get(0);
+
+        $profile->profile_name = $profile0['name'];
+        $profile->phone = $profile0['phone'];
+//            'profile_user_name'=>$profile0['name'];
+        $profile->profile_zip = $profile0['zip'];
+//            'profile_email= $profile0['email'];
+        $profile->profile_web = $profile0['website'];
+        $profile->profile_add = $profile0['street'] . ' ' . $profile0['city'] . ' ' . $profile0['state'];
+        $profile->profile_city = $profile0['city'];
+        $profile->profile_st = $profile0['state'];
+        $profile->infogroup_id = $infogroup_id;
         $data['profile'] = $profile;
 //        print_r($data);
 
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('add_profile', $data);
-        $this->load->view('include/footer');
+        $this->admin_view('add_profile', $data);
     }
 
     public function addProfile()
     {
-        $data['profile'] = $this->Profilemodel->getProfile(0)[0];
+        $data['profile'] = $this->Profilemodel->get(0);
 
-        $this->load->view('include/header');
-        $this->load->view('include/breadcrum');
-        $this->load->view('add_profile', $data);
-        $this->load->view('include/footer');
+        $this->admin_view('add_profile', $data);
     }
 
     public function editProfileSection($file_name)
@@ -117,9 +111,8 @@ class Profile extends MY_Controller
     public function insertProfile()
     {
         $data = $this->input->post();
-        if ($result = $this->Profilemodel->insertProfile($data)) {
-            redirect(base_url() . 'profile/');
-        }
+        $this->Profilemodel->insertProfile($data);
+        redirect(base_url() . 'profile/');
     }
 
     public function insertProfileImage()
@@ -303,6 +296,11 @@ class Profile extends MY_Controller
 
         if ($attachment != '')
             $this->Profilemodel->update_field($profileId, 'logo', $attachment);
+
+        $attachment = $this->upload($_FILES['featured_image']['name'], 'featured_image');
+        if ($attachment != '')
+            $this->Profilemodel->update_field($profileId, 'featured_image', $attachment);
+
 //        echo "<pre>";  print_r($attachment); die;
         //echo "<pre>";  print_r($_FILES['media_file']['name']);
         for ($i = 0; $i < count($_FILES['media_file']['name']); $i++) {
