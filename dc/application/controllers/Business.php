@@ -8,56 +8,84 @@ class Business extends MY_Controller
     public function index()
     {
         $spotlight = $this->Categoriesmodel->getSpotlight($this->input->get('id'));
-        redirect("business/sub?id=".$this->input->get('id')."&&name=".$this->input->get('name')."&&sub_id=".$spotlight->id."&&sub_name=".$spotlight->cc_title);
+        redirect("business/sub?name=".$this->input->get('name')."&&sub_id=".$spotlight->id);
+    }
+
+    public function load_sub_category($sic_code){
+        if (!isset($this->mViewData['post']) || ($this->mViewData['post']->profile_type_id==Claimed_free_profile_id))
+            $this->mViewData['profile_list'] = $this->Categoriesmodel->getInfogroupList($sic_code,$this->market['cbsa_code']);
+        $this->mViewData['ads'] = $this->Postmodel->getInteractiveAds(1);
     }
 
     public function sub()
     {
-        $this->mViewData['sub_categories'] = $this->Categoriesmodel->getCategories($this->input->get('id'));
-        $sub_category=$this->Categoriesmodel->getCategory($this->input->get('sub_id'));
+
+        $sub_category=$this->Categoriesmodel->get($this->input->get('sub_id'));
+        $this->mViewData['sub_categories'] = $this->Categoriesmodel->getCategories($sub_category->parent_id);
 
         $sub_category->html = str_replace('[Market Name]', $this->market['market_name'], $sub_category->html);
 
         $this->mViewData['sub_category']=$sub_category;
-        $sic_code=$sub_category->cc_siccode;
-        $this->mViewData['profile_list'] = $this->Categoriesmodel->getProfileList($sic_code,$this->input->get('sub_id')-$this->input->get('id'),$this->market['cbsa_code']);
+        $this->mViewData['parent_title']=$this->input->get('name');
 
-        $this->mViewData['ads'] = $this->Postmodel->getInteractiveAds(1);
+        $sic_code=$sub_category->cc_siccode;
+        $this->load_sub_category($sic_code);
 
         $this->mViewData['meta_file'] = 'meta_category';
         $this->render('categories', 'main_layout');
     }
 
-    public function unclaimed($id){
-        $profile=$this->Categoriesmodel->getProfile($id);
+    public function loadCaiPlacesAndCategoryTitle($id){
+        $profile=$this->Categoriesmodel->getInfogroup($id);
         $this->mViewData['row']=$profile[0];
         $sic_code=$profile[0]['sic_code'];
         //meta
-        $this->mViewData['sub_category']=$this->Categoriesmodel->getCategoryFromSic($sic_code);
+        $this->mViewData['sub_category']=$this->Categoriesmodel->get_by('cc_siccode', $sic_code);  // for meta file
+        $this->mViewData['parent_title']=($this->Categoriesmodel->get($this->mViewData['sub_category']->parent_id))->cc_title;  // for parent name for category
+        $this->load_sub_category($sic_code);
         $this->mViewData['meta_file'] = 'meta_unclaimed';
+    }
 
-        $this->mViewData['ads'] = $this->Postmodel->getInteractiveAds(1);
+    public function unclaimed($id){  //infogroup_id
+        $this->loadCaiPlacesAndCategoryTitle($id);
         $this->render('unclaimed', 'main_layout');
     }
 
     public function standard($id){
+        $this->load->model('Profilemodel');
+        $this->mViewData['keywords'] = $this->Profilemodel->getProfileFeatures($id);  //array
         $this->claimed($id);
+    }
+
+    public function deluxe($id){
+        $this->standard($id);
+    }
+
+    public function media($id){
+        $this->load->model('Profilemodel');
+        $this->mViewData['mediaList'] = $this->Profilemodel->getProfileMedia($id);
+        $this->render('sections/media_carousel','main_layout');
     }
 
     public function claimed($id){
         $this->load->model('Profilemodel');
-        $mediaList = $this->Profilemodel->getProfileMedia($id);
-        $spotlights=array();
-        foreach ($mediaList as $media){
-            $carousel=new stdClass();
-            $carousel->spotlight_image=$media['pm_file_path']!=''?profile_image_url($media['pm_file_path']):$media['pm_url'];
-            array_push($spotlights,$carousel);
-        }
-        $this->mViewData['spotlights'] = $spotlights;
+
+//        $mediaList = $this->Profilemodel->getProfileMedia($id);
+//        $spotlights=array();
+//        foreach ($mediaList as $media){
+//            $carousel=new stdClass();
+//            $carousel->spotlight_image=$media['pm_file_path']!=''?profile_image_url($media['pm_file_path']):$media['pm_url'];
+//            array_push($spotlights,$carousel);
+//        }
+        $this->mViewData['mediaList'] = $this->Profilemodel->getProfileMedia($id);
+//        $this->mViewData['spotlights'] = $spotlights;
         $this->mViewData['profileSocial'] = $this->Profilemodel->getProfileSocial($id);
         $this->mViewData['post'] = $this->Profilemodel->get($id);
-//        print_r($this->mViewData);
 
+        $infogroup_id=$this->mViewData['post']->infogroup_id;
+        if (!$infogroup_id)
+            $infogroup_id=409071852;
+        $this->loadCaiPlacesAndCategoryTitle($infogroup_id);
         $this->render('claimed_view','main_layout');
     }
 

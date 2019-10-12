@@ -133,7 +133,7 @@
                                     <div class="form-group">
                                         <label for="PostTitle2">Title 2</label>
                                         <input type="text" name="post_title2" class="form-control" id="PostTitle2"
-                                               placeholder="Enter Post Title second" value="">
+                                               placeholder="Enter Post Title second" value="" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-sm-6 col-xs-12">
@@ -160,7 +160,7 @@
                                     <div class="form-group">
                                         <label for="PostAuthor">Author </label>
                                         <input type="text" id="PostAuthor" name="post_author" class="form-control"
-                                               value="">
+                                               value="" required>
                                         <?php $date = date("F d, Y"); ?>
                                         <input type="hidden" id="Post_date" name="Post_date"
                                                value="<?php echo $date; ?>">

@@ -262,7 +262,7 @@ class Profile extends MY_Controller
         $profileId = $this->input->get('profileId');
         $Id = $this->input->get('Id');
         $link = $data['link'];
-        $this->Profilemodel->updateProfileFeatures($data, $profileId, $Id);
+        $this->Profilemodel->updateProfileFeatures($data, $Id);
         redirect('profile/' . $link . $profileId);
     }
 

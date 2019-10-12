@@ -122,7 +122,14 @@
 
 h1, h2, h3, h4, h5, h6, p, div, p#body, p#content-header {
     font-family: 'Open Sans', sans-serif;
-    color: #666;
+    line-height: 1.5em;
+    color: #666666;
+
+}
+
+.container-fluid p{
+    font-size: 18px;
+    font-family: "Roboto Slab";
 }
 
 .channel_section {
@@ -189,11 +196,11 @@ h1, h2, h3, h4, h5, h6, p, div, p#body, p#content-header {
 }
 
 .double-logo {
-    max-width: 40%;
+    max-width: 85%;
     float: left;
     border-radius: 50%;
-    margin-top: 6%;
-    margin-left: 7%;
+    margin:10%;
+    margin-bottom: 20%;
 }
 
 .box-feature .desktop {

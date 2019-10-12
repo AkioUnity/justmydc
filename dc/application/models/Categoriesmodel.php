@@ -31,22 +31,6 @@ class Categoriesmodel extends MY_Model
 
     }
 
-    function getCategory($id){
-        $this->db->select('*');
-        $this->db->from('c_categories');
-        $this->db->where('id', $id);
-        $query = $this->db->get();
-        return $query->row();
-    }
-
-    function getCategoryFromSic($sic_code){
-        $this->db->select('*');
-        $this->db->from('c_categories');
-        $this->db->where('cc_siccode', $sic_code);
-        $query = $this->db->get();
-        return $query->row();
-    }
-
     function getCategories($CategoriesId=NULL){
 		$this->db->select('*');
 		$this->db->from('c_categories');
@@ -69,7 +53,7 @@ class Categoriesmodel extends MY_Model
         return $query->result();
     }
 
-    function getProfileList($sic_code,$CategoriesId=NULL,$cbsa_code){
+    function getInfogroupList($sic_code,$cbsa_code){
         $this->db->select('infogroup_id,name,logo_url,street,city,state');
         $this->db->from('cai_places');
 //        $this->db->where("logo_url !=","");
@@ -94,7 +78,7 @@ class Categoriesmodel extends MY_Model
         return $query->result_array();
     }
 
-    function getProfile($id){
+    function getInfogroup($id){
         $this->db->select("latitude,longitude,street,suite,city,state,name,phone,website,facebook_url,instagram_url,twitter_url,company_description,sic_code");
 //        $this->db->select('*');
         $this->db->from('`cai_places`');
@@ -102,7 +86,6 @@ class Categoriesmodel extends MY_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-
 
     function getCategoriesedit($CategoriesId=NULL){
 		$this->db->select('*');
@@ -317,7 +300,5 @@ class Categoriesmodel extends MY_Model
 	   $this->db->delete('c_categories'); 
 	   //echo $this->db->last_query(); die;
 	}
-	
-	
 }
 ?>

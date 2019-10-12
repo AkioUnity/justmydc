@@ -30,7 +30,7 @@
 <!-- Central Modal Small -->
 <div class="row">
     <div class="channel_section ">
-        <div class="channel_detail">
+        <div class="channel_detail claimed_detail">
             <div class="container-fluid" style="padding-right: 50%;padding-bottom: 2%">
                 <?php if ($post->logo) { ?>
                 <img src="<?php echo profile_image_url($post->logo);?>"
@@ -50,7 +50,8 @@
                         href="mailto:<?php echo $post->profile_email; ?>"
                         id="email"><?php echo $post->profile_email; ?></a>
             </h6>
-
+            <h6 id="header"><?php echo $post->profile_add; ?>
+            </h6>
             <br>
             <h6 id="header">Links</h6>
             <p id="excerpt">
@@ -64,8 +65,8 @@
                 <a href="<?php echo isset($profileSocial[0]['ps_url'])?$profileSocial[0]['ps_url']:''; ?>"><?php echo isset($profileSocial[0]['ps_name'])?$profileSocial[0]['ps_name']:'Facebook'; ?></a> | <a href="<?php echo isset($profileSocial[1]['ps_url'])?$profileSocial[1]['ps_url']:''; ?>"><?php echo (isset($profileSocial[1]['ps_name'])?$profileSocial[1]['ps_name']:'Instagram'); ?></a> | <a
                         href="<?php echo isset($profileSocial[2]['ps_url'])?$profileSocial[2]['ps_url']:''; ?>"><?php echo (isset($profileSocial[2]['ps_name'])?$profileSocial[2]['ps_name']:'Pinterest'); ?></a></p>
 
-            <p id="excerpt">
-                <?php echo $post->profile_about; ?></p>
+<!--            <p id="excerpt">-->
+<!--                --><?php //echo $post->profile_about; ?><!--</p>-->
         </div>
     </div>
     <div class="channel_section">

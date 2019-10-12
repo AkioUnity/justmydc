@@ -113,3 +113,12 @@ define('UPLOAD_Ad_image',	'upload/images');
 define('UPLOAD_BLOG_POST',		'assets/uploads/blog_posts');
 define('National_market_id','45');
 define('Claimed_free_profile_id','1');
+define('Standard_profile_id','2');
+define('Deluxe_profile','5');
+//1	Claimed Free
+//2	Standard
+//3	Pro
+//4	Group Pro
+//5	Deluxe
+//6	Deluxe Max
+//7	Pro Max

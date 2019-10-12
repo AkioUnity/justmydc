@@ -382,10 +382,10 @@ class Postmodel extends CI_Model
         }
 //        print_r($parameters);
         //check title1 and title2 and replace
-        if ($data['input_title1']){
+        if (isset($data['input_title1']) && $data['input_title1']){
             $data[$data['input_title1']]=$data['post_title'];
         }
-        if ($data['input_title2']){
+        if (isset($data['input_title2']) && $data['input_title2']){
             $data[$data['input_title2']]=$data['post_title2'];
         }
         foreach ($parameters as $parameter){

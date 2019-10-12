@@ -337,19 +337,17 @@ class Profilemodel extends MY_Model
         return true;
     }
 
-    public function updateProfileFeatures($data = NULL, $profileId = NULL, $Id = NULL)
+    public function updateProfileFeatures($data = NULL, $Id = NULL)
     {
         //echo "<pre>";  print_r($data); die;
-        $arr['profile_features'] = array(
-            "profile_id" => $profileId,
+        $arr = array(
             "feature_title" => $data['FeatureTitle'],
             "feature_detail" => $data['FeatureDetails'],
             "learn_url" => $data['url'],
             "name_url" => $data['UrlName']
-
         );
         //echo "<pre>";  print_r($arr); die;
-        $result1 = $this->db->update('profile_features', $arr['profile_features'], array('id' => $Id));
+        $result1 = $this->db->update('profile_features', $arr, array('id' => $Id));
         //echo $this->db->last_query(); die;
         return true;
     }

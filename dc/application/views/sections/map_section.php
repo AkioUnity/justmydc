@@ -10,12 +10,12 @@
 <!-- map placeholder START -->
 <div class="container">
     <div class="row">
-        <div class="col-sm-12"><p id="content-header">Map & Street Viewer</p></div>
+        <div class="col-sm-12"><p id="content-header">Map & Directions</p></div>
     </div>
 </div>
 <div class="row" style="margin:20px 0 0 0;">
-    <div class="col-sm-6" id="map" style="height: 450px;"></div>
-    <div class="col-sm-6" id="pano" style="height: 450px;"></div>
+    <div id="map" style="height: 450px;width: 100%;"></div>
+<!--    <div class="col-sm-6" id="pano" style="height: 450px;"></div>-->
 </div>
 <!-- map placeholder END -->
 
@@ -31,13 +31,18 @@
             zoom: 14
         });
 
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map,
+        });
+
         var svService = new google.maps.StreetViewService();
-        var panoRequest = {
-            location: location,
-            preference: google.maps.StreetViewPreference.NEAREST,
-            radius: 50,
-            source: google.maps.StreetViewSource.OUTDOOR
-        };
+        // var panoRequest = {
+        //     location: location,
+        //     preference: google.maps.StreetViewPreference.NEAREST,
+        //     radius: 50,
+        //     source: google.maps.StreetViewSource.OUTDOOR
+        // };
 
         var findPanorama = function(radius) {
             panoRequest.radius = radius;
@@ -60,7 +65,7 @@
             });
         };
 
-        findPanorama(50);
+        // findPanorama(50);
 
         // var panorama = new google.maps.StreetViewPanorama(
         //     document.getElementById('pano'), {

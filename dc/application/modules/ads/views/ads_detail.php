@@ -109,7 +109,8 @@
             <option value="3" <?php if ($ads['ad_type'] == "member") { ?><?php echo "selected" ?><?php } ?>>Member</option>
             <option value="4" <?php if ($ads['ad_type'] == "non-member") { ?><?php echo "selected" ?><?php } ?>>Non-Member</option>
             <option value="5" <?php if ($ads['ad_type'] == "sponsorship") { ?><?php echo "selected" ?><?php } ?>>Sponsorship</option>
-
+            <option value="6" <?php if ($ads['ad_type'] == "Member Content") { ?><?php echo "selected" ?><?php } ?>>Member Content</option>
+            <option value="7" <?php if ($ads['ad_type'] == "Event Content") { ?><?php echo "selected" ?><?php } ?>>Event Content</option>
         </select>
     </div>
 </div>

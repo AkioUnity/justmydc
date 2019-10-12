@@ -181,7 +181,7 @@
                                 <div class="form-group">
                                     <label for="PostTitle2">Title 2</label>
                                     <input type="text" name="post_title2" class="form-control" id="PostTitle2"
-                                           placeholder="Enter Post Title second"
+                                           placeholder="Enter Post Title second" required
                                            value="<?php echo $posts['cp_title2']; ?>">
                                 </div>
                             </div>

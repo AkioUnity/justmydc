@@ -188,19 +188,19 @@ class Post extends MY_Controller
     {
         $this->load->library('upload');
         $data = $this->input->post();
-        if (count($data['markets']) > 0) {
+        if (isset($data['markets']) && count($data['markets']) > 0) {
             $this->Postmodel->updatePostMarket($data['post_id'], $data['markets']);
         } else {
             $this->Postmodel->deleteAllPostMarket($data['post_id']);
         }
 
-        if (count($data['channel']) > 0) {
+        if (isset($data['channel']) && count($data['channel']) > 0) {
             $this->Postmodel->updatePostChannel($data['post_id'], $data['channel']);
         } else {
             $this->Postmodel->deleteAllPostChannel($data['post_id']);
         }
 
-        if (count($data['profile']) > 0) {
+        if (isset($data['profile']) &&  count($data['profile']) > 0) {
             $this->Postmodel->updatePostProfile($data['post_id'], $data['profile']);
         } else {
             $this->Postmodel->deleteAllPostProfile($data['post_id']);
@@ -249,7 +249,7 @@ class Post extends MY_Controller
 
         $attachment1 = "";
         if ($data) {
-            if ($_FILES['post_html']['name'] != "") {
+            if (isset($_FILES['post_html']['name']) && $_FILES['post_html']['name'] != "") {
                 $fieldName = 'post_html';
                 $ext = pathinfo($_FILES[$fieldName]['name'], PATHINFO_EXTENSION);
                 $attachment1 = 'post_html' . time() . '.' . $ext;

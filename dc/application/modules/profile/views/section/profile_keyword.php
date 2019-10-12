@@ -74,10 +74,10 @@
                     <td><?php echo $profileFeatures['name_url']; ?></td>
                     <!--                    <td>--><?php //echo $profileFeatures['learn_url']; ?><!--</td>-->
                     <td>
-                        <a href="<?php echo base_url(); ?>profile/editProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&&profileId=<?php echo $post->profile_id.'&link='.$link ?>">
+                        <a href="<?php echo base_url(); ?>profile/editProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&profileId=<?php echo $post->profile_id.'&link='.$link ?>">
                             <span class="fa fa-pencil-square-o" id="res"></span>
                         </a><span> | </span>
-                        <a href="<?php echo base_url(); ?>profile/deleteProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&&profileId=<?php echo $post->profile_id.'&link='.$link ?>"
+                        <a href="<?php echo base_url(); ?>profile/deleteProfileFeatures?id=<?php echo $profileFeatures['id'] ?>&profileId=<?php echo $post->profile_id.'&link='.$link ?>"
                            class="delete">
                             <span class="fa fa-trash" id="res"></span>
                         </a>

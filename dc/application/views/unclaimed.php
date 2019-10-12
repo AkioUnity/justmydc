@@ -1,15 +1,5 @@
-<style>
-    .black-bar{
-        background-color: black;
-        width: 80%;
-        height: 3px;
-        margin: auto auto 4rem;
-    }
-</style>
 <?php
 
-$header_img = $market['market_header_image'];
-$logo_img = $market['market_logo'];
 $market_name = $market['market_name'];
 
 $lat = $row['latitude'];
@@ -21,9 +11,14 @@ $ad_id = -1;
 
 
 <!--    This is the START of section-header    -->
-<div class="row no-gutters" style="overflow-x:hidden">
-    <div class="col-sm-6" style="display: table">
-        <div class="container-fluid" style="padding: 20% 15%; padding-bottom:10%;">
+<div class="row">
+    <div class="channel_section">
+        <div class="container-fluid" style="padding: 5% 15%; padding-bottom:10%;">
+            <div class="row">
+                <a href="team_local_about.php">
+                    <img class="double-logo" src="https://2019fun.justmy.com/bran-media/big_button_claim.png">
+                </a>
+            </div>
             <h1 id="title1"><?php echo $row['name']; ?></h1>
             <h6 id="header"><a href="tel:<?php echo $row['phone']; ?>"><?php echo $row['phone']; ?></a>
             </h6>
@@ -51,26 +46,12 @@ $ad_id = -1;
             <a href="https://www.absolutemovingservices.com/free-quote-moving-consultation/" class="btn btn-info" role="button">Free Quote</a><br> -->
         </div>
     </div>
-    <div class="col-sm-6" style="padding: 3%;">
-        <img class="desktop" style="border-bottom-right-radius: 0px; float: right; box-shadow: 8px 8px 10px #cbcbcb;border-top-right-radius: 10px;border-top-left-radius: 10px;border-bottom-left-radius: 10px;"
-             src="https://2019fun.justmy.com/upload/images/<?php echo $header_img; ?>">
-        <div class="container-fluid" style="float: right;width: auto;">
-            <img class="double-logo desktop" src="https://2019fun.justmy.com/upload/images/<?php echo $logo_img; ?>" >
-            <a href="team_local_about.php">
-                <img class="double-logo" src="https://2019fun.justmy.com/bran-media/big_button_claim.png" >
-            </a>
-
-        </div>
+    <div class="channel_section">
+        <?php include 'sections/map_single.php'; ?>
     </div>
-    <div class="black-bar"></div>
+
 </div>
-
-<?php include 'sections/map_section.php'; ?>
-
-<?php //
-//include 'sections/banner_ad_section.php';
-//include 'sections/instagram_ad_section.php';
-//?>
-
+<?php
+include 'categories_table.php'; ?>
 <?php include 'sections/interactive_ad.php';
 ?>

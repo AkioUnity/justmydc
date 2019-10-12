@@ -19,8 +19,8 @@
                         <?php $i = 1;
                         foreach ($profileFeatures as $profileFeatures): ?>
                             <form id="" role="form"
-                                  action="<?php echo base_url(); ?>profile/updateProfileFeatures?Id=<?php echo $profileFeatures['id']; ?>&&profileId=<?php echo $this->input->get('id') ?>"
-                                  enctype="multipart/form-data" method="post"/>
+                                  action="<?php echo base_url().'profile/updateProfileFeatures?Id='.$profileFeatures['id'].'&profileId='.$this->input->get('profileId') ?>"
+                                  enctype="multipart/form-data" method="post">
                             <input type="hidden" name="id" value="<?php echo $profileFeatures['id']; ?>">
                             <input type="hidden" name="link" value="<?php echo $link; ?>">
                             <div class="row">
