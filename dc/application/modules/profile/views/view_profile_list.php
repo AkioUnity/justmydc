@@ -87,7 +87,7 @@
                                     <?php //echo $profile['profile_st']; ?><!--</td>-->
                                     <td>
                                         <a target="_blank"
-                                           href="<?php echo base_url() . 'business/' . ($profile['profile_type_id'] == Claimed_free_profile_id ? 'claimed' : 'standard') . '/' . $profile['profile_id'] . '">' . $profile['profile_type']; ?>
+                                           href="<?php echo base_url() . 'business/' . ($profile['nick']) . '/' . $profile['profile_id'] . '">' . $profile['profile_type']; ?>
                                         </a>
                                     </td>
                                     <td>

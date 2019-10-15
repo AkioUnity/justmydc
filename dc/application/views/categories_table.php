@@ -7,8 +7,37 @@
         display: none;
     }
 </style>
-<?php include 'categories_bread_crumb.php'; ?>
-
+<?php include 'categories_bread_crumb.php';
+if (isset($exclusiveResult)) {  //Category mode
+    ?>
+    <div style="padding-left: 20px;padding-right: 40px;">
+        <h3>#TeamLOCAL Exclusive Members! </h3>
+        <table class="table borderless" cellspacing="40" width="100%">
+            <tbody>
+            <?php
+            $cn = 0;
+            foreach ($exclusiveResult as $profile) {
+                $cn++;
+                if ($cn == 1)
+                    echo "<tr>";
+                include 'sections/exclusive_td.php';
+                if ($cn == 3) {
+                    $cn = 0;
+                    echo "</tr>";
+                }
+            }
+            if ($cn > 0) {
+                for ($ii = 0; $ii < 3 - $cn; $ii++) {
+                    echo "<td></td>";
+                }
+                echo "</tr>";
+            }
+            ?>
+            </tbody>
+        </table>
+        <h3>A to Z Listing </h3>
+    </div>
+<?php } ?>
 <div>
     <?php if (isset($profile_list)) { ?>
         <table id="dataTable" class="table borderless" cellspacing="20" width="100%">

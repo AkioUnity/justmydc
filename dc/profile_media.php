@@ -172,6 +172,8 @@
                     return $new_link;
                 }
 
+                ?>
+                <?php
                 $profile_idd = 0;
                 $profile_idd = @$_GET['id'];
 
@@ -213,10 +215,7 @@
             <div class="slide_counter">
                 <img src="img/camera.png">
                 <div class="pagingInfo"></div>
-
-
             </div>
-
             <!-- end -->
         </div>
     </div>

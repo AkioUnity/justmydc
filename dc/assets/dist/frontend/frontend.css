@@ -76,6 +76,23 @@
     height: 100%;
 }
 
+.box-exclusive {
+    /*-webkit-box-shadow: 6px 6px 7px -4px rgba(36, 36, 36, 0.53);*/
+    /*-moz-box-shadow: 6px 6px 7px -4px rgba(36, 36, 36, 0.53);*/
+    /*box-shadow: 6px 6px 7px -4px rgba(36, 36, 36, 0.53);*/
+    /*background-color: #F9F9FB;*/
+    width: 95%;
+    margin-bottom: 20px;
+}
+
+.box-exclusive img {
+    /*width: 100%;*/
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    box-shadow: 8px 8px 10px #cbcbcb;
+}
+
+
 .box-category img {
     width: 40%;
 }
@@ -98,6 +115,15 @@
     font-size: 11px;
     color: #1385ff;
 }
+
+.links{
+    margin-top:3px;
+}
+
+.links a {
+    padding: 2px;
+}
+
 
 .borderless td, .borderless th {
     border: none !important;

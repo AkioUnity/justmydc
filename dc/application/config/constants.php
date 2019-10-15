@@ -112,9 +112,15 @@ define('UPLOAD_COVER_PHOTO',	'assets/uploads/cover_photos');
 define('UPLOAD_Ad_image',	'upload/images');
 define('UPLOAD_BLOG_POST',		'assets/uploads/blog_posts');
 define('National_market_id','45');
+
 define('Claimed_free_profile_id','1');
 define('Standard_profile_id','2');
 define('Deluxe_profile','5');
+define('Pro_profile','3');
+define('Group_Pro_profile','4');
+define('Deluxe_Max_profile','6');
+define('Pro_Max_profile','7');
+
 //1	Claimed Free
 //2	Standard
 //3	Pro

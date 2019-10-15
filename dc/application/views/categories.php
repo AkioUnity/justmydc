@@ -12,7 +12,6 @@
         <div class="col-md-3">
             <div class="box-header">
                 <h3 class="box-title">Related Categories</h3>
-
             </div><!-- /.box-header -->
             <table class="table borderless">
                 <tbody>
@@ -31,6 +30,10 @@
                 } ?>
                 </tbody>
             </table>
+            <h3>Trending on JustMy</h3>
+            <?php foreach ($posts as $post) {
+                include 'sections/trending_td.php';
+             } ?>
         </div>
     </div>
 </section><!-- /.content -->

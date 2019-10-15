@@ -1,5 +1,7 @@
 <?php
 $facebook_image=admin_image_url($sub_category->cc_fbimage);
+if (isset($profile_title))
+    $row['name']=$profile_title;
 ?>
 
 <title><?php echo $row['name']; ?></title>

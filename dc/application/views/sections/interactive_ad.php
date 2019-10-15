@@ -8,8 +8,13 @@
 ?>
 
 
-<?php $ad_id++; ?>
-<?php if (count($ads) > $ad_id) { ?>
+<?php $ad_id++;
+include "video_plugin.php";
+?>
+<?php if (count($ads) > $ad_id) {
+    $vim_url = parseVideos($ads[$ad_id]->ad_video);
+     print_r($vim_url);
+    ?>
     <section class="video-sec" style="background: <?php echo $ads[$ad_id]->ad_background_color ?>">
         <div class="row">
             <!-------Video-left-box------------->

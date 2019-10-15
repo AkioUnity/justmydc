@@ -11,6 +11,26 @@ class Profilemodel extends MY_Model
         $this->load->database();
     }
 
+    function getExclusiveResult()
+    {
+        $this->db->select('profile_id,profile_name,profile_add,profile_city,profile_st,featured_image,profile_web');
+        $this->db->from('profiles');
+        $this->db->where("profile_type_id>", 2);  //2=standard
+        $query = $this->db->get();
+        $res=$query->result();
+        foreach ($res as $re){
+            $this->db->select('ps_url,ps_name');
+            $this->db->from('profile_social');
+//        $this->db->order_by("id", "DESC");
+            $this->db->where("profile_id", $re->profile_id);
+            $this->db->limit(3);
+            $query = $this->db->get();
+            $re->social_links=$query->result();
+        }
+//        print_r($res);
+        return $res;
+    }
+
     function getProfile0($ProfileId)
     {
         $this->db->select('a.*,d.name as profile_type');
@@ -25,9 +45,9 @@ class Profilemodel extends MY_Model
 
     function getProfile($ProfileId = -1)
     {
-        $this->db->select('*');
-        $this->db->from('profiles');
-
+        $this->db->select('a.*,d.nick');
+        $this->db->from('profiles a');
+        $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         if ($ProfileId!=-1) {
             $this->db->where("profile_id", $ProfileId);
         }
@@ -73,7 +93,7 @@ class Profilemodel extends MY_Model
 
     function getProfileList($profile_status=null)
     {
-        $this->db->select('a.*,d.name as profile_type');
+        $this->db->select('a.*,d.name as profile_type,d.nick');
         $this->db->from('profiles a');
         $this->db->join('profile_type d', 'd.id = a.profile_type_id');
         $this->db->order_by("profile_id", "DESC");
